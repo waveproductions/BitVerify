@@ -29,7 +29,7 @@ bot.on('ready', () => {
   bot.user.setStatus("online"); 
   
   let statuses = [
-   `|v!help|`,
+   `v!help`,
    `with roles`,
   ];
   
@@ -54,5 +54,19 @@ bot.on("message", async message => {
     let commandfile = bot.commands.get(command.slice(prefix.length));
     if(commandfile) commandfile.run(bot,message,args);
   })
+
+bot.on('guildCreate', member => {
+
+    const joinchannel = member.guild.channels.cache.find(channel => channel.name === 'botinfo');
+    let joinEmbed = new Discord.MessageEmbed()
+    .setTitle('BitVerify Guide')
+    .setDescription(`To set up the verification, type **\`v!verify <channel name>\`**.
+To get a list of commands, type **\`v!help\`**.
+If you need support, join our server! Thank you for using BitVerify
+
+Server Link: discord.gg/AgGxs45`)
+    .setFooter('Enjoy the bot!')
+guild.channels.create('botinfo').then(() => {joinchannel.send(joinEmbed)})
+});
   
-  bot.login(process.env.token)
+bot.login(process.env.token)
