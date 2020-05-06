@@ -3,7 +3,8 @@ const mysql = require('mysql2');
 
 mysql.createConnection({
  user: process.env.DB_USER,
- password: process.env.DB_PASS
+ password: process.env.DB_PASS,
+ database: process.env.DB_NAME
 }).then((connection) => {
   connection.execute(`CREATE TABLE Guilds(guildID VARCHAR(255))`)
 })
