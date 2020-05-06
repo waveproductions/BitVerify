@@ -57,7 +57,7 @@ bot.on("message", async message => {
 
 bot.on('guildCreate', guild => {
 
-    const joinchannel = bot.guild.channels.cache.find(channel => channel.name === 'botinfo');
+    const joinchannel = guild.channels.cache.find(channel => channel.name === 'botinfo');
     let joinEmbed = new Discord.MessageEmbed()
     .setTitle('BitVerify Guide')
     .setDescription(`To set up the verification, type **\`v!verify <channel name>\`**.
