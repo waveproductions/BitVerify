@@ -10,6 +10,7 @@ module.exports.run = async (bot, message, args) => {
   .addField('\`verifyinstructions\`', 'Sends the instructions on how to setup this bot.')
   .addField('\`verifiedrole <mention role here>\`', 'Sets the verified role for your server.')
   .setFooter('The prefix is v!')
+  message.channels.send(helpEmbed)
 }
 
 module.exports.help = {
