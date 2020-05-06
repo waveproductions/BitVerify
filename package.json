@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/gavserve/Verification-Bot#readme",
   "dependencies": {
+    "chokidar": "^3.4.0",
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
     "mysql2": "^2.1.0"
