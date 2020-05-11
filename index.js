@@ -1,6 +1,11 @@
+const mongoose = require('mongoose')
 const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
 const fs = require("fs");
+
+mongoose.connect('mongodb+srv://bitverify:63asdfpee1@cluster0-opjfq.mongodb.net/test',{
+    useNewUrlParser: true,
+    useUnifiedTopology: true});
 
 require("./util/eventHandler")(bot)
 
