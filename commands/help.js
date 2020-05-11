@@ -14,6 +14,10 @@ module.exports.run = async (bot, message, args) => {
   message.channel.send(helpEmbed)
 }
 
-module.exports.help = {
-    name: "help"
-  }
+module.exports.config = {
+    name: "help",
+    description: "Gives a list of commands.",
+    usage: "v!help",
+    accessableby: "All Members",
+    aliases: ['']
+}
