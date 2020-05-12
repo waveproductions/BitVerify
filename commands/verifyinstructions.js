@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
   }
   let helpEmbed = new Discord.MessageEmbed()
   .setTitle('BitVerify Instructions')
-  .setDescription(`Say v!settings and do what I tell you. Then your bot should be ready to go! \:D`)
+  .setDescription(`Say v!settings and do what I tell you. Then I should be ready to go! \:smile\:`)
   .setFooter('The prefix is v!')
   .setColor('GREEN')
   message.channel.send(helpEmbed)
