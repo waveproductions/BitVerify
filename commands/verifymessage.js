@@ -17,7 +17,7 @@ guildSettings.findOne({ GuildID: message.guild.id }, async(err, data) => {
   .setColor('RED')
   let sendchannel = message.mentions.channels.first()
   if(!sendchannel) {
-  return message.channel.send('You didn\'t mention a channel!')
+  return message.channel.send(argsEmbed)
   }
   let embed = new Discord.MessageEmbed()
   .setTitle('Verification')
