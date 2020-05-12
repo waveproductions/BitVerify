@@ -8,6 +8,7 @@ module.exports.run = async (bot, message, args) => {
   .addField('\`verify\`', 'Verifies the user.')
   .addField('\`help\`', 'Sends this message!')
   .addField('\`verifyinstructions\`', 'Sends the instructions on how to setup this bot.')
+  .addField('\`reset\`', 'Resets your settings just in case you mess up.')
   .setFooter('The prefix is v!')
   .setColor('GREEN')
   message.channel.send(helpEmbed)
