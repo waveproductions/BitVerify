@@ -15,11 +15,11 @@ module.exports.run = async (bot, message, args) => {
   return message.channel.send("❌ You do not have permissions to add roles.")
   }
   
-  if(!args[0]) {
+  if(!channel) {
   return message.channel.send(argsEmbed)
   }
   
-  if(!args[1]) {
+  if(!role) {
   return message.channel.send(argsEmbed)
   }
   
