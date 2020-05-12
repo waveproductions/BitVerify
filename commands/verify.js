@@ -11,7 +11,6 @@ module.exports.run = async (bot, message, args) => {
   if(role) {
       try {
         await message.member.roles.add(role);
-        console.log('Role Added.')
         }
         catch(err) {
         console.log(err)
