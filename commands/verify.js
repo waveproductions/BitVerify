@@ -4,6 +4,9 @@ const mongoose = require('mongoose')
 module.exports.run = async (bot, message, args) => {
   const guildSettings = require('../models/GuildCreate')
   guildSettings.findOne({ GuildID: message.guild.id }, async(err, data) => {
+  if(!data) {
+  return message.channel.send('Admins haven\'t set up the verify channel and role yet. Please contact the admins.')
+  }
   if(message.author.bot) return;
   if(message.channel.id === data.VerifyChannelID) {
   await message.delete().catch(err => console.log(err));
