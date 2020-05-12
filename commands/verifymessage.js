@@ -18,7 +18,7 @@ guildSettings.findOne({ GuildID: message.guild.id }, async(err, data) => {
   .setFooter('Have Fun!')
   .setColor('GREEN')
   let msg = await sendchannel.send(embed)
-  await msg.pin
+  await msg.pin()
 })
 
 module.exports.config = {
