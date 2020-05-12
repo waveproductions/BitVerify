@@ -36,7 +36,7 @@ module.exports.run = async (bot, message, args) => {
     guildSettings.save()
     }
   })
-})
+}
 
 module.exports.config = {
     name: "settings",
