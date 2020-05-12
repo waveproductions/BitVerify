@@ -22,6 +22,7 @@ guildSettings.findOne({ GuildID: message.guild.id }, async(err, data) => {
   let embed = new Discord.MessageEmbed()
   .setTitle('Verification')
   .setDescription(`To become a member of ${message.guild.name}, say \`v!verify\` in this channel.`)
+  .setThumbnail(message.guild.iconURL())
   .setFooter('Have Fun!')
   .setColor('GREEN')
   let msg = await sendchannel.send(embed)
