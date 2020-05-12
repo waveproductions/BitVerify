@@ -19,7 +19,8 @@ guildSettings.findOne({ GuildID: message.guild.id }, async(err, data) => {
   .setColor('GREEN')
   let msg = await sendchannel.send(embed)
   await msg.pin()
-})
+  })
+}
 
 module.exports.config = {
     name: "verifymessage",
