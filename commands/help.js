@@ -3,7 +3,7 @@ const Discord = require('discord.js')
 module.exports.run = async (bot, message, args) => {
   let helpEmbed = new Discord.MessageEmbed()
   .setTitle('BitVerify Command List')
-  .setDescription('\`settings\`, \`verify\`, \`help\`, \`verifyinstructions\`')
+  .setDescription('\`settings\`, \`verify\`, \`help\`, \`verifyinstructions\`, \`reset\`, \`verifymessage\`')
   .addField('\`settings <mention channel here> <mention role here>\`', 'Sets the verified role and settings.')
   .addField('\`verify\`', 'Verifies the user.')
   .addField('\`help\`', 'Sends this message!')
