@@ -15,7 +15,6 @@ module.exports.run = async (bot, message, args) => {
   if(message.channel.id !== 'data.VerifiedChannelID') return;
   message.guild.member.roles.add(role)
   })
- }
 }
 
 module.exports.config = {
