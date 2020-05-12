@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
   return message.channel.send('The verified role and channel hasn\'t been set up, please contact an Administrator.')
   }
       
-  if(message.channel.id !== 'data.VerifiedChannelID') return;
+  if(message.channel.id !== data.VerifiedChannelID) return;
   message.guild.member.roles.add(role)
   })
 }
