@@ -34,7 +34,7 @@ module.exports.run = async (bot, message, args) => {
       newSettings.save()
     } else {
     guildSettings.save()
-    }
+    })
   }
 }
 
