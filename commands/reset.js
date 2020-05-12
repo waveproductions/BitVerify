@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
   return message.channel.send('❌ You do not have permissions to use this command. Please contact a staff member.')
   }
   
-  guildSettings.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
+  guildSettings.deleteOne({ GuildID: message.guild.id }, (err) => console.log(err))
 }
 
 module.exports.config = {
