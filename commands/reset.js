@@ -11,6 +11,7 @@ module.exports.run = async (bot, message, args) => {
   let embed = new Discord.MessageEmbed()
   .setTitle('Settings Reset')
   .setDescription('Your settings have now been reset, you may now use the \`v!settings\` command again.')
+  .setColor('GREEN')
   message.channel.send(embed)
 }
 
