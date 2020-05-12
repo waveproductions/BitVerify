@@ -24,9 +24,6 @@ module.exports.run = async (bot, message, args) => {
   }
   
   guildSettings.findOne({ GuildID: message.guild.id},async(err, data) => {
-  let embed = new Discord.MessageEmbed()
-  .setTitle('Settings Added')
-  .setDescription(`The bot will now only accept verification commands coming from <#${data.VerifyChannelID}> and the role that will be given is <@${data.VerifiedRoleID}>.`)
   if(err) console.log(err)
   if(!data) {
   let newSettings = new guildSettings({
@@ -34,7 +31,12 @@ module.exports.run = async (bot, message, args) => {
       VerifiedRoleID: role.id,
       VerifyChannelID: channel.id
       })
+    let embed = new Discord.MessageEmbed()
+  .setTitle('Settings Added')
+  .setDescription(`The bot will now only accept verification commands coming from <#${channel}> and the role that will be given is <@${role}>.`)
+  .setColor('GREEN')    
       newSettings.save()
+    message.channel.send(embed)
     } else {
     guildSettings.save()
     }
