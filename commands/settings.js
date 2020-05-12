@@ -24,6 +24,9 @@ module.exports.run = async (bot, message, args) => {
   }
   
   guildSettings.findOne({ GuildID: message.guild.id},async(err, data) => {
+  let embed = new Discord.MessageEmbed()
+  .setTitle('Settings Added')
+  .setDescription(`The bot will now only accept verification commands coming from <#${data.VerifyChannelID}> and the role that will be given is <@${data.VerifiedRoleID}>.`)
   if(err) console.log(err)
   if(!data) {
   let newSettings = new guildSettings({
