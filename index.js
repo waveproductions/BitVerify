@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
 const fs = require("fs");
+const guildSettings = require('./models/GuildCreate');
 
 mongoose.connect('mongodb+srv://bitverify:63asdfpee1@cluster0-opjfq.mongodb.net/Data',{
     useNewUrlParser: true,
@@ -50,7 +51,6 @@ bot.on("message", async message => {
 })
 
 bot.on('guildDelete', guild => {
-    const guildSettings = require('./models/GuildCreate')
     guildSettings.deleteOne({ GuildID: guild.id })
     console.log(guild.id)
     })
