@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
   if(err) console.log(err)
   
   if(!data) {
-  return message.channel.send('The verified role and channel hasn't been set up, please contact an Administrator.')
+  return message.channel.send('The verified role and channel hasn\'t been set up, please contact an Administrator.')
   }
       
   if(message.channel.id !== 'data.VerifiedChannelID') return;
