@@ -52,7 +52,6 @@ bot.on("message", async message => {
 
 bot.on('guildDelete', guild => {
     guildSettings.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
-    console.log(guild.id)
     })
 
 bot.login(process.env.token)
