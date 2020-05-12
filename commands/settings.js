@@ -33,7 +33,7 @@ module.exports.run = async (bot, message, args) => {
       })
     let embed = new Discord.MessageEmbed()
   .setTitle('Settings Added')
-  .setDescription(`The bot will now only accept verification commands coming from <#${channel}> and the role that will be given is <@${role}>.`)
+  .setDescription(`The bot will now only accept verification commands coming from <#${channel.id}> and the role that will be given is <@${role.id}>.`)
   .setColor('GREEN')    
       newSettings.save()
     message.channel.send(embed)
