@@ -52,6 +52,7 @@ bot.on("message", async message => {
 bot.on('guildDelete', guild => {
     const guildSettings = require('./models/GuildCreate')
     guildSettings.deleteOne({ GuildID: guild.id })
+    console.log(guild.id)
     })
 
 bot.login(process.env.token)
