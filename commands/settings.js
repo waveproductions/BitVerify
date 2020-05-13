@@ -38,7 +38,11 @@ module.exports.run = async (bot, message, args) => {
       newSettings.save()
     message.channel.send(embed)
     } else {
-    guildSettings.save()
+    let existsembed = new Discord.MessageEmbed()
+    .setTitle('Data Already Exists')
+    .setDescription('To add a member count, please use \`v!reset\` before using this command.')
+    .setColor('RED')
+    message.channel.send(existsembed)
     }
   })
 }
