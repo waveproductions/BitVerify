@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
   let argsEmbed = new Discord.MessageEmbed()
   .setTitle('Not Enough Args')
   .setDescription(`❌ Please be more descriptive.`)
-  .addField('Don\'t know how to get the channel ID? Read [this](https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-)!')
+  .addField('Don\'t know how to get the channel ID? Read [this](https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID)!')
   .setColor('RED')
   
   if(!message.member.hasPermission("ADMINISTRATOR")) {
