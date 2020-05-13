@@ -3,11 +3,11 @@ const mongoose = require('mongoose')
 const memberCount = require('../models/MemberCount')
 
 module.exports.run = async (bot, message, args) => {
-  let channel = message.mentions.channels.first()
+  let channel = args[0]
   let argsEmbed = new Discord.MessageEmbed()
   .setTitle('Not Enough Args')
   .setDescription(`❌ Please be more descriptive.`)
-  .addField('Example:', '\`v!membercount <channel mention>\`')
+  .addField('Don\'t know how to get the channel ID? Read [this](https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-)!')
   .setColor('RED')
   
   if(!message.member.hasPermission("ADMINISTRATOR")) {
@@ -22,12 +22,12 @@ module.exports.run = async (bot, message, args) => {
   if(err) console.log(err)
   if(!data) {
   let newSettings = new memberCount({
-      CountChannelID: channel.id,
+      CountChannelID: channel,
       GuildID: message.guild.id
       })
     let embed = new Discord.MessageEmbed()
   .setTitle('Settings Added')
-  .setDescription(`The member count will now be in ${channel}`)
+  .setDescription(`The member count will now be in <#${channel}>`)
   .setColor('GREEN')    
       newSettings.save()
     message.channel.send(embed)
@@ -40,7 +40,7 @@ module.exports.run = async (bot, message, args) => {
 module.exports.config = {
     name: "membercount",
     description: "Sets the settings of the member count channel.",
-    usage: "v!membercount <channel mention>",
+    usage: "v!membercount <channel id>",
     accessableby: "Admins",
     aliases: ['']
 }
