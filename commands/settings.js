@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
   .setColor('RED')
   
   if(!message.member.hasPermission("ADMINISTRATOR")) {
-  return message.channel.send("❌ You do not have permissions to add roles.")
+  return message.channel.send("❌ You do not have permissions to use this command.")
   }
   
   if(!channel) {
