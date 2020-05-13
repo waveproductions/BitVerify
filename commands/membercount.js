@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
   if(err) console.log(err)
   if(!data) {
   let newSettings = new memberCount({
-      CountChannelID: channel.id
+      CountChannelID: channel.id,
       GuildID: message.guild.id
       })
     let embed = new Discord.MessageEmbed()
