@@ -3,6 +3,7 @@ const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
 const fs = require("fs");
 const guildSettings = require('./models/GuildCreate');
+const memberCount = require('./models/MemberCount');
 
 mongoose.connect('mongodb+srv://bitverify:63asdfpee1@cluster0-opjfq.mongodb.net/Data',{
     useNewUrlParser: true,
@@ -48,6 +49,22 @@ bot.on("message", async message => {
     let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)))
     if(commandfile) commandfile.run(bot,message,args)
 
+})
+
+bot.on('guildMemberAdd', member => {
+    memberCount.findOne({ GuildID: member.guild.id}, async(err, data) => {
+    if(!data) return;
+    let count = bot.guilds.cache.get(data.GuildID)
+    bot.channels.cache.get(data.CountChannelID).setName(`Members\: ${count.memberCount}`)
+    })
+})
+
+bot.on('guildMemberRemove', member => {
+    memberCount.findOne({ GuildID: member.guild.id}, async(err, data) => {
+    if(!data) return;
+    let count2 = bot.guilds.cache.get(data.GuildID)
+    bot.channels.cache.get(data.CountChannelID).setName(`Members\: ${count2.memberCount}`)
+    })
 })
 
 bot.on('guildDelete', guild => {
