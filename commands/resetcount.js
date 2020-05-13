@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 const mongoose = require('mongoose')
-const memberCount = require('../models/GuildCreate')
+const memberCount = require('../models/MemberCount')
 
 module.exports.run = async (bot, message, args) => {
   if(!message.member.hasPermission('ADMINISTRATOR')) {
