@@ -46,7 +46,7 @@ module.exports.run = async (bot, message, args) => {
 module.exports.config = {
     name: "settings",
     description: "Sets the settings of the role and channel.",
-    usage: "v!settings <channel mention | id> <role mention | id>",
+    usage: "v!settings <channel mention> <role mention>",
     accessableby: "Admins",
     aliases: ['']
 }
