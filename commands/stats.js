@@ -1,7 +1,7 @@
-const Stats = require('../models/GuildCreate')
 const Discord = require('discord.js')
 
 module.exports.run = async (bot, message, args) => {
+  const Stats = require('../models/GuildCreate')
   Stats.findOne({ GuildID: message.guild.id }, async(err, data) => {
   let embed = new Discord.MessageEmbed()
   .setTitle('Stats')
