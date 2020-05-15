@@ -1,6 +1,8 @@
 const Discord = require('discord.js')
+const guildPrefix = require('../models/GuildPrefix')
 
 module.exports.run = async (bot, message, args) => {
+  guildPrefix.findOne({ GuildID: message.guild.id }, async(err, data) => {
   let helpEmbed = new Discord.MessageEmbed()
   .setTitle('BitVerify Command List')
   .setDescription('\`settings\`, \`verify\`, \`help\`, \`verifyinstructions\`, \`reset\`, \`verifymessage\`, \`membercount\`, \`resetcount\`, \`stats\`')
@@ -12,9 +14,10 @@ module.exports.run = async (bot, message, args) => {
   .addField('\`verifymessage <mention channel here>\`', 'Makes the bot send a message about how to verify so you don\'t have to. Make sure you set the settings before using this command!')
   .addField('\`resetcount\`', 'Resets the member count if you mess up.')
   .addField('\`membercount <channel id>\`', 'Sets the member count.')
-  .setFooter('The prefix is v!')
+  .setFooter(`Your server's prefix for this bot is ${data.prefix}`)
   .setColor('GREEN')
   message.channel.send(helpEmbed)
+  })
 }
 
 module.exports.config = {
