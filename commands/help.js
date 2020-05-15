@@ -12,6 +12,7 @@ module.exports.run = async (bot, message, args) => {
   .addField('\`verifymessage <mention channel here>\`', 'Makes the bot send a message about how to verify so you don\'t have to. Make sure you set the settings before using this command!')
   .addField('\`resetcount\`', 'Resets the member count if you mess up.')
   .addField('\`membercount <channel id>\`', 'Sets the member count.')
+  .addField('\`hack <mention member here>\`', 'Just a fun command.')
   .setFooter('The prefix is v!')
   .setColor('GREEN')
   message.channel.send(helpEmbed)
