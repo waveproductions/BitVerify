@@ -12,6 +12,7 @@ return message.channel.send('You did not specify a new prefix!')
 
   guildPrefix.findOne({ GuildID: message.guild.id }, async(err, data) => {
   if(err) console.log(err)
+  if(!data) {
   let newSettings = new guildPrefix({
       GuildID: message.guild.id,
       prefix: args[0]
@@ -20,7 +21,21 @@ return message.channel.send('You did not specify a new prefix!')
   let embed = new Discord.MessageEmbed()
   .setTitle('New Prefix')
   .setDescription(`Your new prefix is now \`${args[0]}\`.`)
+  .setColor('GREEN')
   message.channel.send(embed)
+  } else {
+  guildPrefix.deleteOne({ GuildID: message.guild.id }, (err) => console.log(err))
+    let existSettings = new guildPrefix({
+    GuildID: message.guild.id,
+    prefix: args[0]
+    })
+    existSettings.save()
+    let embed2 = new Discord.MessageEmbed()
+    .setTitle('New Prefix')
+    .setDescription(`Your new prefix is now \`${args[0]}\`.`)
+    .setColor('GREEN')
+    message.channel.send(embed2)
+  }
 })
 }
 
