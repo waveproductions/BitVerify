@@ -33,12 +33,9 @@ fs.readdir("./commands/", (err, files) => {
     });
 });
 
-
-//Prefix for commands
-const PREFIX = 'v!';
-
 bot.on("message", async message => {
-    let prefix = PREFIX;
+    guildPrefix.findOne({ GuildID: message.guild.id}, async(err, data) => {
+    let prefix = data.prefix;
     if(message.author.bot || message.channel.type === "dm") return;
     if(message.content.indexOf(prefix) !== 0) return;
     
@@ -49,7 +46,7 @@ bot.on("message", async message => {
     if(!message.content.startsWith(prefix)) return;
     let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)))
     if(commandfile) commandfile.run(bot,message,args)
-
+    })
 })
 
 bot.on('guildMemberAdd', member => {
