@@ -19,14 +19,30 @@ if(!user) {
 return message.channel.send('Who am I going to hack?')
 }
 
-let msg = message.channel.send('Loading**.**..')
-await msg.edit('Loading.**.**.')
-await msg.edit('Loading..**.**')
-await msg.edit('Getting email...')
-await msg.edit(`Email\: ${user.username}${email}@${domain}`)
-await msg.edit('Stealing cookie pictures...')
-await msg.edit('Injecting virus...')
-await msg.edit('The dangerous hack is complete.')
+message.channel.send('Loading**.**..')
+                .then(msg => {
+                    setTimeout(function() {
+                        msg.edit(`Loading.**.**.`)
+                    }, 1000);
+                    setTimeout(function() {
+                        msg.edit(`Loading..**.**`)
+                    }, 1000)
+                    setTimeout(function() {
+                        msg.edit(`Getting email...`)
+                    }, 1000)
+                    setTimeout(function() {
+                        msg.edit(`Email\: ${user.username}${email}@${domain}`)
+                    }, 1000)
+                    setTimeout(function() {
+                        msg.edit(`Stealing cookie pictures...`)
+                    }, 1000)
+                    setTimeout(function() {
+                        msg.edit(`Injecting virus...`)
+                    }, 1000)
+                    setTimeout(function() {
+                        msg.edit(`The dangerous hack is complete.`)
+                    }, 1000)
+    })
 }
 
 module.exports.config = {
