@@ -23,25 +23,37 @@ message.channel.send('Loading**.**..')
                 .then(msg => {
                     setTimeout(function() {
                         msg.edit(`Loading.**.**.`)
-                    }, 4000);
+                    }, 4000)
+                .then(msg => {
                     setTimeout(function() {
                         msg.edit(`Loading..**.**`)
                     }, 4000)
+                .then(msg => {
                     setTimeout(function() {
                         msg.edit(`Getting email...`)
                     }, 4000)
+                .then(msg => {
                     setTimeout(function() {
                         msg.edit(`Email\: ${user.username}${email}@${domain}`)
                     }, 4000)
+                .then(msg => {
                     setTimeout(function() {
                         msg.edit(`Stealing cookie pictures...`)
                     }, 4000)
+                .then(msg =>
                     setTimeout(function() {
                         msg.edit(`Injecting virus...`)
                     }, 4000)
+                .then(msg =>
                     setTimeout(function() {
                         msg.edit(`The dangerous hack is complete.`)
                     }, 4000)
+                      })
+                    })
+                    })
+                    })
+                    })
+                })
     })
 }
 
