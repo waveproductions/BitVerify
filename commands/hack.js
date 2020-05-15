@@ -40,14 +40,14 @@ message.channel.send('Loading**.**..')
                     setTimeout(function() {
                         msg.edit(`Stealing cookie pictures...`)
                     }, 4000)
-                .then(msg =>
+                .then(msg => {
                     setTimeout(function() {
                         msg.edit(`Injecting virus...`)
                     }, 4000)
-                .then(msg =>
+                .then(msg => {
                     setTimeout(function() {
                         msg.edit(`The dangerous hack is complete.`)
-                    }, 4000))
+                    }, 4000)
                       })
                     })
                     })
