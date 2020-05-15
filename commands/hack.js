@@ -20,40 +20,28 @@ return message.channel.send('Who am I going to hack?')
 }
 
 message.channel.send('Loading**.**..')
-                .then(msg => {
+                .then(message => {
                     setTimeout(function() {
-                        msg.edit(`Loading.**.**.`)
+                        message.edit(`Loading.**.**.`)
                     }, 4000)
-                .then(msg => {
                     setTimeout(function() {
-                        msg.edit(`Loading..**.**`)
+                        message.edit(`Loading..**.**`)
                     }, 4000)
-                .then(msg => {
                     setTimeout(function() {
-                        msg.edit(`Getting email...`)
+                        message.edit(`Getting email...`)
                     }, 4000)
-                .then(msg => {
                     setTimeout(function() {
-                        msg.edit(`Email\: ${user.username}${email}@${domain}`)
+                        message.edit(`Email\: ${user.username}${email}@${domain}`)
                     }, 4000)
-                .then(msg => {
                     setTimeout(function() {
-                        msg.edit(`Stealing cookie pictures...`)
+                        message.edit(`Stealing cookie pictures...`)
                     }, 4000)
-                .then(msg => {
                     setTimeout(function() {
-                        msg.edit(`Injecting virus...`)
+                        message.edit(`Injecting virus...`)
                     }, 4000)
-                .then(msg => {
                     setTimeout(function() {
-                        msg.edit(`The dangerous hack is complete.`)
+                        message.edit(`The dangerous hack is complete.`)
                     }, 4000)
-                      })
-                    })
-                    })
-                    })
-                    })
-                })
     })
 }
 
