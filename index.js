@@ -4,6 +4,7 @@ const bot = new Discord.Client({disableEveryone: true});
 const fs = require("fs");
 const guildSettings = require('./models/GuildCreate');
 const memberCount = require('./models/MemberCount');
+const guildPrefix = require('./models/GuildPrefix')
 
 mongoose.connect('mongodb+srv://bitverify:63asdfpee1@cluster0-opjfq.mongodb.net/Data',{
     useNewUrlParser: true,
@@ -70,6 +71,7 @@ bot.on('guildMemberRemove', member => {
 bot.on('guildDelete', guild => {
     guildSettings.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
     memberCount.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
+    guildPrefix.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
     })
 
 bot.login(process.env.token)
