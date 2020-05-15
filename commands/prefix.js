@@ -12,7 +12,7 @@ return message.channel.send('\:x\: You don\'t have permission to use this comman
 }
 
 if(!args[0]) {
-return message.channel.send('You did not specify a new prefix!')
+return message.channel.send(argsembed)
 }
 
   guildPrefix.findOne({ GuildID: message.guild.id }, async(err, data) => {
