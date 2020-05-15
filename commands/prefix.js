@@ -7,6 +7,7 @@ let argsembed = new Discord.MessageEmbed()
 .setDescription(`❌ Please be more descriptive.
 
 \`v!prefix <new prefix>\``)
+.setColor('RED')
 if(!message.member.hasPermission('ADMINISTRATOR')) {
 return message.channel.send('\:x\: You don\'t have permission to use this command.')
 }
