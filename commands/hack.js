@@ -47,8 +47,7 @@ message.channel.send('Loading**.**..')
                 .then(msg =>
                     setTimeout(function() {
                         msg.edit(`The dangerous hack is complete.`)
-                    }, 4000)
-                      })
+                    }, 4000))
                       })
                     })
                     })
