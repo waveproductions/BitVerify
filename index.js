@@ -36,9 +36,6 @@ fs.readdir("./commands/", (err, files) => {
 bot.on("message", async message => {
     guildPrefix.findOne({ GuildID: message.guild.id}, async(err, data) => {
     let prefix = data.prefix;
-    if(!data) {
-    let prefix = 'v!';
-    }
     if(message.author.bot || message.channel.type === "dm") return;
     if(message.content.indexOf(prefix) !== 0) return;
     
@@ -66,6 +63,14 @@ bot.on('guildMemberRemove', member => {
     let count2 = bot.guilds.cache.get(data.GuildID)
     bot.channels.cache.get(data.CountChannelID).setName(`Members\: ${count2.memberCount}`)
     })
+})
+
+bot.on('guildCreate', guild => {
+let newData = new guildPrefix({
+    GuildID: guild.id,
+    prefix: 'v!'
+})
+newData.save()
 })
 
 bot.on('guildDelete', guild => {
