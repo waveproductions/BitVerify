@@ -1,16 +1,19 @@
 const Discord = require('discord.js')
+const guildID = require('../models/GuildID')
 
 module.exports.run = async (bot, message, args) => {
-let createdChannel = message.guild.channels.create('new-voice', {
+guildID.findOne({ GuildID: message.guild.id}, async(err, data) => {
+let guild = bot.guilds.cache.get(data.GuildID)
+message.guild.channels.create(`Members\: ${guild.memberCount}`, {
   type: 'voice',
   permissionOverwrites: [
      {
-       id: message.author.id,
-       deny: ['VIEW_CHANNEL'],
+       id: message.guild.id,
+       deny: ['CONNECT'],
     },
   ],
+  })
 })
-console.log(createdChannel.id)
 }
 
 module.exports.config = {
