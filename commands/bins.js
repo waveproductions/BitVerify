@@ -1,7 +1,6 @@
 const Discord = require('discord.js')
 
 module.exports.run = async (bot, message, args) => {
-  guildPrefix.findOne({ GuildID: message.guild.id }, async(err, data) => {
   let helpEmbed = new Discord.MessageEmbed()
   .setTitle('Bins')
   .setDescription(`**Use these bins instead of pasting code snippets.**
