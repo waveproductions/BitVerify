@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
   guildPrefix.findOne({ GuildID: message.guild.id }, async(err, data) => {
   let helpEmbed = new Discord.MessageEmbed()
   .setTitle('BitVerify Command List')
-  .setDescription('\`settings\`, \`verify\`, \`help\`, \`verifyinstructions\`, \`reset\`, \`verifymessage\`, \`membercount\`, \`resetcount\`, \`stats\`')
+  .setDescription('\`settings\`, \`verify\`, \`help\`, \`verifyinstructions\`, \`reset\`, \`verifymessage\`, \`membercount\`, \`resetcount\`, \`stats\`, \`bins\`')
   .addField(`\`${data.prefix}settings <mention channel here> <mention role here>\``, 'Sets the verified role and settings.')
   .addField(`\`${data.prefix}verify\``, 'Verifies the user.')
   .addField(`\`${data.prefix}help\``, 'Sends this message!')
@@ -15,6 +15,7 @@ module.exports.run = async (bot, message, args) => {
   .addField(`\`${data.prefix}resetcount\``, 'Resets the member count if you mess up.')
   .addField(`\`${data.prefix}membercount <channel id>\``, 'Sets the member count.')
   .addField(`\`${data.prefix}prefix <new prefix>\``, 'Sets a new prefix.')
+  .addField(`\`${data.prefix}bins\``, 'A list of bins that you can use instead of pasting code snippets.')
   .setFooter(`Your server's prefix for this bot is ${data.prefix}`)
   .setColor('GREEN')
   message.channel.send(helpEmbed)
