@@ -81,6 +81,7 @@ bot.on('guildDelete', guild => {
     guildSettings.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
     memberCount.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
     guildPrefix.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
+    guildID.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
     })
 
 bot.login(process.env.token)
