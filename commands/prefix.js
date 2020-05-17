@@ -13,7 +13,7 @@ _**YOUR PREFIX MUST BE UNDER 5 CHARACTERS**_
 
 let character = new Discord.MessageEmbed()
 .setTitle('Prefix Too Long.')
-.setDescription(`❌ Your prefix is to long.
+.setDescription(`❌ Your prefix is too long.
 
 Your prefix must be under **5** characters.`)
 .setColor('RED')
