@@ -13,7 +13,6 @@ module.exports.run = async (bot, message, args) => {
   .setFooter('I recommend SourceBin.')
   .setColor('GREEN')
   message.channel.send(helpEmbed)
-  })
 }
 
 module.exports.config = {
