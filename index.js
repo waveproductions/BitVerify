@@ -74,7 +74,11 @@ newID.save()
 })
 
 bot.on('guildCreate', guild => {
-
+let newData = new guildPrefix({
+    prefix: 'v!',
+    GuildID: guild.id
+})
+newData.save()
 })
 
 bot.on('guildDelete', guild => {
