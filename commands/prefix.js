@@ -6,8 +6,18 @@ let argsembed = new Discord.MessageEmbed()
 .setTitle('Not Enough Args')
 .setDescription(`❌ Please be more descriptive.
 
+_**YOUR PREFIX MUST BE UNDER 5 CHARACTERS**_
+
 \`v!prefix <new prefix>\``)
 .setColor('RED')
+
+let character = new Discord.MessageEmbed()
+.setTitle('Prefix Too Long.')
+.setDescription(`❌ Your prefix is to long.
+
+Your prefix must be under **5** characters.`)
+.setColor('RED')
+
 if(!message.member.hasPermission('ADMINISTRATOR')) {
 return message.channel.send('\:x\: You don\'t have permission to use this command.')
 }
@@ -17,7 +27,7 @@ return message.channel.send(argsembed)
 }
   
 if(args[0].length > 5) {
-return message.channel.send('Your prefix must be under 5 characters!')
+return message.channel.send(character)
 }
 
   guildPrefix.findOne({ GuildID: message.guild.id }, async(err, data) => {
