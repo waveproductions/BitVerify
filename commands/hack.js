@@ -82,6 +82,7 @@ module.exports.run = async (bot,message, args) => {
         msg.edit(`The dangerous hack on ${user.username} is complete.`);
       }, 14000)
 })
+}
 
 module.exports.config = {
     name: "hack",
