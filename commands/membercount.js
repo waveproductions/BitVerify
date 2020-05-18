@@ -42,7 +42,6 @@ if(message.author.bot || message.channel.type === 'dm') {return;}
   .setFooter(`Members\: ${guildcount.memberCount}`)
   .setColor('GREEN')
   message.channel.send(allembed)
-  }
   break;
     case 'bots':
     let channel2 = await message.guild.channels.create(`Bots\: ${guildcount.members.cache.filter(member => member.user.bot).size}`, {
