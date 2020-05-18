@@ -83,9 +83,10 @@ if(message.author.bot || message.channel.type === 'dm') {return;}
   let humanembed = new Discord.MessageEmbed()
   .setTitle('Human Count Created')
   .setDescription('The human count channel has been created.')
-  .setFooter(`Humans\: ${guildcount.members.cache.filter(!member => member.user.bot).size}`)
+  .setFooter(`Humans\: ${guildcount.members.cache.filter(member => !member.user.bot).size}`)
   .setColor('GREEN')
   message.channel.send(humanembed)
+  }
   })
 }
 
