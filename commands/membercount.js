@@ -34,11 +34,12 @@ if(message.author.bot || message.channel.type === 'dm') {return;}
       GuildID: message.guild.id
       })
       newSettings.save()
-  let embed = new Discord.MessageEmbed()
+  let allembed = new Discord.MessageEmbed()
   .setTitle('Count Created')
   .setDescription('The member count channel has been created.')
   .setFooter(`Members\: ${guildcount.memberCount}`)
   .setColor('GREEN')
+  message.channel.send(allembed)
   }
   })
 }
