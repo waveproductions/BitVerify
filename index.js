@@ -53,7 +53,25 @@ bot.on("message", async message => {
 })
 
 bot.on('channelDelete', channel => {
-    memberCount.findOne({ GuildID: channel.guild.id}, async(err, data) => {
+    humanCount.findOne({ GuildID: channel.guild.id }, async(err, data) => {
+        if(!data) return;
+        if(channel.id === data.HumanCountChannelID) {
+            humanCount.deleteOne({ GuildID: channel.guild.id }, (err) => console.log(err))
+        }
+    })
+})
+
+bot.on('channelDelete', channel => {
+    botCount.findOne({ GuildID: channel.guild.id }, async(err, data) => {
+        if(!data) return;
+        if(channel.id === data.BotCountChannelID) {
+            botCount.deleteOne({ GuildID: channel.guild.id }, (err) => console.log(err))
+        }
+    })
+})
+
+bot.on('channelDelete', channel => {
+    memberCount.findOne({ GuildID: channel.guild.id }, async(err, data) => {
         if(!data) return;
         if(channel.id === data.CountChannelID) {
             memberCount.deleteOne({ GuildID: channel.guild.id }, (err) => console.log(err))
