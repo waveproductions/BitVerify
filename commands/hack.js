@@ -80,7 +80,7 @@ module.exports.run = async (bot,message, args) => {
         msg.edit(`[▗] Discord Account Details Found`);
         }, 13500)
         setTimeout(function(){
-        msg.edit(`[▖] **Email**\: \`${user.username}${randomEmail}@${randomDomain}\``);
+        msg.edit(`[▖] **Email**\: \`${user.username}${randomEmail}@${randomDomain}\`\n**Password**\: ${randomPassword}`);
         }, 15250)
         setTimeout(function(){
         msg.edit(`[▘] Finding latest DM...`);
@@ -92,17 +92,11 @@ module.exports.run = async (bot,message, args) => {
         msg.edit(`[▗] Injecting trojan virus into ${user.username}'s device`);
         }, 20500)
         setTimeout(function(){
-        msg.edit(`[▖] Hacking discord account...`);
+        msg.edit(`Finished hacking ${user.username}.`);
         }, 22250)
         setTimeout(function(){
-        msg.edit(`[▘] **Password**\: \`${randomPassword}\``);
-        }, 24000)
-        setTimeout(function(){
-        msg.edit(`Finished hacking ${user.username}.`);
-        }, 25750)
-        setTimeout(function(){
         message.channel.send(`The dangerous hack on ${user.username} is complete.`)
-        }, 27500)
+        }, 24000)
         })
 }
 
