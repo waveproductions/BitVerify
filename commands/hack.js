@@ -1,12 +1,5 @@
 const Discord = require("discord.js");
 const {MessageEmbed} = require('discord.js');
-function sleep(milliseconds) {
-    const date = Date.now();
-    let currentDate = null;
-        do {
-        currentDate = Date.now();
-        } while (currentDate - date < milliseconds);
-      }
 
 module.exports.run = async (bot,message, args) => {
     let dm = [
@@ -45,47 +38,49 @@ module.exports.run = async (bot,message, args) => {
     }
   
     await message.channel.send(`Hacking ${user.username}...`).then(msg => {
-        sleep (10000)
+        setTimeout(function(){
           msg.edit(`[▝] Finding ${user.username}'s IP.`);
-       
-        sleep (10000)
+        }, 2000)
+        setTimeout(function(){
         msg.edit(`[▗] Finding ${user.username}'s IP..`);
-      
-        sleep (10000)
+        }, 2000)
+        setTimeout(function(){
         msg.edit(`[▖] Finding ${user.username}'s IP...`);
-      
-        sleep (10000)
+        }, 2000)
+        setTimeout(function(){
         msg.edit(`[▘] Finding ${user.username}'s IP....`);
-      
-        sleep (5000)
+        }, 2000)
+        setTimeout(function(){
         msg.edit(`[▝] Found IP...`);
-        
-        sleep (5000)
+        }, 5000)
+        setTimeout(function(){
         msg.edit(`[▗] IP: ${randomIP}`);
-        
-        sleep (5000)
+        }, 5000)
+        setTimeout(function(){
         msg.edit(`[▖] Hacking Discord account.`);
-
-        sleep (5000)
+        }, 5000)
+        setTimeout(function(){
         msg.edit(`[▘] Hacking Discord account..`);
-        
-        sleep (5000)
+        }, 5000)
+        setTimeout(function(){
         msg.edit(`[▝] Hacking Discord account...`);
-
-        sleep (5000)
+        }, 5000)
+        setTimeout(function(){
         msg.edit(`[▗] Discord Account Details Found`);
-        sleep (5000)
+        }, 5000)
+        setTimeout(function(){
         msg.edit(`[▖] Email\: ${user.username}${randomEmail}@${randomDomain}`);
-
-        sleep (5000)
+        }, 5000)
+        setTimeout(function(){
         msg.edit(`[▘] Finding latest DM...`);
-        
-        sleep (5000)
+        }, 5000)
+        setTimeout(function(){
         msg.edit(`[▝] Latest DM\: ${randomDM}`);
-        
-        sleep (5000)
+        }, 5000)
+        setTimeout(function(){
         msg.edit(`The dangerous hack on ${user.username} is complete.`);
-})
+        }, 5000)
+        })
 }
 
 module.exports.config = {
