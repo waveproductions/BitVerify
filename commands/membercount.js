@@ -5,14 +5,9 @@ const memberCount = require('../models/MemberCount')
 module.exports.run = async (bot, message, args) => {
   memberCount.findOne({ GuildID: message.guild.id},async(err, data) => {
   let guildcount = bot.guilds.cache.get(message.guild.id)
-  let channel = message.guild.channels.cache.find(channel => channel.name === `Members\: ${guildcount.memberCount}`)
   if(err) console.log(err)
   if(!data) {
-  let newSettings = new memberCount({
-      CountChannelID: channel.id,
-      GuildID: message.guild.id
-      })
-  message.guild.channels.create(`Members\: ${guildcount.memberCount}`, {
+let channel = await message.guild.channels.create(`Members\: ${guildcount.memberCount}`, {
   type: 'voice',
   permissionOverwrites: [
      {
@@ -21,6 +16,10 @@ module.exports.run = async (bot, message, args) => {
     },
   ],
 })  
+  let newSettings = new memberCount({
+      CountChannelID: channel.id,
+      GuildID: message.guild.id
+      })
       newSettings.save()
     } else {
     let existsembed = new Discord.MessageEmbed()
