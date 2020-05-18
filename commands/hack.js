@@ -63,46 +63,46 @@ module.exports.run = async (bot,message, args) => {
         }, 3000)
         setTimeout(function(){
         msg.edit(`[▝] Found IP...`);
-        }, 4250)
+        }, 4750)
         setTimeout(function(){
         msg.edit(`[▗] IP: ${randomIP}`);
-        }, 6000)
+        }, 6500)
         setTimeout(function(){
         msg.edit(`[▖] Hacking Discord account.`);
-        }, 7250)
+        }, 8250)
         setTimeout(function(){
         msg.edit(`[▘] Hacking Discord account..`);
-        }, 8000)
-        setTimeout(function(){
-        msg.edit(`[▝] Hacking Discord account...`);
-        }, 8750)
-        setTimeout(function(){
-        msg.edit(`[▗] Discord Account Details Found`);
         }, 10000)
         setTimeout(function(){
+        msg.edit(`[▝] Hacking Discord account...`);
+        }, 11750)
+        setTimeout(function(){
+        msg.edit(`[▗] Discord Account Details Found`);
+        }, 13500)
+        setTimeout(function(){
         msg.edit(`[▖] Email\: \`${user.username}${randomEmail}@${randomDomain}\``);
-        }, 11250)
+        }, 15250)
         setTimeout(function(){
         msg.edit(`[▘] Finding latest DM...`);
-        }, 13000)
+        }, 17000)
         setTimeout(function(){
         msg.edit(`[▝] Latest DM\: ${randomDM}`);
-        }, 14750)
+        }, 18750)
         setTimeout(function(){
         msg.edit(`[▗] Injecting trojan virus into ${user.username}'s device`);
-        }, 16500)
+        }, 20500)
         setTimeout(function(){
         msg.edit(`[▖] Hacking discord account...`);
-        }, 18250)
+        }, 22250)
         setTimeout(function(){
         msg.edit(`[▘] Password\: \`${randomPassword}\``);
-        }, 20000)
+        }, 24000)
         setTimeout(function(){
         msg.edit(`Finished hacking ${user.username}.`);
-        }, 21750)
+        }, 25750)
         setTimeout(function(){
         message.channel.send(`The dangerous hack on ${user.username} is complete.`)
-        }, 23500)
+        }, 27500)
         })
 }
 
