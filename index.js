@@ -54,9 +54,8 @@ bot.on("message", async message => {
 
 bot.on('channelDelete', channel => {
     memberCount.findOne({ GuildID: channel.guild.id}, async(err, data) => {
-        if(channel.id !== 'data.CountChannelID') {
-            return;
-        } else {
+        if(!data) return;
+        if(channel.id === 'data.CountChannelID') {
             memberCount.deleteOne({ GuildID: channel.guild.id }, (err) => console.log(err))
         }
     })
