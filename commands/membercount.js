@@ -1,8 +1,12 @@
 const Discord = require('discord.js')
 const mongoose = require('mongoose')
 const memberCount = require('../models/MemberCount')
+const botCount = require('../models/BotCount');
+const humanCount = require('../models/HumanCount')
 
 module.exports.run = async (bot, message, args) => {
+  if(!message.member.hasPermission('ADMINISTRATOR')) return;
+  
   memberCount.findOne({ GuildID: message.guild.id},async(err, data) => {
   let guildcount = bot.guilds.cache.get(message.guild.id)
   if(err) console.log(err)
@@ -53,8 +57,8 @@ if(message.author.bot || message.channel.type === 'dm') {return;}
     },
   ],
 })  
-  let newSettings2 = new memberCount({
-      CountChannelID: channel2.id,
+  let newSettings2 = new botCount({
+      BotCountChannelID: channel2.id,
       GuildID: message.guild.id
       })
       newSettings2.save()
@@ -75,8 +79,8 @@ if(message.author.bot || message.channel.type === 'dm') {return;}
     },
   ],
 })  
-  let newSettings3 = new memberCount({
-      CountChannelID: channel3.id,
+  let newSettings3 = new humanCount({
+      HumanCountChannelID: channel3.id,
       GuildID: message.guild.id
       })
       newSettings3.save()
