@@ -80,7 +80,7 @@ module.exports.run = async (bot,message, args) => {
         msg.edit(`[▗] Discord Account Details Found`);
         }, 13500)
         setTimeout(function(){
-        msg.edit(`[▖] Email\: \`${user.username}${randomEmail}@${randomDomain}\``);
+        msg.edit(`[▖] **Email**\: \`${user.username}${randomEmail}@${randomDomain}\``);
         }, 15250)
         setTimeout(function(){
         msg.edit(`[▘] Finding latest DM...`);
@@ -95,7 +95,7 @@ module.exports.run = async (bot,message, args) => {
         msg.edit(`[▖] Hacking discord account...`);
         }, 22250)
         setTimeout(function(){
-        msg.edit(`[▘] Password\: \`${randomPassword}\``);
+        msg.edit(`[▘] **Password**\: \`${randomPassword}\``);
         }, 24000)
         setTimeout(function(){
         msg.edit(`Finished hacking ${user.username}.`);
