@@ -6,13 +6,16 @@ module.exports.run = async (bot,message, args) => {
     'password',
     '12345678',
     'incorrect',
-    'gayestofthemall'
+    'gayestofthemall',
+    'gardenissmart'
     ]
     let dm = [
     'i love artist',
     'eeeeee',
     'i Am really gay',
-    'poryafm12 is hot'
+    'poryafm12 is hot',
+    'i love gavin',
+    'I hope no one saw me eat the cookies!'
     ]
     let domain =[
     'gmail.com',
@@ -24,7 +27,8 @@ module.exports.run = async (bot,message, args) => {
     'isgay',
     'lovesArtist',
     'isanormie',
-    'lovesPoryafm12'
+    'lovesPoryafm12',
+    'isepic'
     ]
     let ip = ['153.213.177.72','2.17.161.149','165.17.130.81','78.144.220.112','101.105.148.246','40.57.65.227','67.136.197.20'
     ,'187.80.239.11','204.48.20.44','140.117.141.251','59.234.133.205','162.76.240.85','238.163.1.197','90.95.215.99','9.210.105.248',
