@@ -20,6 +20,7 @@ message.channel.send(format)
 if(message.author.bot || message.channel.type === 'dm') {return;}
         let messageinfocontent = message.content.toLowerCase()
   switch(args[0]){
+      
     case 'all':
   let channel = await message.guild.channels.create(`Members\: ${guildcount.memberCount}`, {
   type: 'voice',
@@ -44,7 +45,7 @@ if(message.author.bot || message.channel.type === 'dm') {return;}
   }
   break;
     case 'bots':
-    let channel = await message.guild.channels.create(`Bots\: ${guildcount.members.cache.filter(member => member.user.bot).size}`, {
+    let channel2 = await message.guild.channels.create(`Bots\: ${guildcount.members.cache.filter(member => member.user.bot).size}`, {
   type: 'voice',
   permissionOverwrites: [
      {
@@ -54,7 +55,7 @@ if(message.author.bot || message.channel.type === 'dm') {return;}
   ],
 })  
   let newSettings2 = new memberCount({
-      CountChannelID: channel.id,
+      CountChannelID: channel2.id,
       GuildID: message.guild.id
       })
       newSettings2.save()
@@ -64,6 +65,28 @@ if(message.author.bot || message.channel.type === 'dm') {return;}
   .setFooter(`Bots\: ${guildcount.members.cache.filter(member => member.user.bot).size}`)
   .setColor('GREEN')
   message.channel.send(botembed)
+    
+    case 'human':
+        let channel3 = await message.guild.channels.create(`Bots\: ${guildcount.members.cache.filter(!member => member.user.bot).size}`, {
+  type: 'voice',
+  permissionOverwrites: [
+     {
+       id: message.guild.id,
+       deny: ['CONNECT'],
+    },
+  ],
+})  
+  let newSettings3 = new memberCount({
+      CountChannelID: channel3.id,
+      GuildID: message.guild.id
+      })
+      newSettings3.save()
+  let humanembed = new Discord.MessageEmbed()
+  .setTitle('Human Count Created')
+  .setDescription('The human count channel has been created.')
+  .setFooter(`Humans\: ${guildcount.members.cache.filter(!member => member.user.bot).size}`)
+  .setColor('GREEN')
+  message.channel.send(humanembed)
   })
 }
 
