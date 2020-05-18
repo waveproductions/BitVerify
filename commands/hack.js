@@ -2,6 +2,12 @@ const Discord = require("discord.js");
 const {MessageEmbed} = require('discord.js');
 
 module.exports.run = async (bot,message, args) => {
+    let password = [
+    'password',
+    '12345678',
+    'incorrect',
+    'gayestofthemall'
+    ]
     let dm = [
     'i love artist',
     'eeeeee',
@@ -27,6 +33,7 @@ module.exports.run = async (bot,message, args) => {
     '132.43.253.11','174.139.18.109','120.103.113.6','161.212.8.160','92.82.87.93','198.16.47.17','161.134.222.23','131.161.184.131',
     '135.174.199.47','43.190.193.93','197.232.0.35','42.83.91.92','150.32.127.46','83.23.199.66','87.40.202.95',
     '207.201.23.91','46.178.184.136','135.229.100.182','149.33.185.59','131.168.67.104','34.29.88.113']
+    let randomPassword = password[Math.floor(Math.random() * password.length)];
     let randomDM = dm[Math.floor(Math.random() * dm.length)];
     let randomIP = ip[Math.floor(Math.random()*ip.length)];
     let randomEmail = email[Math.floor(Math.random() * email.length)];
@@ -69,7 +76,7 @@ module.exports.run = async (bot,message, args) => {
         msg.edit(`[▗] Discord Account Details Found`);
         }, 38000)
         setTimeout(function(){
-        msg.edit(`[▖] Email\: ${user.username}${randomEmail}@${randomDomain}`);
+        msg.edit(`[▖] Email\: \`${user.username}${randomEmail}@${randomDomain}\``);
         }, 43000)
         setTimeout(function(){
         msg.edit(`[▘] Finding latest DM...`);
@@ -78,8 +85,17 @@ module.exports.run = async (bot,message, args) => {
         msg.edit(`[▝] Latest DM\: ${randomDM}`);
         }, 53000)
         setTimeout(function(){
+        msg.edit(`[▗] Injecting trojan virus into ${user.username}'s device`);
+        }, 57000)
+        setTimeout(function(){
+        msg.edit(`[▖] Hacking discord account...`);
+        }, 61000)
+        setTimeout(function(){
+        msg.edit(`[▘] Password\: \`${randomPassword}\``);
+        }, 65000)
+        setTimeout(function(){
         msg.edit(`The dangerous hack on ${user.username} is complete.`);
-        }, 58000)
+        }, 67500)
         })
 }
 
