@@ -45,16 +45,16 @@ module.exports.run = async (bot,message, args) => {
     }
   
     await message.channel.send(`Hacking ${user.username}...`).then(msg => {
-        sleep (500)
+        sleep (1)
           msg.edit(`[▝] Finding ${user.username}'s IP.`);
        
-        sleep (500)
+        sleep (1)
         msg.edit(`[▗] Finding ${user.username}'s IP..`);
       
-        sleep (500)
+        sleep (1)
         msg.edit(`[▖] Finding ${user.username}'s IP...`);
       
-        sleep (500)
+        sleep (1)
         msg.edit(`[▘] Finding ${user.username}'s IP....`);
       
         sleep (5000)
