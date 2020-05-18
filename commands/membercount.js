@@ -5,7 +5,9 @@ const botCount = require('../models/BotCount');
 const humanCount = require('../models/HumanCount')
 
 module.exports.run = async (bot, message, args) => {
-  if(!message.member.hasPermission('ADMINISTRATOR')) return;
+  if(!message.member.hasPermission('ADMINISTRATOR')) {
+  return message.channel.send('❌ You do not have permissions to use this command. Please contact a staff member.')
+  }
   
   memberCount.findOne({ GuildID: message.guild.id},async(err, data) => {
   let guildcount = bot.guilds.cache.get(message.guild.id)
