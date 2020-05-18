@@ -3,36 +3,25 @@ const mongoose = require('mongoose')
 const memberCount = require('../models/MemberCount')
 
 module.exports.run = async (bot, message, args) => {
-  let channel = args[0]
-  let argsEmbed = new Discord.MessageEmbed()
-  .setTitle('Not Enough Args')
-  .setDescription(`❌ Please be more descriptive.
-
-  _**MAKE SURE THE CHANNEL IS A VOICE CHANNEL**_`)
-  .addField('Don\'t know how to get the channel ID?', 'Read [this](https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID)!')
-  .setColor('RED')
-  
-  if(!message.member.hasPermission("ADMINISTRATOR")) {
-  return message.channel.send("❌ You do not have permissions to use this command.")
-  }
-  
-  if(!channel) {
-  return message.channel.send(argsEmbed)
-  }
-  
   memberCount.findOne({ GuildID: message.guild.id},async(err, data) => {
+  let guildcount = bot.guilds.cache.get(message.guild.id)
+  let channel = message.guild.channels.cache.find(channel => channel.name === `Members\: ${guildcount.memberCount}`)
   if(err) console.log(err)
   if(!data) {
   let newSettings = new memberCount({
-      CountChannelID: channel,
+      CountChannelID: channel.id,
       GuildID: message.guild.id
       })
-    let embed = new Discord.MessageEmbed()
-  .setTitle('Settings Added')
-  .setDescription(`The member count will now be in <#${channel}>.`)
-  .setColor('GREEN')    
+  message.guild.channels.create(`Members\: ${guildcount.memberCount}`, {
+  type: 'voice',
+  permissionOverwrites: [
+     {
+       id: message.guild.id,
+       deny: ['CONNECT'],
+    },
+  ],
+})  
       newSettings.save()
-    message.channel.send(embed)
     } else {
     let existsembed = new Discord.MessageEmbed()
     .setTitle('Data Already Exists')
@@ -46,7 +35,7 @@ module.exports.run = async (bot, message, args) => {
 module.exports.config = {
     name: "membercount",
     description: "Sets the settings of the member count channel.",
-    usage: "v!membercount <channel id>",
+    usage: "v!membercount",
     accessableby: "Admins",
     aliases: ['']
 }
