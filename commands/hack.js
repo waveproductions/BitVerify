@@ -1,12 +1,5 @@
 const Discord = require("discord.js");
 const {MessageEmbed} = require('discord.js');
-function sleep(milliseconds) {
-    const date = Date.now();
-    let currentDate = null;
-        do {
-        currentDate = Date.now();
-        } while (currentDate - date < milliseconds);
-      }
 
 module.exports.run = async (bot,message, args) => {
     let password = [
@@ -55,43 +48,62 @@ module.exports.run = async (bot,message, args) => {
     return message.channel.send('Why would you want to hack yourself?')
     }
   
-    let msg = await message.channel.send(`Hacking ${user.username}...`)
-        await sleep(750);
-        msg.edit(`[▝] Finding ${user.username}'s IP.`);
-        await sleep(750);
+    await message.channel.send(`Hacking ${user.username}...`).then(msg => {
+        setTimeout(function(){
+          msg.edit(`[▝] Finding ${user.username}'s IP.`);
+        }, 750)
+        setTimeout(function(){
         msg.edit(`[▗] Finding ${user.username}'s IP..`);
-        await sleep(750);
+        }, 1500)
+        setTimeout(function(){
         msg.edit(`[▖] Finding ${user.username}'s IP...`);
-        await sleep(750);
+        }, 2250)
+        setTimeout(function(){
         msg.edit(`[▘] Finding ${user.username}'s IP....`);
-        await sleep(1750);
+        }, 3000)
+        setTimeout(function(){
         msg.edit(`[▝] Found IP...`);
-        await sleep(1750);
+        }, 4750)
+        setTimeout(function(){
         msg.edit(`[▗] IP: ${randomIP}`);
-        await sleep(750);
+        }, 6500)
+        setTimeout(function(){
         msg.edit(`[▖] Hacking Discord account.`);
-        await sleep(750);
+        }, 8250)
+        setTimeout(function(){
         msg.edit(`[▘] Hacking Discord account..`);
-        await sleep(750);
+        }, 10000)
+        setTimeout(function(){
         msg.edit(`[▝] Hacking Discord account...`);
-        await sleep(1750);
+        }, 11750)
+        setTimeout(function(){
         msg.edit(`[▗] Discord Account Details Found`);
-        await sleep(1750);
+        }, 13500)
+        setTimeout(function(){
         msg.edit(`[▖] **Email**\: \`${user.username}${randomEmail}@${randomDomain}\``);
-        await sleep(1750);
+        }, 15250)
+        setTimeout(function(){
         msg.edit(`[▘] Finding latest DM...`);
-        await sleep(1750);
+        }, 17000)
+        setTimeout(function(){
         msg.edit(`[▝] Latest DM\: ${randomDM}`);
-        await sleep(1750);
+        }, 18750)
+        setTimeout(function(){
         msg.edit(`[▗] Injecting trojan virus into ${user.username}'s device`);
-        await sleep(1750);
+        }, 20500)
+        setTimeout(function(){
         msg.edit(`[▖] Hacking discord account...`);
-        await sleep(1750);
+        }, 22250)
+        setTimeout(function(){
         msg.edit(`[▘] **Password**\: \`${randomPassword}\``);
-        await sleep(1750);
+        }, 24000)
+        setTimeout(function(){
         msg.edit(`Finished hacking ${user.username}.`);
-        await sleep(1750);
+        }, 25750)
+        setTimeout(function(){
         message.channel.send(`The dangerous hack on ${user.username} is complete.`)
+        }, 27500)
+        })
 }
 
 module.exports.config = {
