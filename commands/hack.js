@@ -51,55 +51,58 @@ module.exports.run = async (bot,message, args) => {
     await message.channel.send(`Hacking ${user.username}...`).then(msg => {
         setTimeout(function(){
           msg.edit(`[▝] Finding ${user.username}'s IP.`);
-        }, 2000)
+        }, 750)
         setTimeout(function(){
         msg.edit(`[▗] Finding ${user.username}'s IP..`);
-        }, 4000)
+        }, 1500)
         setTimeout(function(){
         msg.edit(`[▖] Finding ${user.username}'s IP...`);
-        }, 6000)
+        }, 2250)
         setTimeout(function(){
         msg.edit(`[▘] Finding ${user.username}'s IP....`);
-        }, 8000)
+        }, 3000)
         setTimeout(function(){
         msg.edit(`[▝] Found IP...`);
-        }, 13000)
+        }, 4250)
         setTimeout(function(){
         msg.edit(`[▗] IP: ${randomIP}`);
-        }, 18000)
+        }, 6000)
         setTimeout(function(){
         msg.edit(`[▖] Hacking Discord account.`);
-        }, 23000)
+        }, 7250)
         setTimeout(function(){
         msg.edit(`[▘] Hacking Discord account..`);
-        }, 28000)
+        }, 8000)
         setTimeout(function(){
         msg.edit(`[▝] Hacking Discord account...`);
-        }, 33000)
+        }, 8750)
         setTimeout(function(){
         msg.edit(`[▗] Discord Account Details Found`);
-        }, 38000)
+        }, 10000)
         setTimeout(function(){
         msg.edit(`[▖] Email\: \`${user.username}${randomEmail}@${randomDomain}\``);
-        }, 43000)
+        }, 11250)
         setTimeout(function(){
         msg.edit(`[▘] Finding latest DM...`);
-        }, 48000)
+        }, 13000)
         setTimeout(function(){
         msg.edit(`[▝] Latest DM\: ${randomDM}`);
-        }, 53000)
+        }, 14750)
         setTimeout(function(){
         msg.edit(`[▗] Injecting trojan virus into ${user.username}'s device`);
-        }, 57000)
+        }, 16500)
         setTimeout(function(){
         msg.edit(`[▖] Hacking discord account...`);
-        }, 61000)
+        }, 18250)
         setTimeout(function(){
         msg.edit(`[▘] Password\: \`${randomPassword}\``);
-        }, 65000)
+        }, 20000)
         setTimeout(function(){
-        msg.edit(`The dangerous hack on ${user.username} is complete.`);
-        }, 67500)
+        msg.edit(`Finished hacking ${user.username}.`);
+        }, 21750)
+        setTimeout(function(){
+        message.channel.send(`The dangerous hack on ${user.username} is complete.`)
+        }, 23500)
         })
 }
 
