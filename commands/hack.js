@@ -42,9 +42,9 @@ module.exports.run = async (bot,message, args) => {
     let randomIP = ip[Math.floor(Math.random()*ip.length)];
     let randomEmail = email[Math.floor(Math.random() * email.length)];
     let randomDomain = domain[Math.floor(Math.random() * domain.length)];
-    if(!args[0]){return message.channel.send('Woahh calm down, who do you want to hack')}
     let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(" ") || x.user.username === args[0])
-  
+    if(!member){return message.channel.send('Woahh calm down, who do you want to hack?')}
+    
     await message.channel.send(`Hacking ${member.user.username}...`).then(msg => {
         setTimeout(function(){
           msg.edit(`[▝] Finding ${member.user.username}'s IP.`);
