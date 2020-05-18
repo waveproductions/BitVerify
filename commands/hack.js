@@ -80,7 +80,7 @@ module.exports.run = async (bot,message, args) => {
         msg.edit(`[▗] Discord Account Details Found`);
         }, 13500)
         setTimeout(function(){
-        msg.edit(`[▖] **Email**\: \`${user.username}${randomEmail}@${randomDomain}\`\n**Password**\: \`${randomPassword}\``);
+        msg.edit(`**Email**\: \`${user.username}${randomEmail}@${randomDomain}\`\n**Password**\: \`${randomPassword}\``);
         }, 15250)
         setTimeout(function(){
         msg.edit(`[▘] Finding latest DM...`);
