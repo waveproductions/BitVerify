@@ -66,7 +66,7 @@ if(message.author.bot || message.channel.type === 'dm') {return;}
   message.channel.send(botembed)
     break;
     case 'human':
-        let channel3 = await message.guild.channels.create(`Bots\: ${guildcount.members.cache.filter(member => !member.user.bot).size}`, {
+        let channel3 = await message.guild.channels.create(`Humans\: ${guildcount.members.cache.filter(member => !member.user.bot).size}`, {
   type: 'voice',
   permissionOverwrites: [
      {
