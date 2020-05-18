@@ -60,37 +60,37 @@ module.exports.run = async (bot,message, args) => {
         msg.edit(`[▝] Finding ${user.username}'s IP.`);
         await sleep(750);
         msg.edit(`[▗] Finding ${user.username}'s IP..`);
-        await sleep(750)
+        await sleep(750);
         msg.edit(`[▖] Finding ${user.username}'s IP...`);
-        await sleep(750)
+        await sleep(750);
         msg.edit(`[▘] Finding ${user.username}'s IP....`);
-        await sleep(1750)
+        await sleep(1750);
         msg.edit(`[▝] Found IP...`);
-        await sleep(1750)
+        await sleep(1750);
         msg.edit(`[▗] IP: ${randomIP}`);
-        await sleep(750)
+        await sleep(750);
         msg.edit(`[▖] Hacking Discord account.`);
-        await sleep(750)
+        await sleep(750);
         msg.edit(`[▘] Hacking Discord account..`);
-        await sleep(750)
+        await sleep(750);
         msg.edit(`[▝] Hacking Discord account...`);
-        await sleep(1750)
+        await sleep(1750);
         msg.edit(`[▗] Discord Account Details Found`);
-        await sleep(1750)
+        await sleep(1750);
         msg.edit(`[▖] **Email**\: \`${user.username}${randomEmail}@${randomDomain}\``);
-        await sleep(1750)
+        await sleep(1750);
         msg.edit(`[▘] Finding latest DM...`);
-        await sleep(1750)
+        await sleep(1750);
         msg.edit(`[▝] Latest DM\: ${randomDM}`);
-        await sleep(1750)
+        await sleep(1750);
         msg.edit(`[▗] Injecting trojan virus into ${user.username}'s device`);
-        await sleep(1750)
+        await sleep(1750);
         msg.edit(`[▖] Hacking discord account...`);
-        await sleep(1750)
+        await sleep(1750);
         msg.edit(`[▘] **Password**\: \`${randomPassword}\``);
-        await sleep(1750)
+        await sleep(1750);
         msg.edit(`Finished hacking ${user.username}.`);
-        await sleep(1750)
+        await sleep(1750);
         message.channel.send(`The dangerous hack on ${user.username} is complete.`)
 }
 
