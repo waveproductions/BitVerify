@@ -21,6 +21,11 @@ let channel = await message.guild.channels.create(`Members\: ${guildcount.member
       GuildID: message.guild.id
       })
       newSettings.save()
+  let embed = new Discord.MessageEmbed()
+  .setTitle('Count Created')
+  .setDescription('The member count channel has been created.')
+  .setFooter(`Members\: ${guildcount.memberCount}`)
+  .setColor('GREEN')
     } else {
     let existsembed = new Discord.MessageEmbed()
     .setTitle('Data Already Exists')
