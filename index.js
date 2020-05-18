@@ -6,6 +6,8 @@ const guildSettings = require('./models/GuildCreate');
 const memberCount = require('./models/MemberCount');
 const guildPrefix = require('./models/GuildPrefix');
 const guildID = require('./models/GuildID');
+const botCount = require('./models/BotCount');
+const humanCount = require('./models/HumanCount')
 
 mongoose.connect('mongodb+srv://bitverify:63asdfpee1@cluster0-opjfq.mongodb.net/Data',{
     useNewUrlParser: true,
@@ -50,6 +52,7 @@ bot.on("message", async message => {
     })
 })
 
+//Member Count
 bot.on('guildMemberAdd', member => {
     memberCount.findOne({ GuildID: member.guild.id}, async(err, data) => {
     if(!data) return;
@@ -58,11 +61,48 @@ bot.on('guildMemberAdd', member => {
     })
 })
 
+//Member Count
 bot.on('guildMemberRemove', member => {
     memberCount.findOne({ GuildID: member.guild.id}, async(err, data) => {
     if(!data) return;
     let count2 = bot.guilds.cache.get(data.GuildID)
     bot.channels.cache.get(data.CountChannelID).setName(`Members\: ${count2.memberCount}`)
+    })
+})
+
+//Bot Count
+bot.on('guildMemberAdd', member => {
+    botCount.findOne({ GuildID: member.guild.id }, async(err, data) => {
+    if(!data) return;
+    let count3 = bot.guilds.cache.get(data.GuildID)
+    bot.channels.cache.get(data.BotCountChannelID).setName(`Bots\: ${count3.members.cache.filter(member => member.user.bot).size}`)
+    })
+})
+
+//Bot Count
+bot.on('guildMemberRemove', member => {
+    botCount.findOne({ GuildID: member.guild.id }, async(err, data) => {
+    if(!data) return;
+    let count4 = bot.guilds.cache.get(data.GuildID)
+    bot.channels.cache.get(data.BotCountChannelID).setName(`Bots\: ${count4.members.cache.filter(member => member.user.bot).size}`)
+    })
+})
+
+//Human Count
+bot.on('guildMemberAdd', member => {
+    humanCount.findOne({ GuildID: member.guild.id }, async(err, data) => {
+    if(!data) return;
+    let count5 = bot.guilds.cache.get(data.GuildID)
+    bot.channels.cache.get(data.HumanCountChannelID).setName(`Humans\: ${count5.members.cache.filter(member => !member.user.bot).size}`)
+    })
+})
+
+//Human Count
+bot.on('guildMemberAdd', member => {
+    humanCount.findOne({ GuildID: member.guild.id }, async(err, data) => {
+    if(!data) return;
+    let count6 = bot.guilds.cache.get(data.GuildID)
+    bot.channels.cache.get(data.HumanCountChannelID).setName(`Humans\: ${count6.members.cache.filter(member => !member.user.bot).size}`)
     })
 })
 
@@ -86,6 +126,8 @@ bot.on('guildDelete', guild => {
     memberCount.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
     guildPrefix.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
     guildID.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
+    botCount.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
+    humanCount.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
     })
 
 bot.login(process.env.token)
