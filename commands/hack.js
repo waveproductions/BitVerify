@@ -44,8 +44,8 @@ module.exports.run = async (bot,message, args) => {
     return message.channel.send('Why would you want to hack yourself?')
     }
   
-    message.channel.send(`Hacking ${user.username}...`).then((msg)=> {
-          sleep (2000)
+    await message.channel.send(`Hacking ${user.username}...`).then(msg => {
+        sleep (2000)
           msg.edit(`[▝] Finding ${user.username}'s IP.`);
        
         sleep (2000)
