@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const BotCountSchema = new mongoose.Schema({
-    CountChannelID: String,
+    BotCountChannelID: String,
     GuildID: String,
 });
 
