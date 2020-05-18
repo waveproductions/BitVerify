@@ -1,5 +1,4 @@
 const Discord = require("discord.js");
-const botconfig = require("../botsettings.json");
 const {MessageEmbed} = require('discord.js');
 
 module.exports.run = async (bot,message, args) => {
