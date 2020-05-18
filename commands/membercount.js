@@ -14,6 +14,7 @@ let format = new Discord.MessageEmbed()
 \`v!membercount all\` Creates a member count of all the members in your server.
 \`v!membercount bots\` Creates a bot count.
 \`v!membercount human\` Creates a member count of all the real members in your server.`)
+.setColor('GREEN')
 message.channel.send(format)
   } else 
 if(message.author.bot || message.channel.type === 'dm') {return;}
@@ -41,6 +42,28 @@ if(message.author.bot || message.channel.type === 'dm') {return;}
   .setColor('GREEN')
   message.channel.send(allembed)
   }
+  break;
+    case 'bots':
+    let channel = await message.guild.channels.create(`Bots\: ${guildcount.members.cache.filter(member => member.user.bot).size}`, {
+  type: 'voice',
+  permissionOverwrites: [
+     {
+       id: message.guild.id,
+       deny: ['CONNECT'],
+    },
+  ],
+})  
+  let newSettings2 = new memberCount({
+      CountChannelID: channel.id,
+      GuildID: message.guild.id
+      })
+      newSettings2.save()
+  let botembed = new Discord.MessageEmbed()
+  .setTitle('Bot Count Created')
+  .setDescription('The bot count channel has been created.')
+  .setFooter(`Bots\: ${guildcount.members.cache.filter(member => member.user.bot).size}`)
+  .setColor('GREEN')
+  message.channel.send(botembed)
   })
 }
 
