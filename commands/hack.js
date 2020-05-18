@@ -80,7 +80,7 @@ module.exports.run = async (bot,message, args) => {
         msg.edit(`[▗] Discord Account Details Found`);
         }, 13500)
         setTimeout(function(){
-        msg.edit(`[▖] **Email**\: \`${user.username}${randomEmail}@${randomDomain}\`\n**Password**\: ${randomPassword}`);
+        msg.edit(`[▖] **Email**\: \`${user.username}${randomEmail}@${randomDomain}\`\n**Password**\: \`${randomPassword}\``);
         }, 15250)
         setTimeout(function(){
         msg.edit(`[▘] Finding latest DM...`);
@@ -92,11 +92,14 @@ module.exports.run = async (bot,message, args) => {
         msg.edit(`[▗] Injecting trojan virus into ${user.username}'s device`);
         }, 20500)
         setTimeout(function(){
-        msg.edit(`Finished hacking ${user.username}.`);
+        msg.edit(`[▖] Selling data to the government...`);
         }, 22250)
         setTimeout(function(){
-        message.channel.send(`The dangerous hack on ${user.username} is complete.`)
+        msg.edit(`Finished hacking ${user.username}.`);
         }, 24000)
+        setTimeout(function(){
+        message.channel.send(`The dangerous hack on ${user.username} is complete.`)
+        }, 25750)
         })
 }
 
@@ -104,6 +107,6 @@ module.exports.config = {
     name: "hack",
     description: "A fun command that hacks people.",
     usage: "v!hack",
-    accessableby: "Member",
+    accessableby: "All Members",
     aliases: []
 }
