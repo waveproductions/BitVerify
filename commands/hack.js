@@ -1,5 +1,12 @@
 const Discord = require("discord.js");
 const {MessageEmbed} = require('discord.js');
+function sleep(milliseconds) {
+    const date = Date.now();
+    let currentDate = null;
+        do {
+        currentDate = Date.now();
+        } while (currentDate - date < milliseconds);
+      }
 
 module.exports.run = async (bot,message, args) => {
     let dm = [
