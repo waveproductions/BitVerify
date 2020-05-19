@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 const ms = require('ms')
 const colors = require('../stuff/colors.json')
-const Timers = require('../variable')
+const { Timers } = require('../variable')
 
 module.exports.run = async(bot, message, args) => {
 let formatembed = new Discord.MessageEmbed()
