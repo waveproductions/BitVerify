@@ -56,7 +56,7 @@ bot.on('channelDelete', channel => {
     humanCount.findOne({ GuildID: channel.guild.id }, async(err, data) => {
         if(!data) return;
         if(channel.id === data.HumanCountChannelID) {
-            humanCount.deleteOne({ GuildID: channel.guild.id }, (err) => console.log(err))
+            humanCount.deleteMany({ GuildID: channel.guild.id }, (err) => console.log(err))
         }
     })
 })
@@ -65,7 +65,7 @@ bot.on('channelDelete', channel => {
     botCount.findOne({ GuildID: channel.guild.id }, async(err, data) => {
         if(!data) return;
         if(channel.id === data.BotCountChannelID) {
-            botCount.deleteOne({ GuildID: channel.guild.id }, (err) => console.log(err))
+            botCount.deleteMany({ GuildID: channel.guild.id }, (err) => console.log(err))
         }
     })
 })
@@ -74,7 +74,7 @@ bot.on('channelDelete', channel => {
     memberCount.findOne({ GuildID: channel.guild.id }, async(err, data) => {
         if(!data) return;
         if(channel.id === data.CountChannelID) {
-            memberCount.deleteOne({ GuildID: channel.guild.id }, (err) => console.log(err))
+            memberCount.deleteMany({ GuildID: channel.guild.id }, (err) => console.log(err))
         }
     })
 })
