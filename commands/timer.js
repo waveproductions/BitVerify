@@ -20,7 +20,7 @@ let formatembed = new Discord.MessageEmbed()
         if(!args[0].endsWith("h")){
             if(!args[0].endsWith("m")){
                 if(!args[0].endsWith("s")){
-                return message.channel.send(`You did not use the proper format for the the time!`)
+                return message.channel.send(formatembed)
                 }
             }
         }
