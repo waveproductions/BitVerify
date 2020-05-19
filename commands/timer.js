@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 const ms = require('ms')
 const colors = require('../stuff/colors.json')
-const Timer = require(../models/Timer)
+const Timer = require('../models/Timer')
 
 module.exports.run = async(bot, message, args) => {
 Timer.findOne({ MemberID: message.author.id }, async(err, data) => {
@@ -46,6 +46,7 @@ let formatembed = new Discord.MessageEmbed()
     .setTitle('Timer Already Exists')
     .setDescription('Please wait until your timer is finished, or use \`v!reset timer\` to reset your timer!')
     .setColor(colors.red)
+    message.channel.send(existsembed)
     }
     })
 }
