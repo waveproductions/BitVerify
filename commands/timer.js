@@ -1,11 +1,9 @@
 const Discord = require('discord.js')
 const ms = require('ms')
 const colors = require('../stuff/colors.json')
+const Timers = require('../variable')
 
 module.exports.run = async(bot, message, args) => {
-const Timer = require('../models/Timer')
-Timer.findOne({ MemberID: message.author.id }, async(err, data) => {
-if(!data) {
 let formatembed = new Discord.MessageEmbed()
 .setTitle('Incorrect Format')
 .setDescription(`You did not use a proper format for the time.
@@ -28,12 +26,14 @@ let formatembed = new Discord.MessageEmbed()
     if(isNaN(args[0][0])){
         return message.channel.send(`That is not a number!`)
     }
-    let newTimer = new Timer({
-    MemberID: message.author.id,
-    GuildID: message.guild.id,
-    Time: ms(args[0])
-    })
-    newTimer.save()
+        Timers.set(message.author.id+" G "+message.guild.name,{
+            Guild: message.guild.name,
+            Author: {
+                Tag:message.author.tag,
+                ID:message.author.id
+            },
+            Time: ms(args[0])
+        })
     message.channel.send(`${message.author.username}, you have set a timer for ${args[0]}.`)
     setTimeout(function(){
     let embed = new Discord.MessageEmbed()
@@ -41,16 +41,9 @@ let formatembed = new Discord.MessageEmbed()
     .setDescription(`Your timer for ${args[0]} has finished!`)
     .setColor(colors.green)
     message.author.send(embed)
-    Timer.deleteOne({ MemberID: message.author.id }, (err) => console.log(err))
+    Timers.delete(message.author.id+" G "+message.guild.name)
     }, ms(args[0]))
-    } else {
-    let existsembed = new Discord.MessageEmbed()
-    .setTitle('Timer Already Exists')
-    .setDescription('Please wait until your timer is finished, or use \`v!reset timer\` to reset your timer!')
-    .setColor(colors.red)
-    message.channel.send(existsembed)
-    }
-    }).catch()
+    })
 }
 
 module.exports.config = {
