@@ -1,9 +1,9 @@
 const Discord = require('discord.js')
 const ms = require('ms')
 const colors = require('../stuff/colors.json')
-const Timer = require('../models/Timer')
 
 module.exports.run = async(bot, message, args) => {
+const Timer = require('../models/Timer')
 Timer.findOne({ MemberID: message.author.id }, async(err, data) => {
 if(!data) {
 let formatembed = new Discord.MessageEmbed()
