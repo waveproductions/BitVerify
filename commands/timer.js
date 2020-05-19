@@ -41,7 +41,7 @@ let formatembed = new Discord.MessageEmbed()
     .setDescription(`Your timer for ${args[0]} has finished!`)
     .setColor(colors.green)
     message.author.send(embed)
-    Timer.deleteMany
+    Timer.deleteMany({ MemberID: data.MemberID }, (err) => console.log(err))
     }, ms(args[0]))
     } else {
     let existsembed = new Discord.MessageEmbed()
