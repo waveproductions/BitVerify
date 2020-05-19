@@ -43,7 +43,6 @@ let formatembed = new Discord.MessageEmbed()
     message.author.send(embed)
     Timers.delete(message.author.id+" G "+message.guild.name)
     }, ms(args[0]))
-    })
 }
 
 module.exports.config = {
