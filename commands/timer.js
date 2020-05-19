@@ -5,6 +5,7 @@ const colors = require('../stuff/colors.json')
 module.exports.run = async(bot, message, args) => {
 const Timer = require('../models/Timer')
 Timer.findOne({ MemberID: message.author.id }, async(err, data) => {
+if(err) console.log(err)
 if(!data) {
 let formatembed = new Discord.MessageEmbed()
 .setTitle('Incorrect Format')
