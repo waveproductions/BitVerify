@@ -7,7 +7,8 @@ module.exports.run = async (bot,message, args) => {
     '12345678',
     'incorrect',
     'gayestofthemall',
-    'gardenissmart'
+    'gardenissmart',
+    'gayestboi'
     ]
     let dm = [
     'i love artist',
@@ -17,7 +18,9 @@ module.exports.run = async (bot,message, args) => {
     'i love gavin',
     'I hope no one saw me eat the cookies!',
     'wow that is small',
-    'this bot sucks'
+    'this bot sucks',
+    'pepe',
+    '-cries in spanish-'
     ]
     let domain =[
     'gmail.com',
@@ -94,7 +97,7 @@ module.exports.run = async (bot,message, args) => {
         msg.edit(`[▖] Selling data to the government...`);
         }, 22250)
         setTimeout(function(){
-        msg.edit(`[▘] Reporting Discord account to Discord ToS...`);
+        msg.edit(`[▘] Reporting Discord account for breaking the Discord ToS...`);
         }, 24000)
         setTimeout(function(){
         msg.edit(`Finished hacking ${member.user.username}.`);
