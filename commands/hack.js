@@ -15,7 +15,9 @@ module.exports.run = async (bot,message, args) => {
     'i Am really gay',
     'poryafm12 is hot',
     'i love gavin',
-    'I hope no one saw me eat the cookies!'
+    'I hope no one saw me eat the cookies!',
+    'wow that is small',
+    'this bot sucks'
     ]
     let domain =[
     'gmail.com',
