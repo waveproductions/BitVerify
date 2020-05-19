@@ -16,6 +16,7 @@ module.exports.run = async (bot, message, args) => {
   .addField(`\`${data.prefix}prefix <new prefix>\``, 'Sets a new prefix.')
   .addField(`\`${data.prefix}bins\``, 'A list of bins that you can use instead of pasting code snippets.')
   .addField(`\`${data.prefix}hack <mention | id | username>\``, 'A fun command that hacks people.')
+  .addField(`\`${data.prefix}say <message>\``, 'Makes the bot say whatever you say.')
   .setFooter(`Your server's prefix for this bot is ${data.prefix}`)
   .setColor('GREEN')
   message.channel.send(helpEmbed)
