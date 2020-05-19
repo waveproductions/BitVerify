@@ -94,11 +94,14 @@ module.exports.run = async (bot,message, args) => {
         msg.edit(`[▖] Selling data to the government...`);
         }, 22250)
         setTimeout(function(){
-        msg.edit(`Finished hacking ${member.user.username}.`);
+        msg.edit(`[▘] Reporting Discord account to Discord ToS...`);
         }, 24000)
         setTimeout(function(){
-        message.channel.send(`The dangerous hack on ${member.user.username} is complete.`)
+        msg.edit(`Finished hacking ${member.user.username}.`);
         }, 25750)
+        setTimeout(function(){
+        message.channel.send(`The dangerous hack on ${member.user.username} is complete.`)
+        }, 27500)
         })
 }
 
