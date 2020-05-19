@@ -10,8 +10,8 @@
   ];
   
   setInterval(function() {
-      let status = statuses[Math.floor(Math.random() * statuses.length)];
-      bot.user.setPresence({ activity: status, status: 'dnd' });
+      let status1 = statuses[Math.floor(Math.random() * statuses.length)];
+      bot.user.setPresence({ activity: { name: status1 }, status: 'dnd' });
   }, 2000);
 
 };
