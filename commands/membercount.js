@@ -10,7 +10,6 @@ module.exports.run = async (bot, message, args) => {
   }
   
   let guildcount = bot.guilds.cache.get(message.guild.id)
-  if(err) console.log(err)
   if(!args[0]) {
 let format = new Discord.MessageEmbed()
 .setTitle('Member Count')
