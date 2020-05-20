@@ -67,7 +67,7 @@ bot.on('message', async message => {
     UserLevel: '1'
     })
     newMessage.save()
-    } else if(data.UserLevel: '1' && data.UserXP: '100') {
+    } else if(data.UserLevel === '1' && data.UserXP === '100') {
     levels.deleteOne({ UserID: message.author.id }, (err) => console.log(err))
     let levelUp = new levels({
     GuildID: message.guild.id,
@@ -81,7 +81,7 @@ bot.on('message', async message => {
         .setDescription(`You have reached level ${data.UserLevel}!`)
         .setColor('BLUE')
         message.channel.send(level1)
-    } else if(data.UserLevel: '2' && data.UserXP: '250') {
+    } else if(data.UserLevel === '2' && data.UserXP === '250') {
     levels.deleteOne({ UserID: message.author.id }, (err) => console.log(err))
     let levelUp2 = new levels({
     GuildID: message.guild.id,
