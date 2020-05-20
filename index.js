@@ -8,6 +8,8 @@ const guildPrefix = require('./models/GuildPrefix');
 const guildID = require('./models/GuildID');
 const botCount = require('./models/BotCount');
 const humanCount = require('./models/HumanCount')
+const levels = require('./models/LevelFormat')
+const levelInfo = require('./leveldata.levels.json')
 
 mongoose.connect('mongodb+srv://bitverify:63asdfpee1@cluster0-opjfq.mongodb.net/Data',{
     useNewUrlParser: true,
@@ -49,6 +51,50 @@ bot.on("message", async message => {
     if(!message.content.startsWith(prefix)) return;
     let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)))
     if(commandfile) commandfile.run(bot,message,args)
+    })
+})
+
+bot.on('message', async message => {
+    if(!message.guild) return;
+    if(message.author.bot) return;
+    levels.findOne({ UserID: message.author.id }, async(err, data) => {
+    const randomXP = Math.floor(Math.random() * 24) + 1;
+    if(!data) {
+    const newMessage = new levels({
+    GuildID: message.guild.id,
+    UserID: message.author.id,
+    UserXP: randomXP,
+    UserLevel: '1'
+    })
+    newMessage.save()
+    } else if(data.UserLevel: '1' && data.UserXP: '100') {
+    levels.deleteOne({ UserID: message.author.id }, (err) => console.log(err))
+    let levelUp = new levels({
+    GuildID: message.guild.id,
+    UserID: message.author.id,
+    UserXP: '0',
+    UserLevel: '2'
+    })
+    levelUp.save()
+        let level1 = new Discord.MessageEmbed()
+        .setTitle('Level Up!')
+        .setDescription(`You have reached level ${data.UserLevel}!`)
+        .setColor('BLUE')
+        message.channel.send(level1)
+    } else if(data.UserLevel: '2' && data.UserXP: '250') {
+    levels.deleteOne({ UserID: message.author.id }, (err) => console.log(err))
+    let levelUp2 = new levels({
+    GuildID: message.guild.id,
+    UserID: message.author.id,
+    UserXP: '0',
+    UserLevel: '3'
+    })
+    levelUp2.save()
+        let level2 = new Discord.MessageEmbed()
+        .setTitle('Level Up!')
+        .setDescription(`You have reached level ${data.UserLevel}!`)
+        .setColor('BLUE')
+        message.channel.send(level2)
     })
 })
 
