@@ -91,7 +91,6 @@ if(message.author.bot || message.channel.type === 'dm') {return;}
   .setFooter(`Humans\: ${guildcount.members.cache.filter(member => !member.user.bot).size}`)
   .setColor('GREEN')
   message.channel.send(humanembed)
-      break;
 }
 
 module.exports.config = {
