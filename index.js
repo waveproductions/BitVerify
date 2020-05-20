@@ -96,6 +96,7 @@ bot.on('message', async message => {
         .setColor('BLUE')
         message.channel.send(level2)
     }
+    })
 })
 
 bot.on('channelDelete', channel => {
