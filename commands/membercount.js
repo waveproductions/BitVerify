@@ -21,7 +21,7 @@ let format = new Discord.MessageEmbed()
 \`v!membercount human\` Creates a member count of all the real members in your server.`)
 .setColor('GREEN')
 message.channel.send(format)
-  } else 
+  } else {
 if(message.author.bot || message.channel.type === 'dm') {return;}
         let messageinfocontent = message.content.toLowerCase()
   switch(args[0]){
