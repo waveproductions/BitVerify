@@ -9,7 +9,6 @@ const guildID = require('./models/GuildID');
 const botCount = require('./models/BotCount');
 const humanCount = require('./models/HumanCount')
 const levels = require('./models/LevelFormat')
-const levelInfo = require('./leveldata.levels.json')
 
 mongoose.connect('mongodb+srv://bitverify:63asdfpee1@cluster0-opjfq.mongodb.net/Data',{
     useNewUrlParser: true,
