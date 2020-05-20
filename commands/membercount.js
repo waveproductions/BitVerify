@@ -92,6 +92,7 @@ if(message.author.bot || message.channel.type === 'dm') {return;}
   .setColor('GREEN')
   message.channel.send(humanembed)
   }
+  }
 }
 
 module.exports.config = {
