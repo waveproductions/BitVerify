@@ -121,6 +121,7 @@ if(message.author.bot || message.channel.type === 'dm') {return;}
   message.channel.send(existsembed3)
   }
 })
+      break;
 }
 
 module.exports.config = {
