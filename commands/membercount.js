@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 const mongoose = require('mongoose')
 const memberCount = require('../models/MemberCount')
-const botCount = require('../models/BotCount');
+const botCount = require('../models/BotCount')
 const humanCount = require('../models/HumanCount')
 
 module.exports.run = async (bot, message, args) => {
@@ -27,8 +27,6 @@ if(message.author.bot || message.channel.type === 'dm') {return;}
   switch(args[0]){
       
     case 'all':
-      memberCount.findOne({ GuildID: message.guild.id},async(err, data) => {
-            if(!data) {
   let channel = await message.guild.channels.create(`Members\: ${guildcount.memberCount}`, {
   type: 'voice',
   permissionOverwrites: [
@@ -49,18 +47,8 @@ if(message.author.bot || message.channel.type === 'dm') {return;}
   .setFooter(`Members\: ${guildcount.memberCount}`)
   .setColor('GREEN')
   message.channel.send(allembed)
-      } else {
-      let existsembed1 = new Discord.MessageEmbed()
-  .setTitle('Data Already Exists')
-  .setDescription('Use \`v!reset\` to reset your data.')
-  .setColor('RED')
-  message.channel.send(existsembed1)                   
-  }
-      })
   break;
     case 'bots':
-      botCount.findOne({ GuildID: message.guild.id},async(err, data) => {
-        if(!data) {
     let channel2 = await message.guild.channels.create(`Bots\: ${guildcount.members.cache.filter(member => member.user.bot).size}`, {
   type: 'voice',
   permissionOverwrites: [
@@ -81,18 +69,8 @@ if(message.author.bot || message.channel.type === 'dm') {return;}
   .setFooter(`Bots\: ${guildcount.members.cache.filter(member => member.user.bot).size}`)
   .setColor('GREEN')
   message.channel.send(botembed)
-        } else {
-        let existsembed2 = new Discord.MessageEmbed()
-  .setTitle('Data Already Exists')
-  .setDescription('Use \`v!reset\` to reset your data.')
-  .setColor('RED')
-  message.channel.send(existsembed2)
-        }
-      })
     break;
     case 'human':
-      humanCount.findOne({ GuildID: message.guild.id},async(err, data) => {
-        if(!data) {
         let channel3 = await message.guild.channels.create(`Humans\: ${guildcount.members.cache.filter(member => !member.user.bot).size}`, {
   type: 'voice',
   permissionOverwrites: [
@@ -113,14 +91,6 @@ if(message.author.bot || message.channel.type === 'dm') {return;}
   .setFooter(`Humans\: ${guildcount.members.cache.filter(member => !member.user.bot).size}`)
   .setColor('GREEN')
   message.channel.send(humanembed)
-  } else {
-  let existsembed3 = new Discord.MessageEmbed()
-  .setTitle('Data Already Exists')
-  .setDescription('Use \`v!reset\` to reset your data.')
-  .setColor('RED')
-  message.channel.send(existsembed3)
-  }
-})
       break;
 }
 
