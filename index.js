@@ -95,7 +95,7 @@ bot.on('message', async message => {
         .setDescription(`You have reached level ${data.UserLevel}!`)
         .setColor('BLUE')
         message.channel.send(level2)
-    })
+    }
 })
 
 bot.on('channelDelete', channel => {
