@@ -57,6 +57,8 @@ bot.on("message", async message => {
 })
 
 bot.on('message', async message => {
+  guildID.findOne({ GuildID: message.guild.id }, async(err, data) => {
+  if(!data) {
   if(!message.guild) return;
   if(message.author.bot) return;
     
@@ -72,7 +74,11 @@ bot.on('message', async message => {
     setTimeout(function(){
           msg.delete();
         }, 5000)
+    }
+  } else {
+  return;
   }
+ })
 })
 
 bot.on('channelDelete', channel => {
