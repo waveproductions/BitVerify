@@ -21,7 +21,7 @@ module.exports.run = async (bot, message, args) => {
   .addField(`\`${data.prefix}rank <mention | id>\``, 'Gets the rank of someone.')
   .setFooter(`Your server's prefix for this bot is ${data.prefix}`)
   .setColor('GREEN')
-  message.channel.send(helpEmbed)
+  message.author.send(helpEmbed)
   })
 }
 
