@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 const mongoose = require('mongoose')
-const disableXP = require(../models/DisableXP)
+const disableXP = require('../models/DisableXP')
 
 module.exports.run = async (bot, message, args) => {
 if(!message.member.hasPermission('ADMINISTRATOR')) {
