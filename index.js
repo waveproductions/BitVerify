@@ -161,13 +161,6 @@ Levels.deleteUser(member.id, member.guild.id);
 })
 
 bot.on('guildCreate', guild => {
-let newID = new guildID({
-    GuildID: guild.id
-})
-newID.save()
-})
-
-bot.on('guildCreate', guild => {
 let newData = new guildPrefix({
     prefix: 'v!',
     GuildID: guild.id
@@ -182,7 +175,6 @@ bot.on('guildDelete', guild => {
     guildID.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
     botCount.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
     humanCount.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
-    disableXP.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
     })
 
 bot.login(process.env.token)
