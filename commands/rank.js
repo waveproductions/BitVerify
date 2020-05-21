@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 const Levels = require('discord-xp')
 
 module.exports.run = async (bot, message, args) => {
-const target = message.mentions.users.first() || bot.users.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(" ") || x.user.username === args[0]) || message.author;
+const target = message.mentions.users.first() || bot.users.cache.get(args[0]) || bot.users.cache.get(x => x.user.username === args.slice(0).join(" ")) || message.author;
 
 const user = await Levels.fetch(target.id, message.guild.id);
 
