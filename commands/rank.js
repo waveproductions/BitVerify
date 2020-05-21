@@ -11,8 +11,8 @@ if (!user) return message.channel.send("This person hasn't gained any XP yet.");
 let embed = new Discord.MessageEmbed()
 .setTitle('Rank')
 .setDescription(`<@${user.userID}>`)
-.addField('Level', user.level)
-.addField('XP', user.xp)
+.addField('Level', user.level, true)
+.addField('XP', user.xp, true)
 .setColor('BLUE')
 message.channel.send(embed);
 }
