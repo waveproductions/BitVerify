@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 const Levels = require('discord-xp')
 
 module.exports.run = async (bot, message, args) => {
-const target = message.mentions.users.first() || message.author;
+const target = message.mentions.users.first() || bot.users.cache.get(args[0]) || message.author;
 
 const user = await Levels.fetch(target.id, message.guild.id);
 
@@ -22,7 +22,7 @@ message.channel.send(embed);
 module.exports.config = {
     name: "rank",
     description: "Gets the rank of the person mentioned.",
-    usage: "v!rank <mention>",
+    usage: "v!rank <mention | id>",
     accessableby: "All Members",
     aliases: ['']
 }
