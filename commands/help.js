@@ -19,8 +19,6 @@ module.exports.run = async (bot, message, args) => {
   .addField(`\`${data.prefix}say <message>\``, 'Makes the bot say whatever you say.')
   .addField(`\`${data.prefix}giveaway <s | m | h | d> <channel mention> <prize>\``, 'Starts a giveaway.')
   .addField(`\`${data.prefix}rank <mention | id>\``, 'Gets the rank of someone.')
-  .addField(`\`${data.prefix}disablexp\``, 'Disables leveling.')
-  .addField(`\`${data.prefix}enablexp\``, 'Enables leveling.')
   .setFooter(`Your server's prefix for this bot is ${data.prefix}`)
   .setColor('GREEN')
   message.author.send(helpEmbed)
