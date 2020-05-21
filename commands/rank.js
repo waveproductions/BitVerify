@@ -14,6 +14,8 @@ let embed = new Discord.MessageEmbed()
 .addField('Level', user.level, true)
 .addField('XP', user.xp, true)
 .setColor('BLUE')
+.setTimestamp()
+.setThumbnail(target.displayAvatarURL())
 message.channel.send(embed);
 }
 
