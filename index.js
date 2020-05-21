@@ -1,3 +1,4 @@
+const ms = require('ms')
 const Levels = require('discord-xp')
 const mongoose = require('mongoose')
 const Discord = require("discord.js");
@@ -67,7 +68,10 @@ bot.on('message', async message => {
     .setTitle('Level Up!')
     .setDescription(`${message.author}, you are now level **${user.level}**! :tada:`)
     .setColor('BLUE')
-    message.channel.send(levelupembed);
+    let msg = await message.channel.send(levelupembed);
+    setTimeout(function(){
+          msg.delete();
+        }, 5000)
   }
 })
 
