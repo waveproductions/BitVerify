@@ -152,6 +152,10 @@ bot.on('guildMemberAdd', member => {
     })
 })
 
+bot.on('guildMemberRemove', async member => {
+Levels.deleteUser(member.id, member.guild.id);
+})
+
 bot.on('guildCreate', guild => {
 let newID = new guildID({
     GuildID: guild.id
