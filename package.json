@@ -20,6 +20,7 @@
   "homepage": "https://github.com/gavserve/Verification-Bot#readme",
   "dependencies": {
     "chokidar": "^3.4.0",
+    "discord-xp": "^1.0.5",
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
     "mongoose": "^5.9.13",
