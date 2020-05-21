@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
   if(!data) {
   return message.channel.send('Leveling is already enabled!')
   } else {
-  guildID.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
+  guildID.deleteOne({ GuildID: message.guild.id }, (err) => console.log(err))
   message.channel.send('Leveling has been enabled.')
   }
   })
