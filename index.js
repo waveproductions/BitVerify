@@ -63,7 +63,7 @@ bot.on('message', async message => {
     const user = await Levels.fetch(message.author.id, message.guild.id);
     let levelupembed = new Discord.MessageEmbed()
     .setTitle('Level Up!')
-    .setDescription(`You are now level **${user.level}** :tada:`)
+    .setDescription(`${message.author}, you are now level **${user.level}**! :tada:`)
     .setColor('BLUE')
     message.channel.send(levelupembed);
   }
