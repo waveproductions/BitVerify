@@ -1,3 +1,4 @@
+const Levels = require('discord-xp')
 const mongoose = require('mongoose')
 const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
@@ -50,6 +51,22 @@ bot.on("message", async message => {
     let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)))
     if(commandfile) commandfile.run(bot,message,args)
     })
+})
+
+bot.on('message', async message => {
+  if(!message.guild) return;
+  if(message.author.bot) return;
+    
+  const randomXP = Math.floor(Math.random() * 24) + 1;
+  const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomXP);
+  if(hasLeveledUp) {
+    const user = await Levels.fetch(message.author.id, message.guild.id);
+    let levelupembed = new Discord.MessageEmbed()
+    .setTitle('Level Up!')
+    .setDescription(`You are now level **${user.level}** :tada:`)
+    .setColor('BLUE')
+    message.channel.send(levelupembed);
+  }
 })
 
 bot.on('channelDelete', channel => {
