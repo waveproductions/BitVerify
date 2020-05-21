@@ -58,13 +58,8 @@ bot.on("message", async message => {
 })
 
 bot.on('message', async message => {
-  disableXP.findOne({ GuildID: message.guild.id }, async(err, data) => {
-  if(data) {
-  if(message.guild.id === data.GuildID) return;
-  }
   if(!message.guild) return;
   if(message.author.bot) return;
-  })
     
   const randomXP = Math.floor(Math.random() * 19) + 1;
   const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomXP);
