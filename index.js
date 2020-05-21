@@ -10,6 +10,8 @@ const guildID = require('./models/GuildID');
 const botCount = require('./models/BotCount');
 const humanCount = require('./models/HumanCount')
 
+Levels.setURL("mongodb+srv://bitverify:63asdfpee1@cluster0-opjfq.mongodb.net/Data")
+
 mongoose.connect('mongodb+srv://bitverify:63asdfpee1@cluster0-opjfq.mongodb.net/Data',{
     useNewUrlParser: true,
     useUnifiedTopology: true});
