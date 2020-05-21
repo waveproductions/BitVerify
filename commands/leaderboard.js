@@ -12,7 +12,7 @@ const lb = leaderboard.map(e => `${e.position}. ${e.username}#${e.discriminator}
 
 let embed = new Discord.MessageEmbed()
 .setTitle(`${message.guild.name}'s Leaderboard`)
-.setDescription(${lb.join("\n\n")})
+.setDescription(`${lb.join("\n\n")}`)
 .setColor('BLUE')
 message.channel.send(embed);
 }
