@@ -10,6 +10,7 @@ const guildPrefix = require('./models/GuildPrefix');
 const guildID = require('./models/GuildID');
 const botCount = require('./models/BotCount');
 const humanCount = require('./models/HumanCount')
+const disableXP = require('./models/DisableXP')
 
 Levels.setURL("mongodb+srv://bitverify:63asdfpee1@cluster0-opjfq.mongodb.net/Data")
 
@@ -57,8 +58,11 @@ bot.on("message", async message => {
 })
 
 bot.on('message', async message => {
+  disableXP.findOne({ GuildID: message.guild.id }, async(err, data) => {
+  if(message.guild.id === data.GuildID) return;
   if(!message.guild) return;
   if(message.author.bot) return;
+  })
     
   const randomXP = Math.floor(Math.random() * 19) + 1;
   const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomXP);
@@ -182,6 +186,7 @@ bot.on('guildDelete', guild => {
     guildID.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
     botCount.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
     humanCount.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
+    disableXP.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
     })
 
 bot.login(process.env.token)
