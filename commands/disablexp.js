@@ -12,6 +12,7 @@ const disable = new disableXP({
 GuildID: message.guild.id
 })
 disable.save()
+message.channel.send('Leveling has been disabled.')
     } else {
     return message.channel.send('Leveling is already disabled!')
     }
