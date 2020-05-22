@@ -23,7 +23,7 @@ module.exports.run = async (bot, message, args) => {
   .setFooter(`Your server's prefix for this bot is ${data.prefix}`)
   .setColor('GREEN')
   message.author.send(helpEmbed)
-  message.channel.send('A list of commands have been sent to your DMs.')
+  message.channel.send('📩 | A list of commands have been sent to your DMs.')
   })
 }
 
