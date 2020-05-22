@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 const Levels = require('discord-xp')
 
 module.exports.run = async (bot, message, args) => {
-const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 40); // We grab top 10 users with most xp in the current server.
+const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 10); // We grab top 10 users with most xp in the current server.
  
 if (rawLeaderboard.length < 1) return reply("Nobody's in leaderboard yet.");
  
