@@ -9,7 +9,7 @@ const user = await Levels.fetch(target.id, message.guild.id);
 if (!user) return message.channel.send("This person hasn't gained any XP yet.");
 
 let embed = new Discord.MessageEmbed()
-.setAuthor(target.displayName, target.displayAvatarURL())
+.setAuthor(target.username, target.displayAvatarURL())
 .setDescription(`<@${user.userID}>`)
 .addField('Level', `**${user.level}**`, true)
 .addField('XP', `**${user.xp}**`, true)
