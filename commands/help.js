@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
   guildPrefix.findOne({ GuildID: message.guild.id }, async(err, data) => {
   let helpEmbed = new Discord.MessageEmbed()
   .setTitle('BitVerify Command List')
-  .setDescription('\`settings\`, \`verify\`, \`help\`, \`verifyinstructions\`, \`reset\`, \`verifymessage\`, \`membercount\`, \`resetcount\`, \`stats\`, \`bins\`')
+  .setDescription('\`settings\`, \`verify\`, \`help\`, \`verifyinstructions\`, \`reset\`, \`verifymessage\`, \`membercount\`, \`resetcount\`, \`stats\`, \`bins\`, \`hack\`, \`say\`, \`giveaway\`, \`rank\`, \`leaderboard\`')
   .addField(`\`${data.prefix}settings <mention channel here> <mention role here>\``, 'Sets the verified role and settings.')
   .addField(`\`${data.prefix}verify\``, 'Verifies the user.')
   .addField(`\`${data.prefix}help\``, 'Sends this message!')
@@ -18,6 +18,7 @@ module.exports.run = async (bot, message, args) => {
   .addField(`\`${data.prefix}hack <mention | id | username>\``, 'A fun command that hacks people.')
   .addField(`\`${data.prefix}say <message>\``, 'Makes the bot say whatever you say.')
   .addField(`\`${data.prefix}giveaway <s | m | h | d> <channel mention> <prize>\``, 'Starts a giveaway.')
+  .addField(`\`${data.prefix}leaderboard\``, 'Gets the leaderboard of the server.')
   .addField(`\`${data.prefix}rank <mention | id>\``, 'Gets the rank of someone.')
   .setFooter(`Your server's prefix for this bot is ${data.prefix}`)
   .setColor('GREEN')
