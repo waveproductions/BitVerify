@@ -15,7 +15,7 @@ let embed = new Discord.MessageEmbed()
 .setDescription(`${lb.join("\n\n")}`)
 .setFooter(`${message.guild.name}`, message.guild.iconURL())
 .setColor('BLUE')
-message.channel.send(`**Leaderboard**:\n\n${lb.join("\n\n")}`);
+message.channel.send(embed);
 }
 
 module.exports.config = {
