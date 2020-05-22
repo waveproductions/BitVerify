@@ -15,6 +15,7 @@ let embed = new Discord.MessageEmbed()
 .setDescription(`${lb.join("\n\n")}`)
 .setFooter(`${message.guild.name}`, message.guild.iconURL())
 .setColor('BLUE')
+.setThumbnail(message.guild.iconURL())
 message.channel.send(embed);
 }
 
