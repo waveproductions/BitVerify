@@ -8,7 +8,7 @@ if (rawLeaderboard.length < 1) return reply("Nobody's in leaderboard yet.");
  
 const leaderboard = Levels.computeLeaderboard(bot, rawLeaderboard); // We process the leaderboard.
  
-const lb = leaderboard.map(e => `${e.position}. ${e.username}#${e.discriminator}\nLevel: ${e.level}\nXP: ${e.xp.toLocaleString()}`); // We map the outputs.
+const lb = leaderboard.map(e => `${e.position}. ${e.username}#${e.discriminator} | Level: ${e.level} | XP: ${e.xp.toLocaleString()}`); // We map the outputs.
 
 let embed = new Discord.MessageEmbed()
 .setTitle(`${message.guild.name}'s Leaderboard`)
