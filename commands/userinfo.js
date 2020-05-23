@@ -3,7 +3,8 @@ const Levels = require('discord-xp')
 
 module.exports.run = async (bot, message, args) => {
 let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(" "))
-let level = await Levels.fetch(member.user.id, message.guild.id)
+let user = message.mentions.users.first() || bot.users.cache.get(args[0]) || message.author
+let level = await Levels.fetch(user.id, message.guild.id)
 let leveldisplay = ''
 let xpdisplay = ''
 if(!level){
