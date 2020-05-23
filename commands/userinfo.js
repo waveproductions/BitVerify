@@ -17,27 +17,27 @@ if(!level){
   let status = '';
   if (member.user.presence.status === 'dnd'){
     status = 'Do Not Disturb';
-      } else if (member.user.presence.status === 'online'){
+      } else if (user.presence.status === 'online'){
     status = 'Online';
-      } else if (member.user.presence.status === 'offline'){
+      } else if (user.presence.status === 'offline'){
     status = 'Offline';
-      } else if (member.user.presence.status === 'idle'){
+      } else if (user.presence.status === 'idle'){
     status = 'Idle';
-      } else if (member.user.presence.status === 'transparent'){
+      } else if (user.presence.status === 'transparent'){
     status = 'Transparent';
       }
 const embed = new Discord.MessageEmbed()
 .setTitle(`${member.user.username}'s Info`)
 .addField('Username', `**${member.user.username}**${member.user.discriminator}`, true)
 .addField('User ID', `**${member.id}**`, true)
-.addField('Nickname', `**${member.user.nickname ? member.user.nickname : 'No Nickname'}**`)
+.addField('Nickname', `**${user.nickname ? user.nickname : 'No Nickname'}**`)
 .addField('Level', `**${leveldisplay}**`)
 .addField('XP', `**${xpdisplay}**`)
 .addField('Status', `**${status}**`)
-.addField('Joined Discord', `**${member.user.createdAt.toLocaleDateString()}**`)
+.addField('Joined Discord', `**${user.createdAt.toLocaleDateString()}**`)
 .addField('Joined Server', `**${member.joinedAt.toLocaleDateString()}**`)
-.setThumbnail(member.user.displayAvatarURL())
-.setFooter(member.user.username, member.user.displayAvatarURL())
+.setThumbnail(user.displayAvatarURL())
+.setFooter(user.username, user.displayAvatarURL())
 .setColor('BLUE')
 }
 
