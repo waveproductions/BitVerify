@@ -29,7 +29,7 @@ if(!level){
 const embed = new Discord.MessageEmbed()
 .setTitle(`${user.username}'s Info`)
 .addField('Username', `**${user.username}**${user.discriminator}`, true)
-.addField('User ID', `**${member.id}**`, true)
+.addField('User ID', `**${user.id}**`, true)
 .addField('Nickname', `**${user.nickname ? user.nickname : 'No Nickname'}**`)
 .addField('Level', `**${leveldisplay}**`)
 .addField('XP', `**${xpdisplay}**`)
