@@ -14,15 +14,15 @@ if(!level){
   xpdisplay = `${level.xp}`
 }
   let status = '';
-  if (whoismember.presence.status === 'dnd'){
+  if (member.user.presence.status === 'dnd'){
     status = 'Do Not Disturb';
-      } else if (whoismember.presence.status === 'online'){
+      } else if (member.user.presence.status === 'online'){
     status = 'Online';
-      } else if (whoismember.presence.status === 'offline'){
+      } else if (member.user.presence.status === 'offline'){
     status = 'Offline';
-      } else if (whoismember.presence.status === 'idle'){
+      } else if (member.user.presence.status === 'idle'){
     status = 'Idle';
-      } else if (whoismember.presence.status === 'transparent'){
+      } else if (member.user.presence.status === 'transparent'){
     status = 'Transparent';
       }
 const embed = new Discord.MessageEmbed()
@@ -39,7 +39,7 @@ const embed = new Discord.MessageEmbed()
 .setFooter(member.user.username, member.user.displayAvatarURL())
 .setColor('BLUE')
 }
-//name this whatever the command name is.
+
 module.exports.config = {
     name: "userinfo",
     description: "Gets information of the mentioned member.",
