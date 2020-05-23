@@ -86,7 +86,7 @@ bot.on('message', async message => {
     setTimeout(function(){
           cookiemsg.delete();
     }, 5000)
-    }
+    } else {
     let levelupembed = new Discord.MessageEmbed()
     .setTitle('Level Up!')
     .setDescription(`${message.author}, you are now level **${user.level}**! :tada:`)
@@ -95,6 +95,7 @@ bot.on('message', async message => {
     setTimeout(function(){
           msg.delete();
         }, 5000)
+    }
     }
 })
 
