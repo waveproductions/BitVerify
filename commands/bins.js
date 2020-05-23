@@ -5,11 +5,11 @@ module.exports.run = async (bot, message, args) => {
   .setTitle('Bins')
   .setDescription(`**Use these bins instead of pasting code snippets.**
   
-  ➡️ [\`SourceBin\`](https://sourceb.in/)
-  ➡️ [\`HasteBin\`](https://hasteb.in/)
-  ➡️ [\`HateBin\`](https://hatebin.com/)
-  ➡️ [\`Hastebin\`](https://hastebin.com/)
-  ➡️ [\`PasteBin\`](https://pastebin.com/)`)
+  ➡️ [__\`SourceBin\`__](https://sourceb.in/)
+  ➡️ [__\`HasteBin\`__](https://hasteb.in/)
+  ➡️ [__\`HateBin\`__](https://hatebin.com/)
+  ➡️ [__\`Hastebin\`__](https://hastebin.com/)
+  ➡️ [__\`PasteBin\`__](https://pastebin.com/)`)
   .setFooter('I recommend SourceBin.')
   .setColor('GREEN')
   message.channel.send(helpEmbed)
