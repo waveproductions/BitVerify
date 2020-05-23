@@ -15,7 +15,7 @@ if(!level){
   xpdisplay = `${level.xp}`
 }
   let status = '';
-  if (member.user.presence.status === 'dnd'){
+  if (user.presence.status === 'dnd'){
     status = 'Do Not Disturb';
       } else if (user.presence.status === 'online'){
     status = 'Online';
