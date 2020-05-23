@@ -27,7 +27,7 @@ if(!level){
     status = 'Transparent';
       }
 const embed = new Discord.MessageEmbed()
-.setTitle(`${member.user.username}'s Info`)
+.setTitle(`${user.username}'s Info`)
 .addField('Username', `**${member.user.username}**${member.user.discriminator}`, true)
 .addField('User ID', `**${member.id}**`, true)
 .addField('Nickname', `**${user.nickname ? user.nickname : 'No Nickname'}**`)
