@@ -1,3 +1,4 @@
+require('dotenv').config()
 const ms = require('ms')
 const Levels = require('discord-xp')
 const mongoose = require('mongoose')
