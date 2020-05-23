@@ -204,6 +204,7 @@ bot.on('guildDelete', guild => {
     botCount.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
     humanCount.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
     placeholder.deleteMany({ GuildID: guild.id }, (err) => console.log(err))
+    cookies.deleteMany({ GuildID: guild.id }, (err) => console.log(err))
     })
 
 bot.login(process.env.token)
