@@ -75,8 +75,8 @@ bot.on('message', async message => {
   const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomXP);
   if(hasLeveledUp) {
     if(randomCookie == '1') {
-    const update = { Cookies: cookie.Cookies += 1 }
-    let cookieupdate = await cookies.findOneAndUpdate({ UserID: message.author.id, GuildID: message.guild.id }, update)
+    const update = { UserID: message.author.id, GuildID: message.guild.id, Cookies: cookie.Cookies += 1 }
+    let cookieupdate = await cookies.findOneAndReplace({ UserID: message.author.id, GuildID: message.guild.id }, update)
     console.log(cookie.Cookies)
     }
     const user = await Levels.fetch(message.author.id, message.guild.id);
