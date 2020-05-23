@@ -10,6 +10,8 @@ const guildPrefix = require('./models/GuildPrefix');
 const guildID = require('./models/GuildID');
 const botCount = require('./models/BotCount');
 const humanCount = require('./models/HumanCount')
+const placeholder = require('./node_modules/discord-xp/models/levels.js')
+const cookies = require('./models/Cookies')
 
 Levels.setURL("mongodb+srv://bitverify:63asdfpee1@cluster0-opjfq.mongodb.net/Data")
 
@@ -57,12 +59,26 @@ bot.on("message", async message => {
 })
 
 bot.on('message', async message => {
+  const cookie = await cookies.findOne({ UserID: message.author.id, GuildID: message.guild.id })
+  if(!cookie) {
+  let newCookie = new cookies({
+  UserID: message.author.id,
+  GuildID: message.guild.id
+  })
+  newCookie.save()
+  }
   if(!message.guild) return;
   if(message.author.bot) return;
     
+  const randomCookie = Math.round(Math.random() * 1) + 1
   const randomXP = Math.floor(Math.random() * 19) + 1;
   const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomXP);
   if(hasLeveledUp) {
+    if(randomCookie == '1') {
+    const update = { Cookies: cookie.Cookies += 1 }
+    let cookieupdate = await cookies.findOneAndUpdate({ UserID: message.author.id, GuildID: message.guild.id }, update)
+    console.log(cookie.Cookies)
+    }
     const user = await Levels.fetch(message.author.id, message.guild.id);
     let levelupembed = new Discord.MessageEmbed()
     .setTitle('Level Up!')
@@ -160,6 +176,10 @@ bot.on('guildMemberRemove', async member => {
 Levels.deleteUser(member.id, member.guild.id);
 })
 
+bot.on('guildMemberRemove', async member => {
+placeholder.deleteOne({ userID: member.id, guildID: member.guild.id }, (err) => console.log(err))
+})
+
 bot.on('guildCreate', guild => {
 let newData = new guildPrefix({
     prefix: 'v!',
@@ -175,6 +195,7 @@ bot.on('guildDelete', guild => {
     guildID.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
     botCount.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
     humanCount.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
+    placeholder.deleteMany({ GuildID: guild.id }, (err) => console.log(err))
     })
 
 bot.login(process.env.token)
