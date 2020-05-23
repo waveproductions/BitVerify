@@ -1,8 +1,12 @@
 const Discord = require('discord.js')
 const Levels = require('discord-xp')
+const cookies = require('../models/Cookies')
 
 module.exports.run = async (bot, message, args) => {
+
 const target = message.mentions.users.first() || bot.users.cache.get(args[0]) || message.author;
+    
+const cookie = cookies.findOne({ UserID: target.id, GuildID: message.guild.id })
 
 const user = await Levels.fetch(target.id, message.guild.id);
 
@@ -13,6 +17,7 @@ let embed = new Discord.MessageEmbed()
 .setDescription(`<@${user.userID}>`)
 .addField('Level', `**${user.level}**`, true)
 .addField('XP', `**${user.xp}**`, true)
+.addField('Cookies' `:cookie: **Cookie** x**${cookie.Cookies}**`)
 .setColor('BLUE')
 .setTimestamp()
 .setThumbnail(target.displayAvatarURL())
