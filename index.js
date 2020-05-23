@@ -72,14 +72,21 @@ bot.on('message', async message => {
     
   const randomCookie = Math.round(Math.random() * 1) + 1
   const randomXP = Math.floor(Math.random() * 19) + 1;
+  const user = await Levels.fetch(message.author.id, message.guild.id);
   const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomXP);
   if(hasLeveledUp) {
     if(randomCookie == '1') {
     const update = { UserID: message.author.id, GuildID: message.guild.id, Cookies: cookie.Cookies += 1 }
     let cookieupdate = await cookies.findOneAndReplace({ UserID: message.author.id, GuildID: message.guild.id }, update)
-    console.log(cookie.Cookies)
+    let cookieembed = new Discord.MessageEmbed()
+    .setTitle('Level Up!')
+    .setDescription(`${message.author}, you are now level **${user.level}**! :tada: You also recieved a cookie! :cookie:`)
+    .setColor('BLUE')
+    let cookiemsg = await message.channel.send(cookieembed)
+    setTimeout(function(){
+          cookiemsg.delete();
+    }, 5000)
     }
-    const user = await Levels.fetch(message.author.id, message.guild.id);
     let levelupembed = new Discord.MessageEmbed()
     .setTitle('Level Up!')
     .setDescription(`${message.author}, you are now level **${user.level}**! :tada:`)
