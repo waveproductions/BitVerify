@@ -1,12 +1,12 @@
 const request = require('request-promise')
-const { MessageEmbed } = require('discord.js')
+const Discord = require('discord.js')
 module.exports.run = async (bot, message, args) => {
     if(!args[0]){             
-        let epicgamerembed = new MessageEmbed()
+        let epicgamerembed = new Discord.MessageEmbed()
         .setTitle('Not Enough Args')
-        .setDescription('\:x\: Please be more descriptive.
+        .setDescription(`\:x\: Please be more descriptive. 
                         
-        \`v!docs <query>\`')
+        \`v!docs <query>\``)
         .setColor('RED')
 message.channel.send(epicgamerembed)
 }else{
