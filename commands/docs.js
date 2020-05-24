@@ -31,7 +31,7 @@ module.exports.run = async (bot, message, args) => {
 }
 }
 module.exports.config = {
-    name: "docs <discord.js docs>",
+    name: "docs",
     description: "Gets information from the discord.js docs.",
     usage: "v!docs",
     aliases: []
