@@ -1,13 +1,14 @@
 const request = require('request-promise')
+const { MessageEmbed } = require('discord.js')
 module.exports.run = async (bot, message, args) => {
     if(!args[0]){             
-        message.channel.send({embed:{
-          color: 3223859,
-          author:{name:`${message.author.tag}`,icon_url: message.author.displayAvatarURL()},
-          description:('❌ Too few arguments given.'),
-          fields:[{name:'Usage:',value:'\`\`\`docs <Project> <query>\`\`\`'},
-      ],
-      }})
+        let epicgamerembed = new MessageEmbed()
+        .setTitle('Not Enough Args')
+        .setDescription(':x: Please be more descriptive.
+                        
+        \`v!docs <query>\`')
+        .setColor('RED')
+message.channel.send(epicgamerembed)
 }else{
     let queryString = (args[0])
     let docs = `https://djsdocs.sorta.moe/v2/embed?src=master&q=${queryString}`
