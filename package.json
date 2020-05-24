@@ -25,7 +25,8 @@
     "dotenv": "^8.2.0",
     "mongoose": "^5.9.13",
     "ms": "^2.1.2",
-    "mysql2": "^2.1.0"
+    "mysql2": "^2.1.0",
+    "request-promise": "^4.2.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.3"
