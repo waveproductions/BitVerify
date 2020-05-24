@@ -20,6 +20,8 @@ module.exports.run = async (bot, message, args) => {
   .addField(`\`${data.prefix}giveaway <s | m | h | d> <channel mention> <prize>\``, 'Starts a giveaway.')
   .addField(`\`${data.prefix}leaderboard\``, 'Gets the leaderboard of the server.')
   .addField(`\`${data.prefix}rank <mention | id>\``, 'Gets the rank of someone.')
+  .addField(`\`${data.prefix}clear <clear amount>\``, 'Clears messages.')
+  .addField(`\`${data.prefix}docs <query>\``, 'Searches the discord.js docs.')
   .setFooter(`Your server's prefix for this bot is ${data.prefix}`)
   .setColor('GREEN')
   message.author.send(helpEmbed)
