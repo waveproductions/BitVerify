@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, args) => {
     if(!args[0]){             
         let epicgamerembed = new MessageEmbed()
         .setTitle('Not Enough Args')
-        .setDescription(':x: Please be more descriptive.
+        .setDescription('\:x\: Please be more descriptive.
                         
         \`v!docs <query>\`')
         .setColor('RED')
