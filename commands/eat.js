@@ -22,11 +22,16 @@ const cookie = cookies.findOne({ UserID: message.author.id, GuildID: message.gui
     message.channel.send('You ate a cookie and gained 10 XP! \:cookie\:')
     }
     
-    if(isNaN(args[1])) {
+    if(args[1] || isNaN(args[1])) {
     return message.channel.send('That is not a number.')
     }
     
-    
+    if(args[1] || args[0] === 'cookie') {
+    Levels.appendXp(message.author.id, message.guild.id, 10 * args[0])
+    const update2 = { UserID: message.author.id, GuildID: message.guild.id, Cookies: data.Cookies -= 10 * args[1] }
+    let cookieupdate2 = await cookies.findOneAndReplace({ UserID: message.author.id, GuildID: message.guild.id }, update2)
+    message.channel.send(`You ate ${args[1]} cookies and gained ${10 * args[1]} XP! \:cookie\:`)
+    }
     })
 }
 module.exports.config = {
