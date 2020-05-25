@@ -16,7 +16,7 @@ const cookie = cookies.findOne({ UserID: message.author.id, GuildID: message.gui
     }
     
     if(!args[1] || args[0] === 'cookie') {
-    Levels.appendXP(message.author.id, message.guild.id, 10)
+    Levels.appendXp(message.author.id, message.guild.id, 10)
     const update = { UserID: message.author.id, GuildID: message.guild.id, Cookies: data.Cookies -= 1 }
     let cookieupdate = await cookies.findOneAndReplace({ UserID: message.author.id, GuildID: message.guild.id }, update)
     message.channel.send('You ate a cookie and gained 10 XP! \:cookie\:')
