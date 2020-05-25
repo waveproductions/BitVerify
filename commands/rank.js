@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
 
 const target = message.mentions.users.first() || bot.users.cache.get(args[0]) || message.author;
     
-const cookie = cookies.findOne({ UserID: target.id, GuildID: message.guild.id })
+const cookie = cookies.findOne({ UserID: target.id, GuildID: message.guild.id }, async (err, data) => {
 
 const user = await Levels.fetch(target.id, message.guild.id);
 
@@ -22,6 +22,7 @@ let embed = new Discord.MessageEmbed()
 .setTimestamp()
 .setThumbnail(target.displayAvatarURL())
 message.channel.send(embed);
+    })
 }
 
 module.exports.config = {
