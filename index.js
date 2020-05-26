@@ -1,4 +1,3 @@
-const config = require('./config.json')
 const ms = require('ms')
 const Levels = require('discord-xp')
 const mongoose = require('mongoose')
@@ -14,9 +13,9 @@ const humanCount = require('./models/HumanCount')
 const placeholder = require('./node_modules/discord-xp/models/levels.js')
 const cookies = require('./models/Cookies')
 
-Levels.setURL(config.dbURL)
+Levels.setURL(process.env.dbURL)
 
-mongoose.connect(config.dbURL,{
+mongoose.connect(process.env.dbURL,{
     useNewUrlParser: true,
     useUnifiedTopology: true});
 
