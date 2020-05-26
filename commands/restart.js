@@ -8,9 +8,15 @@ module.exports.run = async (bot, message, args) => {
     .setTitle('Restart')
     .setDescription('Restarting in **10** seconds.')
     .setColor('BLUE')
+    let embed2 = new Discord.MessageEmbed()
+    .setTitle('Restart')
+    .setDescription('The bot has finished restarting.')
+    .setColor('BLUE')
   let msg = await message.channel.send(embed)
   setTimeout(function(){
           process.exit();
+    msg.edit(embed2)
+    bot.login(process.env.token)
         }, 10000)
   }
 }
