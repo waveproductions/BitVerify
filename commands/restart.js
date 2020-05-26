@@ -14,10 +14,12 @@ module.exports.run = async (bot, message, args) => {
     .setColor('BLUE')
   let msg = await message.channel.send(embed)
   setTimeout(function(){
-          process.exit(143);
-    msg.edit(embed2)
-    bot.login(process.env.token)
+          process.exit();
         }, 10000)
+  setTimeout(function(){
+          bot.login(process.env.token)
+    msg.edit(embed2)
+        }, 20000)
   }
 }
 
