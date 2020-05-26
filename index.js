@@ -44,8 +44,8 @@ fs.readdir("./commands/", (err, files) => {
 });
 
 bot.on("message", async message => {
-    guildPrefix.findOne({ GuildID: message.guild.id}, async(err, data) => {
-    let prefix = data.prefix;
+    guildPrefix.findOne({ GuildID: message.guild.id}, async(err, data10) => {
+    let prefix = data10.prefix;
     if(message.author.bot || message.channel.type === "dm") return;
     if(message.content.indexOf(prefix) !== 0) return;
     
