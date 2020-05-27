@@ -11,8 +11,8 @@ module.exports.run = async (bot, message, args) => {
   command = command.config
     
   const commandembed = new Discord.MessageEmbed()
-  .setTitle('${command.name} Info')
-  .addField('Name', `${command.name.toUpperCase}`)
+  .setTitle(`${command.name} Info`)
+  .addField('Name', `${command.name.toUpperCase()}`)
   .addField('Description', `${command.description}`)
   .addField('Aliases', `${command.aliases ? command.aliases.join(", ") : 'None'}`)
   .setColor('BLUE')
