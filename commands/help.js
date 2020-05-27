@@ -3,7 +3,7 @@ const guildPrefix = require('../models/GuildPrefix')
 const fs = require('fs')
 
 module.exports.run = async (bot, message, args) => {
-  fs.readdir("../commands/", (err, files) => {
+  fs.readdir("././commands/", (err, files) => {
     
   if(err) console.log(err)
     
