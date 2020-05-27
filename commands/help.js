@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
   
   if(!args[0]) {
   return message.channel.send(mainembed)
-  }
+  } else {
     
   const commandembed = new Discord.MessageEmbed()
   .setTitle(`${command.name.slice(0, 1).toUpperCase() + command.name.slice(1)} Info`)
@@ -29,6 +29,7 @@ module.exports.run = async (bot, message, args) => {
   .addField('Aliases', `${command.aliases.join(", ") ? command.aliases.join(", ") : 'None'}`)
   .setColor('BLUE')
   message.channel.send(commandembed)
+  }
   })
 }
 
