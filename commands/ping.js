@@ -1,22 +1,12 @@
 const Discord = require('discord.js')
 
 module.exports.run = async (bot, message, args) => {
-const embed = new Discord.MessageEmbed()
-.setTitle('Calculating ping.....')
-.setColor('BLUE')
-
-let msg = await message.channel.send(embed)
 
 const embed2 = new Discord.MessageEmbed()
 .setTitle('Ping')
-.addField('**API Latency**', `${Math.round((msg.createdTimestamp - message.createdTimestamp) + bot.ws.ping)}`)
+.addField('**API Latency**', `\`${Math.round(bot.ws.ping)}\``)
 .setColor('BLUE')
-
-let msg2 = await msg.edit(embed2)
-
-
-
-
+message.channel.send(embed2)
 }
 
 module.exports.config = {
