@@ -7,8 +7,10 @@ module.exports.run = async (bot, message, args) => {
     
   if(err) console.log(err)
     
+  if(args[0]) {
   let command = bot.commands.get(bot.aliases.get(args[0].toLowerCase()) || args[0].toLowerCase())
   command = command.config
+  }
     
   let cmd = bot.commands.map(x => `${x.command.config.name}`)
   
