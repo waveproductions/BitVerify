@@ -7,18 +7,12 @@ module.exports.run = async (bot, message, args) => {
     
   if(err) console.log(err)
     
-  let jsfile = files.filter(f => f.split(".").pop() === "js") 
-    if(jsfile.length <= 0) {
-         return console.log("[LOGS] Couldn't Find Commands!");
-    }
-    
-  let pull = require(`../commands/${args[0]}`);
-    
-  const commandlist = pull.cache.map(x => `\`${pull.config.name}\``)
+  let command = bot.commands.get(bot.aliases.get(args[0].toLowerCase()) || args[0].toLowerCase())
+  command = command.config
     
   const mainembed = new Discord.MessageEmbed()
   .setTitle('BitVerify Commands')
-  .addField('All Commands', `${commandlist.join(", ")}`)
+  .addField('All Commands', `${command.name}`)
   .setColor('BLUE')
   message.channel.send(mainembed)
   })
