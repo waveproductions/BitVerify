@@ -22,18 +22,17 @@ module.exports.run = async (bot, message, args) => {
   } else {
     
     let command = bot.commands.get(bot.aliases.get(args[0].toLowerCase()) || args[0].toLowerCase())
-  command = command.config
     if(!command) {
     return message.channel.send('Couldn\'t find that command.')
     }
     
   const commandembed = new Discord.MessageEmbed()
   .setTitle(`${command.name.slice(0, 1).toUpperCase() + command.name.slice(1)} Info`)
-  .addField('Name', `${command.name.slice(0, 1).toUpperCase() + command.name.slice(1)}`)
-  .addField('Description', `${command.description}`)
-  .addField('Usage', `\`${command.usage}\``)
-  .addField('Aliases', `${command.aliases.join(", ") ? command.aliases.join(", ") : 'None'}`)
-  .addField('Accessible By', `${command.accessableby}`)
+  .addField('Name', `${command.config.name.slice(0, 1).toUpperCase() + command.config.name.slice(1)}`)
+  .addField('Description', `${command.config.description}`)
+  .addField('Usage', `\`${command.config.usage}\``)
+  .addField('Aliases', `${command.config.aliases.join(", ") ? command.aliases.join(", ") : 'None'}`)
+  .addField('Accessible By', `${command.config.accessableby}`)
   .setFooter(`Total Commands\: ${bot.commands.size} | Prefix\: ${data.prefix}`)
   .setThumbnail(bot.user.displayAvatarURL())
   .setColor('BLUE')
