@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
   if(args[0]) {
   let command = bot.commands.get(bot.aliases.get(args[0].toLowerCase()) || args[0].toLowerCase())
   command = command.config
-  }
+  
     
   let cmd = bot.commands.map(command.name)
   
@@ -21,6 +21,7 @@ module.exports.run = async (bot, message, args) => {
   
   if(!args[0]) {
   return message.channel.send(mainembed)
+  }
   }
     
   const commandembed = new Discord.MessageEmbed()
