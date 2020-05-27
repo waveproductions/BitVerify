@@ -11,6 +11,10 @@ module.exports.run = async (bot, message, args) => {
     "small pp",
     "big pp"
     ];
+    
+    if(!args.slice(0).join(" ")) {
+    return message.channel.send('How am I going to predict nothing?')
+    }
 
     let result = replies[Math.floor(Math.random()*(replies.length))]
 
