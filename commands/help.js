@@ -16,6 +16,7 @@ module.exports.run = async (bot, message, args) => {
   const mainembed = new Discord.MessageEmbed()
   .setTitle('BitVerify Commands')
   .setDescription(`${cmd.join(", ")}`)
+  .setFooter(`Total Commands\: ${bot.commands.size}`)
   .setColor('BLUE')
   
   if(!args[0]) {
@@ -27,6 +28,7 @@ module.exports.run = async (bot, message, args) => {
   .addField('Name', `${command.name.slice(0, 1).toUpperCase() + command.name.slice(1)}`)
   .addField('Description', `${command.description}`)
   .addField('Aliases', `${command.aliases.join(", ") ? command.aliases.join(", ") : 'None'}`)
+  .setFooter(`Total Commands\: ${bot.commands.size}`)
   .setColor('BLUE')
   message.channel.send(commandembed)
   }
