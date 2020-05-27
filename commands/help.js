@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
   const mainembed = new Discord.MessageEmbed()
   .setTitle('BitVerify Commands')
   .setDescription(`${cmd.join(", ")}`)
-  .setFooter(`Total Commands\: ${bot.commands.size} | Prefix\: ${data.prefix} | Say \`${data.prefix}help <command>\` to get more info about the command.`)
+  .setFooter(`Total Commands\: ${bot.commands.size} | Prefix\: ${data.prefix} | Say ${data.prefix}help <command> to get more info about the command.`)
   .setThumbnail(bot.user.displayAvatarURL())
   .setColor('BLUE')
   
