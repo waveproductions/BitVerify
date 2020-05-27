@@ -23,6 +23,9 @@ module.exports.run = async (bot, message, args) => {
     
     let command = bot.commands.get(bot.aliases.get(args[0].toLowerCase()) || args[0].toLowerCase())
   command = command.config
+    if(!command) {
+    return message.channel.send('Couldn\'t find that command.')
+    }
     
   const commandembed = new Discord.MessageEmbed()
   .setTitle(`${command.name.slice(0, 1).toUpperCase() + command.name.slice(1)} Info`)
