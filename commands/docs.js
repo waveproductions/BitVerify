@@ -35,5 +35,6 @@ module.exports.config = {
     name: "docs",
     description: "Gets information from the discord.js docs.",
     usage: "v!docs",
+    accessableby: "All Members",
     aliases: []
 }
