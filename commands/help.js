@@ -14,6 +14,7 @@ module.exports.run = async (bot, message, args) => {
   .setTitle('BitVerify Commands')
   .setDescription(`${cmd.join(", ")}`)
   .setFooter(`Total Commands\: ${bot.commands.size} | Prefix\: ${data.prefix}`)
+  .setThumbnail(bot.user.displayAvatarURL())
   .setColor('BLUE')
   
   if(!args[0]) {
@@ -31,6 +32,7 @@ module.exports.run = async (bot, message, args) => {
   .addField('Aliases', `${command.aliases.join(", ") ? command.aliases.join(", ") : 'None'}`)
   .addField('Accessible By', `${command.accessableby}`)
   .setFooter(`Total Commands\: ${bot.commands.size} | Prefix\: ${data.prefix}`)
+  .setThumbnail(bot.user.displayAvatarURL())
   .setColor('BLUE')
   message.channel.send(commandembed)
   }
