@@ -20,9 +20,7 @@ module.exports.run = async (bot, message, args) => {
   .setTitle('BitVerify Commands')
   .addField('All Commands', `${commandlist.join(", ")}`)
   .setColor('BLUE')
-  if(!args[0]) {
-  return message.channel.send(mainembed)
-  }
+  message.channel.send(mainembed)
   })
 }
 
