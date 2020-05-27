@@ -11,7 +11,7 @@ something = `${args.slice(0).join(" ")} is`
 }
 let howgayembed = new Discord.MessageEmbed()
 .setTitle('Gay Rate Machine')
-.setDescription(`${something} ${random}% gay. \:rainbow_flag\:`)
+.setDescription(`${something} ${random}% gay.   \:rainbow_flag\:`)
 .setColor('RANDOM')
 message.channel.send(howgayembed)
 }
@@ -19,7 +19,7 @@ message.channel.send(howgayembed)
 module.exports.config = {
     name: "howgay",
     description: "Calculates your gayness.",
-    usage: "!howgay <something>",
+    usage: "v!howgay <something>",
     accessableby: "All Members",
     aliases: ['gayrate']
 }
