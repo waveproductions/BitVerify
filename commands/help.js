@@ -29,6 +29,7 @@ module.exports.run = async (bot, message, args) => {
   .addField('Description', `${command.description}`)
   .addField('Usage', `\`${command.usage}\``)
   .addField('Aliases', `${command.aliases.join(", ") ? command.aliases.join(", ") : 'None'}`)
+  .addField('Accessible By', `${command.accessableby}`)
   .setFooter(`Total Commands\: ${bot.commands.size} | Prefix\: ${data.prefix}`)
   .setColor('BLUE')
   message.channel.send(commandembed)
