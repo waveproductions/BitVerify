@@ -10,11 +10,13 @@ module.exports.run = async (bot, message, args) => {
   let command = bot.commands.get(bot.aliases.get(args[0].toLowerCase()) || args[0].toLowerCase())
   command = command.config
     
-  const mainembed = new Discord.MessageEmbed()
-  .setTitle('BitVerify Commands')
-  .addField('All Commands', `${command.name}`)
+  const commandembed = new Discord.MessageEmbed()
+  .setTitle('${command.name} Info')
+  .addField('Name', `${command.name.toUpperCase}`)
+  .addField('Description', `${command.description}`)
+  .addField('Aliases', `${command.aliases.join(', ')}`)
   .setColor('BLUE')
-  message.channel.send(mainembed)
+  message.channel.send(commandembed)
   })
 }
 
