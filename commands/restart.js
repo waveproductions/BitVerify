@@ -14,8 +14,11 @@ module.exports.run = async (bot, message, args) => {
     .setColor('BLUE')
   let msg = await message.channel.send(embed)
   setTimeout(function(){
-        bot.user.setStatus('idle')
-    bot.user.setActivity('UPDATING', {type: "PLAYING"})
+          bot.user.setStatus('idle')
+    bot.user.setActivity('RESTARTING', {type: "PLAYING"})
+  }, 8000)
+  setTimeout(function(){
+          console.log('Restarting....')
           bot.destroy()
         }, 10000)
   setTimeout(function(){
