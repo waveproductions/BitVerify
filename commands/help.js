@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
     
   let pull = require(`../commands/${args[0]}`);
     
-  const commandlist = pull.map(x => `\`${pull.config.name}\``)
+  const commandlist = pull.cache.map(x => `\`${pull.config.name}\``)
     
   const mainembed = new Discord.MessageEmbed()
   .setTitle('BitVerify Commands')
