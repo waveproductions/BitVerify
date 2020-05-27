@@ -3,7 +3,7 @@ const guildPrefix = require('../models/GuildPrefix')
 const fs = require('fs')
 
 module.exports.run = async (bot, message, args) => {
-  guildPrefix.findOne({ GuildID: message.guild.id }, async (data) => {
+  guildPrefix.findOne({ GuildID: message.guild.id }, async (err, data) => {
   fs.readdir("././commands/", (err, files) => {
     
   if(err) console.log(err)
