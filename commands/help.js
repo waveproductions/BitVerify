@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
     }
     
   const commandembed = new Discord.MessageEmbed()
-  .setTitle(`${command.name.slice(0, 1).toUpperCase() + command.name.slice(1)} Info`)
+  .setTitle(`${command.config.name.slice(0, 1).toUpperCase() + command.name.slice(1)} Info`)
   .addField('Name', `${command.config.name.slice(0, 1).toUpperCase() + command.config.name.slice(1)}`)
   .addField('Description', `${command.config.description}`)
   .addField('Usage', `\`${command.config.usage}\``)
