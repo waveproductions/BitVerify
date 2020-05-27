@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
   const mainembed = new Discord.MessageEmbed()
   .setTitle('BitVerify Commands')
   .setDescription(`${cmd.join(", ")}`)
-  .setFooter(`Total Commands\: ${bot.commands.size} | Prefix\: ${data.prefix}`)
+  .setFooter(`Total Commands\: ${bot.commands.size} | Prefix\: ${data.prefix} | Say \`${data.prefix}help <command>\` to get more info about the command.`)
   .setThumbnail(bot.user.displayAvatarURL())
   .setColor('BLUE')
   
@@ -28,7 +28,7 @@ module.exports.run = async (bot, message, args) => {
   .setTitle(`${command.name.slice(0, 1).toUpperCase() + command.name.slice(1)} Info`)
   .addField('Name', `${command.name.slice(0, 1).toUpperCase() + command.name.slice(1)}`)
   .addField('Description', `${command.description}`)
-  .addField('Usage', `\`${data.prefix}${command.usage}\``)
+  .addField('Usage', `\`${command.usage}\``)
   .addField('Aliases', `${command.aliases.join(", ") ? command.aliases.join(", ") : 'None'}`)
   .addField('Accessible By', `${command.accessableby}`)
   .setFooter(`Total Commands\: ${bot.commands.size} | Prefix\: ${data.prefix}`)
