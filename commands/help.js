@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
   .setTitle(`${command.name.slice(0, 1).toUpperCase() + command.name.slice(1)} Info`)
   .addField('Name', `${command.name.slice(0, 1).toUpperCase() + command.name.slice(1)}`)
   .addField('Description', `${command.description}`)
-  .addField('Usage', `${command.usage}`)
+  .addField('Usage', `\`${command.usage}\``)
   .addField('Aliases', `${command.aliases.join(", ") ? command.aliases.join(", ") : 'None'}`)
   .setFooter(`Total Commands\: ${bot.commands.size} | Prefix\: ${data.prefix}`)
   .setColor('BLUE')
