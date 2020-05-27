@@ -6,9 +6,6 @@ module.exports.run = async (bot, message, args) => {
   fs.readdir("././commands/", (err, files) => {
     
   if(err) console.log(err)
-    
-  let command = bot.commands.get(bot.aliases.get(args[0].toLowerCase()) || args[0].toLowerCase())
-  command = command.config
   
   let cmd = bot.commands.map(c => `\`${c.config.name}\``)
   
@@ -21,6 +18,9 @@ module.exports.run = async (bot, message, args) => {
   if(!args[0]) {
   return message.channel.send(mainembed)
   } else {
+    
+    let command = bot.commands.get(bot.aliases.get(args[0].toLowerCase()) || args[0].toLowerCase())
+  command = command.config
     
   const commandembed = new Discord.MessageEmbed()
   .setTitle(`${command.name.slice(0, 1).toUpperCase() + command.name.slice(1)} Info`)
