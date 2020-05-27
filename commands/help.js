@@ -31,7 +31,7 @@ module.exports.run = async (bot, message, args) => {
   .addField('Name', `${command.config.name.slice(0, 1).toUpperCase() + command.config.name.slice(1)}`)
   .addField('Description', `${command.config.description}`)
   .addField('Usage', `\`${command.config.usage}\``)
-  .addField('Aliases', `${command.config.aliases.join(", ") ? command.aliases.join(", ") : 'None'}`)
+  .addField('Aliases', `${command.config.aliases.join(", ") ? command.config.aliases.join(", ") : 'None'}`)
   .addField('Accessible By', `${command.config.accessableby}`)
   .setFooter(`Total Commands\: ${bot.commands.size} | Prefix\: ${data.prefix}`)
   .setThumbnail(bot.user.displayAvatarURL())
