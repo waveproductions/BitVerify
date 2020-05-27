@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
     
   const commandembed = new Discord.MessageEmbed()
   .setTitle(`${command.name} Info`)
-  .addField('Name', `${command.name.toUpperCase()}`)
+  .addField('Name', `${command.name.slice(0, 1).toUpperCase() + command.name.slice(1)}`)
   .addField('Description', `${command.description}`)
   .addField('Aliases', `${command.aliases.join(", ") ? command.aliases.join(", ") : 'None'}`)
   .setColor('BLUE')
