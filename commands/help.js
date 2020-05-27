@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
   .setTitle(`${command.name} Info`)
   .addField('Name', `${command.name.toUpperCase()}`)
   .addField('Description', `${command.description}`)
-  .addField('Aliases', `${command.aliases ? command.aliases.join(", ") : 'None'}`)
+  .addField('Aliases', `${command.aliases.join(", ") ? command.aliases.join(", ") : 'None'}`)
   .setColor('BLUE')
   message.channel.send(commandembed)
   })
