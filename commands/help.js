@@ -10,6 +10,17 @@ module.exports.run = async (bot, message, args) => {
   let command = bot.commands.get(bot.aliases.get(args[0].toLowerCase()) || args[0].toLowerCase())
   command = command.config
     
+  let cmd = bot.commands.map(x => `${x.command.config.name}`)
+  
+  const mainembed = new Discord.MessageEmbed()
+  .setTitle('BitVerify Commands')
+  .setDescription(`${cmd.join(", ")}`)
+  .setColor('BLUE')
+  
+  if(!args[0]) {
+  return message.channel.send(mainembed)
+  }
+    
   const commandembed = new Discord.MessageEmbed()
   .setTitle(`${command.name.slice(0, 1).toUpperCase() + command.name.slice(1)} Info`)
   .addField('Name', `${command.name.slice(0, 1).toUpperCase() + command.name.slice(1)}`)
