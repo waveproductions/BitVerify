@@ -9,11 +9,12 @@ let msg = await message.channel.send(embed)
 
 const embed2 = new Discord.MessageEmbed()
 .setTitle('Ping')
+.addField('**API Latency**', `${Math.round((msg.createdTimestamp - message.createdTimestamp) - bot.ws.ping)}`)
 .setColor('BLUE')
 
 let msg2 = await msg.edit(embed2)
 
-embed2.addField('**API Latency**', `${Math.round((msg.createdTimestamp - msg2.createdTimestamp) - bot.ws.ping)}`)
+
 
 
 }
