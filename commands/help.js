@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
          return console.log("[LOGS] Couldn't Find Commands!");
     }
     
-  let pull = require(`././commands/`);
+  let pull = require(`../commands/`);
     
   const commandlist = pull.map(x => `\`${pull.config.name}\``)
     
