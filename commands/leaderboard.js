@@ -24,5 +24,6 @@ module.exports.config = {
     description: "The rank leaderboard of your server.",
     usage: "v!leaderboard",
     accessableby: "All Members",
+    category: "utility",
     aliases: ['']
 }
