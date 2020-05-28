@@ -69,7 +69,14 @@ bot.on("message", async message => {
             
         if (now < expirationTime) {
 		const timeLeft = (expirationTime - now) / 1000;
-		return message.reply(`please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${commandfile.config.name}\` command.`);
+		let cooldownembed = new Discord.MessageEmbed()
+		.setTitle('Cooldown')
+		.setDescription(`This command is on a cooldown, try again in **${timeLeft.toFixed(1)} seconds.**
+		The default cooldown on this command is \`${cooldownAmount}\`.
+
+		While you wait, join our [server!](https://discord.com/invite/AgGxs45)`)
+		.setColor('BLUE')
+		return message.channel.send(cooldownembed);
         }
 	} else if(commandfile) commandfile.run(bot,message,args)
 	    
