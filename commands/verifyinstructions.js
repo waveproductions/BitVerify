@@ -17,5 +17,6 @@ module.exports.config = {
     description: "Instructions for the bot.",
     usage: "v!verifyinstructions",
     accessableby: "Admins",
+    category: "utility",
     aliases: ['instructions']
 }
