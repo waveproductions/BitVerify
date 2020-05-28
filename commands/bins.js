@@ -20,5 +20,6 @@ module.exports.config = {
     description: "A list of bins that you can use instead of pasting code snippets.",
     usage: "v!bins",
     accessableby: "All Members",
+    category: "utility",
     aliases: ['']
 }
