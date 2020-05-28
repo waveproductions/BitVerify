@@ -21,5 +21,6 @@ module.exports.config = {
     description: "Calculates your gayness.",
     usage: "v!howgay <something>",
     accessableby: "All Members",
+    category: "fun",
     aliases: ['gayrate']
 }
