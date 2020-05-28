@@ -23,6 +23,7 @@ require("./util/eventHandler")(bot)
 
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
+const cooldowns = new Discord.Collection();
 
 fs.readdir("./commands/", (err, files) => {
 
@@ -55,6 +56,23 @@ bot.on("message", async message => {
     if(!message.content.startsWith(prefix)) return;
     let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)))
     if(commandfile) commandfile.run(bot,message,args)
+        
+        if(!cooldowns.has(commandfile.config.name)) {
+            cooldowns.set(commandfile.config.name)
+        }
+        
+        const now = Date.now();
+        const timestamps = cooldowns.get(commandfile.config.name);
+        const cooldownAmount = (commandfile.config.cooldown || 3) * 1000;
+        
+        if (timestamps.has(message.author.id)) {
+	const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
+
+	if (now < expirationTime) {
+		const timeLeft = (expirationTime - now) / 1000;
+		return message.reply(`please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${commandfile.config.name}\` command.`);
+	}
+}
     })
 })
 
