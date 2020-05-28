@@ -113,5 +113,6 @@ module.exports.config = {
     description: "A fun command that hacks people.",
     usage: "v!hack",
     accessableby: "All Members",
+    category: "fun",
     aliases: []
 }
