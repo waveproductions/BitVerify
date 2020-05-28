@@ -7,9 +7,8 @@ message.delete()
 }
   const haste = new hastebin({ url: hastebin.com })
   
-  const link = haste.post(args.slice(0).join(" "))
+  const link = haste.post(args.slice(0).join(" ").then(link => message.channel.send(link)))
   
-  message.channel.send(link)
 }
 
 module.exports.config = {
