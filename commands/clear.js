@@ -38,5 +38,6 @@ module.exports.config = {
     description: "Clears messages.",
     usage: "v!clear <clear ammount>",
     accessableby: "Admins",
+    category: "moderation",
     aliases: ['purge']
 }
