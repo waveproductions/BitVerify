@@ -9,6 +9,7 @@ message.delete()
   
   const link = haste.post(args.slice(0).join(" "))
   
+  message.channel.send(link)
 }
 
 module.exports.config = {
