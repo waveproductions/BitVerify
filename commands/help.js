@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
   
   let cmd = bot.commands.map(c => `\`${c.config.name}\``)
   let fun = bot.commands.find(x => x.config.category === 'fun')
-  let fun2 = `\`${fun.config.name}\``
+  let fun2 = fun.map(e => `\`${e.config.name}\``)
   
   const mainembed = new Discord.MessageEmbed()
   .setTitle('BitVerify Commands')
