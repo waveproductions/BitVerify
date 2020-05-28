@@ -60,32 +60,6 @@ bot.on("message", async message => {
 })
 
 bot.on('message', async message => {
-if(!bot.cooldowns.has(bot.commands.config.name)) {
-    bot.cooldowns.set(bot.commands.config.name, new Discord.Collection())
-}
-
-const now = Date.now()
-const timestamps = bot.cooldowns.get(bot.commands.config.name)
-const cooldownAmount = (bot.commands.config.cooldown || 3) * 1000;
-
-if(timestamps.has(message.author.id)) {
-    const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
-    
-    if(now > expirationTime) {
-    const timeLeft = (expirationTime - now) / 1000;
-        let cooldownembed = new Discord.MessageEmbed()
-        .setTitle('Cooldown')
-        .setDescription(`Please wait \`${timeLeft.toFixed()}\` more second(s) before using \`${bot.commands.config.name} again.\``)
-        .setColor('BLUE')
-        message.channel.send(cooldownembed)
-    }
-}
-    
-            timestamps.set(message.author.id, now);
-setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
-})
-
-bot.on('message', async message => {
   const cookie = await cookies.findOne({ UserID: message.author.id, GuildID: message.guild.id })
   if(!cookie) {
   let newCookie = new cookies({
