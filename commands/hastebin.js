@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
 if(message.deletable) {
 message.delete()
 }
-  const haste = new hastebin({ url: 'hastebin.com' })
+  const haste = new hastebin({ url: 'hastebin.com/asdgasdg' })
   
   const link = haste.post(args.slice(0).join(" "))
   
