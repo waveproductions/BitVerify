@@ -47,5 +47,6 @@ module.exports.config = {
     description: "Gives a list of commands.",
     usage: "v!help",
     accessableby: "All Members",
+    category: "utility",
     aliases: ['']
 }
