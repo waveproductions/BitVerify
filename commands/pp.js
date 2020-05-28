@@ -22,5 +22,6 @@ module.exports.config = {
     description: "Calculates your pp size.",
     usage: "v!penis <someone>",
     accessableby: "All Members",
+    category: "fun",
     aliases: ['pp', 'peepee']
   }
