@@ -58,7 +58,7 @@ bot.on("message", async message => {
     if(commandfile) commandfile.run(bot,message,args)
         
         if(!cooldowns.has(commandfile.config.name)) {
-        return cooldowns.set(commandfile.config.name, new Discord.Collection())
+        cooldowns.set(commandfile.config.name, new Discord.Collection())
         }
         
         const now = Date.now()
