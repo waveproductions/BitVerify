@@ -73,6 +73,9 @@ bot.on("message", async message => {
 		return message.reply(`please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${commandfile.config.name}\` command.`);
         }
 	}
+	    
+	    timestamps.set(message.author.id, now);
+setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
     })
 })
 
