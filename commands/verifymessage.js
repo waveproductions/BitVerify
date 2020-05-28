@@ -35,5 +35,6 @@ module.exports.config = {
     description: "Gives a list of commands.",
     usage: "v!verifymessage",
     accessableby: "Admins",
+    category: "utility",
     aliases: ['']
 }
