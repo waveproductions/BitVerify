@@ -72,6 +72,7 @@ bot.on("message", async message => {
 		const timeLeft = (expirationTime - now) / 1000;
 		return message.reply(`please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${commandfile.config.name}\` command.`);
         }
+	}
     })
 })
 
