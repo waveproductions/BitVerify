@@ -10,7 +10,6 @@ module.exports.run = async (bot, message, args) => {
   
   let cmd = bot.commands.map(c => `\`${c.config.name}\``)
   let fun = bot.commands.filter(x => `\`${x.config.category === 'fun'}\``)
-  let fun2 = `\`${fun.config.name}\``
   
   const mainembed = new Discord.MessageEmbed()
   .setTitle('BitVerify Commands')
@@ -28,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
   if(args[0] === 'fun') {
   let funembed = new Discord.MessageEmbed()
   .setTitle('🎲 Fun Commands')
-  .setDescription(`${fun2.join(", ")}`)
+  .setDescription(`${fun.join(", ")}`)
   .setFooter(`Total Commands\: ${bot.commands.size} | Prefix\: ${data.prefix} | Say ${data.prefix}help <command> to get more info about the command.`)
   .setColor('BLUE')
   return message.channel.send(funembed)
