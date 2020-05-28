@@ -23,7 +23,6 @@ require("./util/eventHandler")(bot)
 
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
-bot.cooldowns = new Discord.Collection();
 
 fs.readdir("./commands/", (err, files) => {
 
