@@ -28,5 +28,6 @@ module.exports.config = {
     description: "Verifies the user.",
     usage: "v!verify",
     accessableby: "All Members",
+    category: "utility",
     aliases: ['']
 }
