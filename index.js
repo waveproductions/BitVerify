@@ -55,7 +55,6 @@ bot.on("message", async message => {
 
     if(!message.content.startsWith(prefix)) return;
     let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)))
-    if(commandfile) commandfile.run(bot,message,args)
         
         if(!cooldowns.has(commandfile.config.name)) {
         cooldowns.set(commandfile.config.name, new Discord.Collection())
@@ -72,7 +71,7 @@ bot.on("message", async message => {
 		const timeLeft = (expirationTime - now) / 1000;
 		return message.reply(`please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${commandfile.config.name}\` command.`);
         }
-	}
+	} else if(commandfile) commandfile.run(bot,message,args)
 	    
 	    timestamps.set(message.author.id, now);
 setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
