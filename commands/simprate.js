@@ -21,5 +21,6 @@ module.exports.config = {
     description: "Calculates your simprate.",
     usage: "v!simprate <something>",
     accessableby: "All Members",
+    category: "fun",
     aliases: ['howsimp', 'simprank']
 }
