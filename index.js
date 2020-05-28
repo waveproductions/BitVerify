@@ -72,10 +72,10 @@ bot.on("message", async message => {
 		let cooldownembed = new Discord.MessageEmbed()
 		.setTitle('Cooldown')
 		.setDescription(`This command is on a cooldown, try again in **${timeLeft.toFixed(1)} seconds.**
-		The default cooldown on this command is \`${cooldownAmount}\`.
+		The default cooldown on this command is \`${cooldownAmount / 1000}s\`.
 
 		While you wait, join our [server!](https://discord.com/invite/AgGxs45)`)
-		.setColor('BLUE')
+		.setColor(0x983cc9)
 		return message.channel.send(cooldownembed);
         }
 	} else if(commandfile) commandfile.run(bot,message,args)
