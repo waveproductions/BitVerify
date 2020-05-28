@@ -27,5 +27,6 @@ module.exports.config = {
     description: "Ask the magic 8ball about your future!",
     usage: "v!8ball",
     accessableby: "All Members",
+    category: "fun",
     aliases: ['8b']
 }
