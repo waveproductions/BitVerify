@@ -69,5 +69,6 @@ module.exports.config = {
     description: "Starts a giveaway.",
     usage: "v!giveaway <s | m | h | d> <channel mention> <prize>",
     accessableby: "Admins",
+    category: "fun",
     aliases: []
 }
