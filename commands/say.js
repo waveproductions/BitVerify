@@ -17,5 +17,6 @@ module.exports.config = {
     description: "Makes the bot say whatever you say.",
     usage: "v!echo <message>",
     accessableby: "Admins",
+    category: "moderation",
     aliases: ['say']
 }
