@@ -30,5 +30,6 @@ module.exports.config = {
     description: "Gets the rank of the person mentioned.",
     usage: "v!rank <mention | id>",
     accessableby: "All Members",
+    category: "utility",
     aliases: ['']
 }
