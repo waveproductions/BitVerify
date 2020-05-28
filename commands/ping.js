@@ -14,5 +14,6 @@ module.exports.config = {
     description: "Calculates the API latency.",
     usage: "v!ping",
     accessableby: "All Members",
+    category: "fun",
     aliases: ['latency']
 }
