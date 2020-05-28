@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot,message, args) => {
 
-    const person = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(" ") || x.user.username === args[0]) || message.guild.members.cache.get(message.author.id)
+    const person = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(" ") || x.user.username === args[0]) || message.member
     const random = Math.round(Math.random() * 15);
     const ppLevel = "=".repeat(random)
 
