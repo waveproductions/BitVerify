@@ -22,5 +22,6 @@ module.exports.config = {
     usage: "v!epicgamerrate <something>",
     accessableby: "All Members",
     category: "fun",
+    cooldown: 2,
     aliases: ['egrate']
 }
