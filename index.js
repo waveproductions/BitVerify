@@ -55,6 +55,7 @@ bot.on("message", async message => {
 
     if(!message.content.startsWith(prefix)) return;
     let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)))
+    if(!commandfile) return;
         
         if(!cooldowns.has(commandfile.config.name)) {
         cooldowns.set(commandfile.config.name, new Discord.Collection())
