@@ -23,5 +23,6 @@ module.exports.config = {
     usage: "v!penis <someone>",
     accessableby: "All Members",
     category: "fun",
+    cooldown: 2,
     aliases: ['pp', 'peepee']
   }
