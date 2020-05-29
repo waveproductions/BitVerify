@@ -31,6 +31,7 @@ module.exports.run = async (bot, message, args) => {
   .addField('Name', `${command.config.name.slice(0, 1).toUpperCase() + command.config.name.slice(1)}`)
   .addField('Description', `${command.config.description}`)
   .addField('Category', `${command.config.category.slice(0, 1).toUpperCase() + command.config.category.slice(1)}`)
+  .addField('Cooldown', `${command.config.cooldown}s`)
   .addField('Usage', `\`${command.config.usage}\``)
   .addField('Aliases', `${command.config.aliases.join(", ") ? command.config.aliases.join(", ") : 'None'}`)
   .addField('Accessible By', `${command.config.accessableby}`)
