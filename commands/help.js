@@ -36,7 +36,6 @@ module.exports.run = async (bot, message, args) => {
   .addField('Aliases', `${command.config.aliases.join(", ") ? command.config.aliases.join(", ") : 'None'}`)
   .addField('Accessible By', `${command.config.accessableby}`)
   .setFooter(`Total Commands\: ${bot.commands.size} | Prefix\: ${data.prefix}`)
-  .setThumbnail(bot.user.displayAvatarURL())
   .setColor('BLUE')
   message.channel.send(commandembed)
   }
