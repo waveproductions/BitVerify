@@ -37,5 +37,6 @@ module.exports.config = {
     usage: "v!docs",
     accessableby: "All Members",
     category: "utility",
+    cooldown: 2,
     aliases: []
 }
