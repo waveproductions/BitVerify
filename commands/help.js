@@ -28,10 +28,10 @@ module.exports.run = async (bot, message, args) => {
     
   const commandembed = new Discord.MessageEmbed()
   .setTitle(`${command.config.name.slice(0, 1).toUpperCase() + command.config.name.slice(1)} Info`)
-  .addField('Name', `${command.config.name.slice(0, 1).toUpperCase() + command.config.name.slice(1)}`)
-  .addField('Description', `${command.config.description}`)
+  .addField('Name', `${command.config.name.slice(0, 1).toUpperCase() + command.config.name.slice(1)}`, true)
+  .addField('Description', `${command.config.description}`, true)
   .addField('Category', `${command.config.category.slice(0, 1).toUpperCase() + command.config.category.slice(1)}`)
-  .addField('Cooldown', `${command.config.cooldown}s`)
+  .addField('Cooldown', `\`${command.config.cooldown} second(s)\``)
   .addField('Usage', `\`${command.config.usage}\``)
   .addField('Aliases', `${command.config.aliases.join(", ") ? command.config.aliases.join(", ") : 'None'}`)
   .addField('Accessible By', `${command.config.accessableby}`)
