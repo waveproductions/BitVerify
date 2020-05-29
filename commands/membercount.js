@@ -130,5 +130,6 @@ module.exports.config = {
     usage: "v!membercount",
     accessableby: "Admins",
     category: "utility",
+    cooldown: 20,
     aliases: []
 }
