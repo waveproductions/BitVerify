@@ -31,5 +31,6 @@ module.exports.config = {
     usage: "v!rank <mention | id>",
     accessableby: "All Members",
     category: "utility",
+    cooldown: 2,
     aliases: ['']
 }
