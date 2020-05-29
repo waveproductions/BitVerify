@@ -25,5 +25,6 @@ module.exports.config = {
     usage: "v!leaderboard",
     accessableby: "All Members",
     category: "utility",
+    cooldown: 2,
     aliases: ['']
 }
