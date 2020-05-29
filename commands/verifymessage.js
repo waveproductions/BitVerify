@@ -32,7 +32,7 @@ guildSettings.findOne({ GuildID: message.guild.id }, async(err, data) => {
 
 module.exports.config = {
     name: "verifymessage",
-    description: "Gives a list of commands.",
+    description: "Creates a verification message so you don't have to.",
     usage: "v!verifymessage",
     accessableby: "Admins",
     category: "utility",
