@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 
 module.exports.run = async (bot, message, args) => {
   let helpEmbed = new Discord.MessageEmbed()
-  .setTitle('Bins')
+  .setTitle('Contributors')
   .setDescription('This is a list of contributors.')
   .addField('Bot Owner', '\`Gavin Vu#5315\` [-](https://github.com/gavserve/BitVerify/edit/master/commands/contributors.js) Main Creator of BitVerify')
   .addField('Others', '\`Poryafm12#6064\` [-](https://github.com/gavserve/BitVerify/edit/master/commands/contributors.js) Command Handler and his big brain\n\`Artist#3818\` [-](https://github.com/gavserve/BitVerify/edit/master/commands/contributors.js) Inspiration And Encouragement\n\`Arize#6562\` [-](https://github.com/gavserve/BitVerify/edit/master/commands/contributors.js) Commands')
