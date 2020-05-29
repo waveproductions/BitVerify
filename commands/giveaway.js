@@ -70,5 +70,6 @@ module.exports.config = {
     usage: "v!giveaway <s | m | h | d> <channel mention> <prize>",
     accessableby: "Admins",
     category: "fun",
+    cooldown: 30,
     aliases: []
 }
