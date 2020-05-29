@@ -39,5 +39,6 @@ module.exports.config = {
     usage: "v!clear <clear ammount>",
     accessableby: "Admins",
     category: "moderation",
+    cooldown: 5,
     aliases: ['purge']
 }
