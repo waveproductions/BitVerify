@@ -50,5 +50,6 @@ module.exports.config = {
     usage: "v!help",
     accessableby: "All Members",
     category: "utility",
+    cooldown: 2,
     aliases: ['']
 }
