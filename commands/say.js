@@ -18,5 +18,6 @@ module.exports.config = {
     usage: "v!echo <message>",
     accessableby: "Admins",
     category: "moderation",
+    cooldown: 2,
     aliases: ['say']
 }
