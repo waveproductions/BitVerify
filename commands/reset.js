@@ -65,5 +65,6 @@ module.exports.config = {
     usage: "v!reset",
     accessableby: "Admins",
     category: "utility",
+    cooldown: 10,
     aliases: ['']
 }
