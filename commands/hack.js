@@ -114,5 +114,6 @@ module.exports.config = {
     usage: "v!hack",
     accessableby: "All Members",
     category: "fun",
+    cooldown: 27.5,
     aliases: []
 }
