@@ -15,5 +15,6 @@ module.exports.config = {
     usage: "v!ping",
     accessableby: "All Members",
     category: "fun",
+    cooldown: 2,
     aliases: ['latency']
 }
