@@ -53,5 +53,6 @@ module.exports.config = {
     usage: "v!settings <channel mention> <role mention>",
     accessableby: "Admins",
     category: "utility",
+    cooldown: 30,
     aliases: ['']
 }
