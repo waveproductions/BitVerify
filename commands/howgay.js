@@ -22,5 +22,6 @@ module.exports.config = {
     usage: "v!howgay <something>",
     accessableby: "All Members",
     category: "fun",
+    cooldown: 2,
     aliases: ['gayrate']
 }
