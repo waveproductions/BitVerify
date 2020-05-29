@@ -21,5 +21,6 @@ module.exports.config = {
     usage: "v!bins",
     accessableby: "All Members",
     category: "utility",
+    cooldown: 4,
     aliases: ['']
 }
