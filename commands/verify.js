@@ -29,5 +29,6 @@ module.exports.config = {
     usage: "v!verify",
     accessableby: "All Members",
     category: "utility",
+    cooldown: 1,
     aliases: ['']
 }
