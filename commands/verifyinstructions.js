@@ -18,5 +18,6 @@ module.exports.config = {
     usage: "v!verifyinstructions",
     accessableby: "Admins",
     category: "utility",
+    cooldown: 3,
     aliases: ['instructions']
 }
