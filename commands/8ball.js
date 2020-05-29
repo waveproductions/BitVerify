@@ -28,5 +28,6 @@ module.exports.config = {
     usage: "v!8ball",
     accessableby: "All Members",
     category: "fun",
+    cooldown: 3,
     aliases: ['8b']
 }
