@@ -7,7 +7,9 @@ let messagecontent = args.slice(0).join(" ") || null
 if(messagecontent==null) {
   return message.channel.send('You did not specify anything to say!')
 } else {
-  if(!message.member.permissions.has("ADMINSTRATOR"))return message.channel.send(`**You do not have permission to use this command.**`)
+  if(!message.member.hasPermission('KICK_MEMBERS')) {
+  return message.channel.send('You don\'t have permission to use this command.')
+  }  
   message.channel.send(messagecontent)
   }
 }
