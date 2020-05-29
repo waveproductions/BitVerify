@@ -36,5 +36,6 @@ module.exports.config = {
     usage: "v!verifymessage",
     accessableby: "Admins",
     category: "utility",
+    cooldown: 10,
     aliases: ['']
 }
