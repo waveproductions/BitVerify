@@ -8,14 +8,26 @@ module.exports.run = async (bot, message, args) => {
     
   if(err) console.log(err)
   
-  let cmd = bot.commands.map(c => `\`${c.config.name}\``)
+  let fun = bot.commands.filter(c => c.config.category === 'fun'`).map(c => `\`${c.config.name}\``)
+  
+  const funembed = new Discord.MessageEmbed()
+  .setTitle('🎲 Fun Commands')
+  .setDescription(`${fun.join(", ")}`)
+  .setColor('BLUE')
+  .setFooter(`Total Commands\: ${bot.commands.size} | Prefix\: ${data.prefix} | Say ${data.prefix}help <command> to get more info about the command.`)
   
   const mainembed = new Discord.MessageEmbed()
   .setTitle('BitVerify Commands')
-  .setDescription(`${cmd.join(", ")}`)
+  .addField('🎲 Fun', `\`${data.prefix}help fun\``, true)
+  .addField('🛡️ Moderation', `\`${data.prefix}help moderation\``, true)
+  .addField('🛠️ Utility', `\`${data.prefix}help utility\``, true)
   .setFooter(`Total Commands\: ${bot.commands.size} | Prefix\: ${data.prefix} | Say ${data.prefix}help <command> to get more info about the command.`)
   .setThumbnail(bot.user.displayAvatarURL())
   .setColor('BLUE')
+  
+  if(args[0] === 'fun') {
+  return message.channel.send(funembed)
+  }
   
   if(!args[0]) {
   return message.channel.send(mainembed)
