@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 
 module.exports.run = async (bot, message, args) => {
     const snipes = bot.snipes.get(message.channel.id) || []
-    const msg = snipes[0];
+    const msg = snipes[args[0] - 1 || 0];
     if (!msg) return message.channel.send(`No messages have been deleted yet.`);
     const Embed = new Discord.MessageEmbed()
       .setAuthor(
