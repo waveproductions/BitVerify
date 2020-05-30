@@ -52,7 +52,7 @@ module.exports.config = {
     description: "Sets the settings of the role and channel.",
     usage: "v!settings <channel mention> <role mention>",
     accessableby: "Admins",
-    category: "utility",
+    category: "config",
     cooldown: 30,
     aliases: ['']
 }
