@@ -11,6 +11,13 @@ module.exports.run = async (bot, message, args) => {
   let fun = bot.commands.filter(c => c.config.category === 'fun').map(c => `\`${c.config.name}\``)
   let mod = bot.commands.filter(e => e.config.category === 'moderation').map(c => `\`${c.config.name}\``)
   let utility = bot.commands.filter(x => x.config.category === 'utility').map(x => `\`${x.config.name}\``)
+  let config = bot.commands.filter(d => d.config.category === 'config').map(d => `\`${d.config.name}\``)
+  
+  let configembed = new Discord.MessageEmbed()
+  .setTitle('⚙️ Config Commands')
+  .setDescription(`${config.join(", ")}`)
+  .setColor('BLUE')
+  .setFooter(`Total Commands\: ${bot.commands.size} | Prefix\: ${data.prefix} | Say ${data.prefix}help <command> to get more info about the command.`)
   
   let utilityembed = new Discord.MessageEmbed()
   .setTitle('🛠️ Utility Commands')
@@ -35,6 +42,7 @@ module.exports.run = async (bot, message, args) => {
   .addField('🎲 Fun', `\`${data.prefix}help fun\``, true)
   .addField('🛡️ Moderation', `\`${data.prefix}help moderation\``, true)
   .addField('🛠️ Utility', `\`${data.prefix}help utility\``, true)
+  .addField('⚙️ Config', `\`${data.prefix}help config\``, true)
   .setFooter(`Total Commands\: ${bot.commands.size} | Prefix\: ${data.prefix} | Say ${data.prefix}help <command> to get more info about the command.`)
   .setThumbnail(bot.user.displayAvatarURL())
   .setColor('BLUE')
@@ -49,6 +57,10 @@ module.exports.run = async (bot, message, args) => {
   
   if(args[0] === 'fun') {
   return message.channel.send(funembed)
+  }
+    
+  if(args[0] === 'config') {
+  return message.channel.send(configembed)
   }
   
   if(!args[0]) {
