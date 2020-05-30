@@ -1,4 +1,4 @@
-const Discord = require('discord.js)
+const Discord = require('discord.js')
 
 module.exports.run = async (bot, message, args) => {
     const newRole = message.mentions.roles.first() || message.guild.roles.cache.get(args[0]) || message.guild.roles.cache.find(role => role.name === args[0])
