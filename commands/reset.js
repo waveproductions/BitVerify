@@ -64,7 +64,7 @@ module.exports.config = {
     description: "Resets the data if you make a mistake while setting up.",
     usage: "v!reset",
     accessableby: "Admins",
-    category: "utility",
+    category: "config",
     cooldown: 10,
     aliases: ['']
 }
