@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
     
   if(err) console.log(err)
   
-  let fun = bot.commands.filter(c => c.config.category === 'fun'`).map(c => `\`${c.config.name}\``)
+  let fun = bot.commands.filter(c => c.config.category === 'fun').map(c => `\`${c.config.name}\``)
   
   const funembed = new Discord.MessageEmbed()
   .setTitle('🎲 Fun Commands')
