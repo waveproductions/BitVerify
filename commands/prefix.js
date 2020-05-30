@@ -64,7 +64,7 @@ module.exports.config = {
     description: "Changes the prefix.",
     usage: "v!prefix",
     accessableby: "Admins",
-    category: "utility",
+    category: "config",
     cooldown: 30,
     aliases: ['']
 }
