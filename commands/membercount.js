@@ -129,7 +129,7 @@ module.exports.config = {
     description: "Sets the settings of the member count channel.",
     usage: "v!membercount",
     accessableby: "Admins",
-    category: "utility",
+    category: "config",
     cooldown: 20,
     aliases: []
 }
