@@ -95,7 +95,7 @@ bot.on("message", async message => {
 		The default cooldown on this command is \`${cooldownAmount / 1000}s\`.
 
 		While you wait, join our [server](https://discord.com/invite/AgGxs45)!`)
-		.setColor(0x983cc9)
+		.setColor(0x3c54b4)
 		return message.channel.send(cooldownembed);
         }
 	} else if(commandfile) commandfile.run(bot,message,args)
