@@ -73,8 +73,8 @@ module.exports.run = async (bot, message, args) => {
     }
     
   const commandembed = new Discord.MessageEmbed()
-  .setTitle(`${command.config.name.slice(0, 1).toUpperCase() + command.config.name.slice(1)} Info`)
-  .addField('Name', `${command.config.name.slice(0, 1).toUpperCase() + command.config.name.slice(1)}`, true)
+  .setTitle(`Help | ${command.config.name}`)
+  .addField('Name', `${command.config.name}`, true)
   .addField('Description', `${command.config.description}`, true)
   .addField('Category', `${command.config.category.slice(0, 1).toUpperCase() + command.config.category.slice(1)}`)
   .addField('Cooldown', `\`${command.config.cooldown} second(s)\``)
