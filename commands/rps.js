@@ -18,21 +18,27 @@ module.exports.run = async (bot, message, args) => {
     let reaction = (await msg.awaitReactions(reactionFilter, { max: 1 })).first();
     
     let winning = ''
+    let footer = ''
     
     if((reaction.emoji.name === '🗻' && botChoice === '✂️') ||
     (reaction.emoji.name === '📄' && botChoice === '🗻') ||
     (reaction.emoji.name === '✂️' && botChoice === '📄')) {
     winning = 'You won!'
+    footer = '🎉 Yay!'
     } else if(reaction.emoji.name === botChoice) {
     winning = 'It\'s a tie!'
+    footer = 'Wow.'
     } else {
     winning = 'You lost.'
+    footer = '😔 Better luck next time.'
     }
     
     let newEmbed = new Discord.MessageEmbed()
     .setTitle('Rock Paper Scissors')
     .setDescription(`${reaction.emoji.name} vs ${botChoice}
+    
     ${winning}`)
+    .setFooter(footer)
     .setColor('RANDOM')
     
     await msg.edit(newEmbed)
