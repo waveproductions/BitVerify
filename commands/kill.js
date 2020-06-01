@@ -9,7 +9,9 @@ module.exports.run = async (bot, message, args) => {
     `${member.user.username} dies to the lack of quality memes.`,
     `${member.user.username} gets hit by a bus.`,
     `${member.user.username} died because they drank too much water.`,
-    `${member.user.username} dies because they suffered from depression since they were 4.`
+    `${member.user.username} dies because they suffered from depression since they were 4.`,
+    `${member.user.username} lives somehow.`,
+    `${member.user.username} stays up to late and their parents stick a chopstick up their a**.`
     ];
     
     if(!member) {
