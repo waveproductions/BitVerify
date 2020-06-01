@@ -7,7 +7,8 @@
   let statuses = [
    `v!help`,
    `roles move around.`,
-    `${bot.guilds.cache.size} servers.`
+    `${bot.guilds.cache.size} servers.`,
+    `people joining and leaving.`
   ];
   
   setInterval(function() {
