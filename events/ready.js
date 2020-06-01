@@ -8,7 +8,8 @@
    `v!help`,
    `roles move around.`,
     `${bot.guilds.cache.size} servers.`,
-    `people joining and leaving.`
+    `people joining and leaving.`,
+    `Pory sleep.`
   ];
   
   setInterval(function() {
