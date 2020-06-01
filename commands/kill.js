@@ -12,8 +12,12 @@ module.exports.run = async (bot, message, args) => {
     `${member.user.username} dies because they suffered from depression since they were 4.`
     ];
     
-    if(!args.slice(0).join(" ")) {
+    if(!member) {
     return message.channel.send('How can I kill nobody?')
+    }
+    
+    if(message.author.id === member.id) {
+    return message.channel.send(`${message.author.username} killed themself.`)
     }
 
     let result = replies[Math.floor(Math.random()*(replies.length))]
