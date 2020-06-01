@@ -1,6 +1,6 @@
-const ms = require('ms')
-const Levels = require('discord-xp')
-const mongoose = require('mongoose')
+const ms = require('ms');
+const Levels = require('discord-xp');
+const mongoose = require('mongoose');
 const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
 const fs = require("fs");
@@ -9,9 +9,9 @@ const memberCount = require('./models/MemberCount');
 const guildPrefix = require('./models/GuildPrefix');
 const guildID = require('./models/GuildID');
 const botCount = require('./models/BotCount');
-const humanCount = require('./models/HumanCount')
-const placeholder = require('./node_modules/discord-xp/models/levels.js')
-const cookies = require('./models/Cookies')
+const humanCount = require('./models/HumanCount');
+const placeholder = require('./node_modules/discord-xp/models/levels.js');
+const cookies = require('./models/Cookies');
 
 Levels.setURL(process.env.dbURL)
 
@@ -30,14 +30,14 @@ fs.readdir("./commands/", (err, files) => {
 
     if(err) console.log(err)
 
-    let jsfile = files.filter(f => f.split(".").pop() === "js") 
+    let jsfile = files.filter(f => f.split(".").pop() === "js")
     if(jsfile.length <= 0) {
          return console.log("[LOGS] Couldn't Find Commands!");
     }
 
     jsfile.forEach((f, i) => {
         let pull = require(`./commands/${f}`);
-        bot.commands.set(pull.config.name, pull);  
+        bot.commands.set(pull.config.name, pull);
         pull.config.aliases.forEach(alias => {
             bot.aliases.set(alias, pull.config.name)
         });
@@ -67,7 +67,7 @@ bot.on("message", async message => {
     let prefix = data10.prefix;
     if(message.author.bot || message.channel.type === "dm") return;
     if(message.content.indexOf(prefix) !== 0) return;
-    
+
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
@@ -75,18 +75,18 @@ bot.on("message", async message => {
     if(!message.content.startsWith(prefix)) return;
     let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)))
     if(!commandfile) return;
-        
+
         if(!cooldowns.has(commandfile.config.name)) {
         cooldowns.set(commandfile.config.name, new Discord.Collection())
         }
-        
+
         const now = Date.now()
         const timestamps = cooldowns.get(commandfile.config.name)
         const cooldownAmount = (commandfile.config.cooldown || 3) * 1000;
-        
+
         if(timestamps.has(message.author.id)) {
         const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
-            
+
         if (now < expirationTime) {
 		const timeLeft = (expirationTime - now) / 1000;
 		let cooldownembed = new Discord.MessageEmbed()
@@ -99,7 +99,7 @@ bot.on("message", async message => {
 		return message.channel.send(cooldownembed);
         }
 	} else if(commandfile) commandfile.run(bot,message,args)
-	    
+
 	    timestamps.set(message.author.id, now);
 setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
     })
@@ -116,7 +116,7 @@ bot.on('message', async message => {
   }
   if(!message.guild) return;
   if(message.author.bot) return;
-    
+
   const randomCookie = Math.round(Math.random() * 1) + 1
   const randomXP = Math.floor(Math.random() * 19) + 1;
   const user = await Levels.fetch(message.author.id, message.guild.id);
