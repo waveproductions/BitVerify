@@ -12,6 +12,7 @@ const botCount = require('./models/BotCount');
 const humanCount = require('./models/HumanCount');
 const placeholder = require('./node_modules/discord-xp/models/levels.js');
 const cookies = require('./models/Cookies');
+const logChannel = require('./models/MessageLog');
 
 Levels.setURL(process.env.dbURL)
 
@@ -42,6 +43,24 @@ fs.readdir("./commands/", (err, files) => {
             bot.aliases.set(alias, pull.config.name)
         });
     });
+});
+
+bot.on('messageDelete', async message => {
+  logChannel.findOne({ GuildID: message.guild.id }, async (err, data12) => {
+  if(!data12) return;
+  if(message.author.bot) return;
+  let messageChannel = bot.channels.cache.get(data12.MessageLogChannel)
+  let messageDeleteEmbed = new Discord.MessageEmbed()
+  .setAuthor('Message Deleted')
+  .setDescription(`User\: <@${message.author.id}>
+  Channel\: <#${message.channel.id}>
+
+  ${message.content}`)
+  .setColor('RED')
+  .setFooter(`Message ID\: ${message.id}`)
+  .setTimestamp()
+  messageChannel.send(messageDeleteEmbed)
+});
 });
 
 bot.on('messageDelete', async message => {
