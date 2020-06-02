@@ -63,6 +63,24 @@ bot.on('messageDelete', async message => {
 });
 });
 
+bot.on('messageUpdate', async (oldMessage, newMessage) => {
+  logChannel.findOne({ GuildID: oldMessage.guild.id }, async (err, data53) => {
+  if(!data53) return;
+  if(message.author.bot) return;
+  let messageChannel2 = bot.channels.cache.get(data53.MessageLogChannel)
+  let messageUpdateEmbed = new Discord.MessageEmbed()
+  .setAuthor('Message Edited')
+  .setDescription(`**User**\: <@${oldMessage.author.id}>
+  **Channel**\: <#${oldMessage.channel.id}>`)
+  .addField('Before\:', `${oldMessage.content}`)
+  .addField('After\:', `${newMessage.content}`)
+  .setColor('YELLOW')
+  .setFooter(`Message ID\: ${newMessage.id}`)
+  .setTimestamp(newMessage.editedTimestamp)
+  messageChannel2.send(messageUpdateEmbed)
+  });
+});
+
 bot.on('messageDelete', async message => {
     if(message.author.bot) return;
 	const snipes = message.client.snipes.get(message.channel.id) || [];
