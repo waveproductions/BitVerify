@@ -60,6 +60,7 @@ bot.on('messageDelete', async (message) => {
   .setFooter(`Message ID\: ${message.id}`)
   .setTimestamp()
   messageChannel.send(messageDeleteEmbed)
+  });
 });
 
 bot.on('messageUpdate', async (oldMessage, newMessage) => {
