@@ -4,12 +4,13 @@ const guildSettings = require('../models/GuildCreate')
 const memberCount = require('../models/MemberCount')
 const humanCount = require('../models/HumanCount')
 const botCount = require('../models/BotCount')
+const logChannel = require('../models/MessageLog')
 
 module.exports.run = async (bot, message, args) => {
   if(!message.member.hasPermission('ADMINISTRATOR')) {
   return message.channel.send('❌ You do not have permissions to use this command. Please contact a staff member.')
   }
-  
+
   if(!args[0]) {
   let argsembed = new Discord.MessageEmbed()
   .setTitle('Data Resets')
@@ -18,10 +19,11 @@ module.exports.run = async (bot, message, args) => {
   \`v!reset allcount\` Resets the member count that shows all the members in your server.
   \`v!reset botcount\` Resets the bot count.
   \`v!reset humancount\` Resets the human count.
-  \`v!reset verification\` Resets all your verification settings.`)
+  \`v!reset verification\` Resets all your verification settings.
+  \`v!reset messagelog\``)
   .setColor('GREEN')
   message.channel.send(argsembed)
-  } else 
+  } else
 if(message.author.bot || message.channel.type === 'dm') {return;}
         let messageinfocontent = message.content.toLowerCase()
     switch(args[0]) {
@@ -56,6 +58,14 @@ if(message.author.bot || message.channel.type === 'dm') {return;}
         .setDescription('Your verification data has been deleted.')
         .setColor('GREEN')
         message.channel.send(verifyembed)
+        break;
+      case 'messagelog':
+        logChannel.deleteOne({ GuildID: message.guild.id }, (err) => console.log(err))
+        let messagelogembed = new Discord.MessageEmbed()
+        .setTitle('Data Reset')
+        .setDescription('Your message log channel data has been deleted.')
+        .setColor('GREEN')
+        message.channel.send(messagelogembed)
     }
 }
 
