@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
   .addField('Example:', '\`v!messagelog <channel mention> \`')
   .setColor('RED')
 
-  if(!message.member.hasPermission("MANAGE_SERVER")) {
+  if(!message.member.hasPermission("ADMINISTRATOR")) {
   return message.channel.send("❌ You do not have permissions to use this command.")
   }
 
