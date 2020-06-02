@@ -52,8 +52,8 @@ bot.on('messageDelete', async message => {
   let messageChannel = bot.channels.cache.get(data12.MessageLogChannel)
   let messageDeleteEmbed = new Discord.MessageEmbed()
   .setAuthor('Message Deleted')
-  .setDescription(`User\: <@${message.author.id}>
-  Channel\: <#${message.channel.id}>
+  .setDescription(`**User**\: <@${message.author.id}>
+  **Channel**\: <#${message.channel.id}>
 
   ${message.content}`)
   .setColor('RED')
