@@ -20,7 +20,8 @@ module.exports.run = async (bot, message, args) => {
     `${member.user.username} dies because they suffered from depression since they were 4.`,
     `${member.user.username} lives somehow.`,
     `${member.user.username} stays up too late and their parents stick a chopstick up their a**.`,
-    `${member.user.username} read the discord.js docs too much.`
+    `${member.user.username} read the discord.js docs too much.`,
+    `${member.user.username} dies to the disease Yeetus Diabetus.`
     ];
 
     if(message.author.id === member.id) {
