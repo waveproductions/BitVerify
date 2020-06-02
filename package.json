@@ -5,19 +5,19 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon .\\database\\db.js",
+    "dev": "nodemon index.js",
     "start": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gavserve/Verification-Bot.git"
+    "url": "git+https://github.com/gavserve/BitVerify.git"
   },
   "author": "Gav",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gavserve/Verification-Bot/issues"
+    "url": "https://github.com/gavserve/BitVerify/issues"
   },
-  "homepage": "https://github.com/gavserve/Verification-Bot#readme",
+  "homepage": "https://github.com/gavserve/BitVerify#readme",
   "dependencies": {
     "chokidar": "^3.4.0",
     "discord-xp": "^1.0.5",
