@@ -10,7 +10,7 @@ if(messagecontent==null) {
   if(!message.member.hasPermission('KICK_MEMBERS')) {
   return message.channel.send('You don\'t have permission to use this command.')
   }
-  message.channel.send(`${messagecontent}\n\n-${message.author.username}`)
+  message.channel.send(`${messagecontent}\n\n- ${message.author.username}`)
   }
 }
 
