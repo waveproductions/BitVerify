@@ -66,7 +66,7 @@ bot.on('messageDelete', async message => {
 bot.on('messageUpdate', async (oldMessage, newMessage) => {
   logChannel.findOne({ GuildID: oldMessage.guild.id }, async (err, data53) => {
   if(!data53) return;
-  if(message.author.bot) return;
+  if(newMessage.author.bot) return;
   let messageChannel2 = bot.channels.cache.get(data53.MessageLogChannel)
   let messageUpdateEmbed = new Discord.MessageEmbed()
   .setAuthor('Message Edited')
