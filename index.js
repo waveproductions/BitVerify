@@ -45,24 +45,6 @@ fs.readdir("./commands/", (err, files) => {
     });
 });
 
-bot.on('messageDelete', async message => {
-  logChannel.findOne({ GuildID: message.guild.id }, async (err, data12) => {
-  if(!data12) return;
-  if(message.author.bot) return;
-  let messageChannel = bot.channels.cache.get(data12.MessageLogChannel)
-  let messageDeleteEmbed = new Discord.MessageEmbed()
-  .setAuthor('Message Deleted')
-  .setDescription(`**User**\: <@${message.author.id}>
-  **Channel**\: <#${message.channel.id}>
-
-  ${message.content}`)
-  .setColor('RED')
-  .setFooter(`Message ID\: ${message.id}`)
-  .setTimestamp()
-  messageChannel.send(messageDeleteEmbed)
-});
-});
-
 bot.on('messageUpdate', async (oldMessage, newMessage) => {
   logChannel.findOne({ GuildID: oldMessage.guild.id }, async (err, data53) => {
   if(!data53) return;
