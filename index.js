@@ -21,6 +21,7 @@ mongoose.connect(process.env.dbURL,{
     useUnifiedTopology: true});
 
 require("./util/eventHandler")(bot)
+require("./util/eventHandler")(message)
 
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
