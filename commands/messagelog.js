@@ -21,13 +21,13 @@ module.exports.run = async (bot, message, args) => {
   logChannel.findOne({ GuildID: message.guild.id},async(err, data) => {
   if(err) console.log(err)
   if(!data) {
-  let newSettings = new guildSettings({
+  let newSettings = new logChannel({
       GuildID: message.guild.id,
       MessageLogChannel: channel.id
       })
     let embed = new Discord.MessageEmbed()
   .setTitle('Settings Added')
-  .setDescription(`The bot will now only accept verification commands coming from ${channel} and the role that will be given is ${role}.`)
+  .setDescription(`The bot will now log messages in <#${channel.id}>.`)
   .setColor('GREEN')
       newSettings.save()
     message.channel.send(embed)
