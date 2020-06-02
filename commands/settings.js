@@ -10,19 +10,19 @@ module.exports.run = async (bot, message, args) => {
   .setDescription(`❌ Please be more descriptive.`)
   .addField('Example:', '\`v!settings <channel mention> <role mention>\`')
   .setColor('RED')
-  
+
   if(!message.member.hasPermission("ADMINISTRATOR")) {
   return message.channel.send("❌ You do not have permissions to use this command.")
   }
-  
+
   if(!channel) {
   return message.channel.send(argsEmbed)
   }
-  
+
   if(!role) {
   return message.channel.send(argsEmbed)
   }
-  
+
   guildSettings.findOne({ GuildID: message.guild.id},async(err, data) => {
   if(err) console.log(err)
   if(!data) {
@@ -34,13 +34,13 @@ module.exports.run = async (bot, message, args) => {
     let embed = new Discord.MessageEmbed()
   .setTitle('Settings Added')
   .setDescription(`The bot will now only accept verification commands coming from ${channel} and the role that will be given is ${role}.`)
-  .setColor('GREEN')    
+  .setColor('GREEN')
       newSettings.save()
     message.channel.send(embed)
     } else {
     let existsembed = new Discord.MessageEmbed()
     .setTitle('Data Already Exists')
-    .setDescription('To add a member count, please use \`v!reset\` before using this command.')
+    .setDescription('To add a verification system, please use \`v!reset\` before using this command.')
     .setColor('RED')
     message.channel.send(existsembed)
     }
