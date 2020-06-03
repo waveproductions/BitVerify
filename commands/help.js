@@ -39,7 +39,7 @@ module.exports.run = async (bot, message, args) => {
 
   const mainembed = new Discord.MessageEmbed()
   .setTitle('BitVerify Commands')
-  .setDescription(`Invite BitVerify to other servers with this [\`link\`](discord.com/oauth2/authorize?client_id=707376789860778046&permissions=8&scope=bot)!`)
+  .setDescription(`Invite BitVerify to other servers with this [link](discord.com/oauth2/authorize?client_id=707376789860778046&permissions=8&scope=bot).`)
   .addField('🎲 Fun', `\`${data.prefix}help fun\``, true)
   .addField('🛡️ Moderation', `\`${data.prefix}help moderation\``, true)
   .addField('🛠️ Utility', `\`${data.prefix}help utility\``, true)
