@@ -1,5 +1,4 @@
 const ms = require('ms');
-const Levels = require('discord-xp');
 const mongoose = require('mongoose');
 const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
@@ -10,11 +9,8 @@ const guildPrefix = require('./models/GuildPrefix');
 const guildID = require('./models/GuildID');
 const botCount = require('./models/BotCount');
 const humanCount = require('./models/HumanCount');
-const placeholder = require('./node_modules/discord-xp/models/levels.js');
 const cookies = require('./models/Cookies');
 const logChannel = require('./models/MessageLog');
-
-Levels.setURL(process.env.dbURL)
 
 mongoose.connect(process.env.dbURL,{
     useNewUrlParser: true,
@@ -142,47 +138,6 @@ setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
     })
 })
 
-bot.on('message', async message => {
-  const cookie = await cookies.findOne({ UserID: message.author.id, GuildID: message.guild.id })
-  if(!cookie) {
-  let newCookie = new cookies({
-  UserID: message.author.id,
-  GuildID: message.guild.id
-  })
-  newCookie.save()
-  }
-  if(!message.guild) return;
-  if(message.author.bot) return;
-
-  const randomCookie = Math.round(Math.random() * 1) + 1
-  const randomXP = Math.floor(Math.random() * 19) + 1;
-  const user = await Levels.fetch(message.author.id, message.guild.id);
-  const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomXP);
-  if(hasLeveledUp) {
-    if(randomCookie == '1') {
-    const update = { UserID: message.author.id, GuildID: message.guild.id, Cookies: cookie.Cookies += 1 }
-    let cookieupdate = await cookies.findOneAndReplace({ UserID: message.author.id, GuildID: message.guild.id }, update)
-    let cookieembed = new Discord.MessageEmbed()
-    .setTitle('Level Up!')
-    .setDescription(`${message.author}, you are now level **${user.level}**! :tada: You also recieved a cookie! :cookie:`)
-    .setColor('BLUE')
-    let cookiemsg = await message.channel.send(cookieembed)
-    setTimeout(function(){
-          cookiemsg.delete();
-    }, 5000)
-    } else {
-    let levelupembed = new Discord.MessageEmbed()
-    .setTitle('Level Up!')
-    .setDescription(`${message.author}, you are now level **${user.level}**! :tada:`)
-    .setColor('BLUE')
-    let msg = await message.channel.send(levelupembed);
-    setTimeout(function(){
-          msg.delete();
-        }, 5000)
-    }
-    }
-})
-
 bot.on('channelDelete', channel => {
     humanCount.findOne({ GuildID: channel.guild.id }, async(err, data) => {
         if(!data) return;
@@ -264,14 +219,6 @@ bot.on('guildMemberAdd', member => {
     })
 })
 
-bot.on('guildMemberRemove', async member => {
-Levels.deleteUser(member.id, member.guild.id);
-})
-
-bot.on('guildMemberRemove', async member => {
-placeholder.deleteOne({ userID: member.id, guildID: member.guild.id }, (err) => console.log(err))
-})
-
 bot.on('guildCreate', guild => {
 let newData = new guildPrefix({
     prefix: 'v!',
@@ -287,7 +234,6 @@ bot.on('guildDelete', guild => {
     guildID.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
     botCount.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
     humanCount.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
-    placeholder.deleteMany({ GuildID: guild.id }, (err) => console.log(err))
     cookies.deleteMany({ GuildID: guild.id }, (err) => console.log(err))
     logChannel.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
   });
