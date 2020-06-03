@@ -40,5 +40,5 @@ module.exports.config = {
     accessableby: "All Members",
     category: "utility",
     cooldown: 2,
-    aliases: ['']
+    aliases: ['whois']
 }
