@@ -44,7 +44,7 @@ module.exports.run = async (bot, message, args) => {
 module.exports.config = {
     name: "messagelog",
     description: "Sets the settings of the message log channel.",
-    usage: "v!settings <channel mention>",
+    usage: "v!messagelog <channel mention>",
     accessableby: "Admins",
     category: "config",
     cooldown: 30,
