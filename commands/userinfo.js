@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
     placeholder2 = user.xp
   }
 
-  if(!data.Cookies) {
+  if(!data) {
     placeholder3 = '0'
   } else {
     placeholder3 = data.Cookies
