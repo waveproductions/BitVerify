@@ -48,9 +48,9 @@ module.exports.run = async (bot, message, args) => {
 }
 
 module.exports.config = {
-    name: "settings",
+    name: "verifysettings",
     description: "Sets the settings of the role and channel.",
-    usage: "v!settings <channel mention> <role mention>",
+    usage: "v!verifysettings <channel mention> <role mention>",
     accessableby: "Admins",
     category: "config",
     cooldown: 30,
