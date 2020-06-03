@@ -5,6 +5,7 @@ const cookies = require('../models/Cookies')
 module.exports.run = async (bot, message, args) => {
   let placeholder = ''
   let placeholder2 = ''
+  let placeholder3 = ''
   let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(" ") || x.user.username === args[0]) || message.member;
   let user = await Levels.fetch(member.id, message.guild.id)
 
@@ -18,6 +19,12 @@ module.exports.run = async (bot, message, args) => {
     placeholder2 = user.xp
   }
 
+  if(!data.Cookies) {
+    placeholder3 = '0'
+  } else {
+    placeholder3 = data.Cookies
+  }
+
   let embed = new Discord.MessageEmbed()
   .setAuthor(`${member.user.username}'s Info`, member.user.displayAvatarURL())
   .addField('Level', `**${placeholder}**`, true)
@@ -25,7 +32,7 @@ module.exports.run = async (bot, message, args) => {
   .addField('Time Joined', `Joined Server: **${member.joinedAt.toLocaleDateString()}**\nJoined Discord: **${member.user.createdAt.toLocaleDateString()}**`, true)
   .addField('Nickname', `${member.nickname ? member.nickname: 'No Nickname'}`)
   .addField('Highest Role', `${member.roles.highest.toString()}`)
-  .addField('Cookies', `🍪 **Cookie** x**${data.Cookies}**`)
+  .addField('Cookies', `🍪 **Cookie** x**${placeholder3}**`)
   .setFooter(`Information from`)
   .setTimestamp()
   .setColor('BLUE')
