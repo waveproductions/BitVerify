@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/gavserve/BitVerify#readme",
   "dependencies": {
+    "canvas": "^2.6.1",
     "chokidar": "^3.4.0",
     "discord-xp": "^1.0.5",
     "discord.js": "^12.2.0",
