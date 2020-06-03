@@ -9,22 +9,19 @@ module.exports.run = async (bot, message, args) => {
 
   if(!user) {
     placeholder = '0'
-  } else {
-    placeholder = user.level
-  }
-
-  if(!user) {
     placeholder2 = '0'
   } else {
+    placeholder = user.level
     placeholder2 = user.xp
   }
 
   let embed = new Discord.MessageEmbed()
   .setAuthor(`${member.user.username}'s Info`, member.user.displayAvatarURL())
   .addField('Level', `**${placeholder}**`, true)
-  .addField('Experience', `**${placeholder2}**`. true)
-  .addField('Time Joined', `Joined Server: ${member.joinedAt.toLocaleDateString()}\nJoined Discord: ${member.user.createdAt.toLocaleDateString()}`, true)
+  .addField('Experience', `**${placeholder2}**`, true)
+  .addField('Time Joined', `Joined Server: **${member.joinedAt.toLocaleDateString()}**\nJoined Discord: **${member.user.createdAt.toLocaleDateString()}**`, true)
   .addField('Nickname', `${member.nickname ? member.nickname: 'No Nickname'}`)
+  .addField('Highest Role', `${member.roles.highest.toString()}`)
   .setFooter(`Very Epic`)
   .setColor('BLUE')
   message.channel.send(embed)
