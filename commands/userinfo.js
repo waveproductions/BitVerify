@@ -4,7 +4,7 @@ const cookies = require('../models/Cookies')
 const Canvas = require('canvas')
 
 module.exports.run = async (bot, message, args) => {
-  const canvas = Canvas.createCanvas(500, 750);
+  const canvas = Canvas.createCanvas(800, 950);
   const ctx = canvas.getContext('2d');
   const background = await Canvas.loadImage('././image/gray2.PNG');
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
