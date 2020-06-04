@@ -6,7 +6,7 @@ const Canvas = require('canvas')
 module.exports.run = async (bot, message, args) => {
   const canvas = Canvas.createCanvas(350, 500);
   const ctx = canvas.getContext('2d');
-  const background = await Canvas.loadImage('../image/gray2');
+  const background = await Canvas.loadImage(join(__dirname, "..", "image", "gray2.PNG"));
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
   const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'profile.png');
 message.channel.send('WORK IN PROGRESS', attachment)
