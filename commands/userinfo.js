@@ -37,18 +37,18 @@ module.exports.run = async (bot, message, args) => {
   ctx.fillText(member.user.tag, canvas.width / 2.5, 565);
 
   ctx.beginPath();
-  ctx.arc(310, 380, 120, 0, Math.PI * 2, true);
+  ctx.arc(100, 380, 120, 0, Math.PI * 2, true);
   ctx.fillStyle = "white";
   ctx.fill()
   ctx.closePath()
 
   ctx.beginPath();
-  ctx.arc(310, 380, 110, 0, Math.PI * 2, true);
+  ctx.arc(100, 380, 110, 0, Math.PI * 2, true);
   ctx.closePath();
   ctx.clip();
 
   const avatar = await Canvas.loadImage(member.user.displayAvatarURL({ format: 'jpg' }));
-  ctx.drawImage(avatar, 200, 270, 220, 220);
+  ctx.drawImage(avatar, 90, 270, 220, 220);
 
   const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'profile.png');
 message.channel.send('WORK IN PROGRESS', attachment)
