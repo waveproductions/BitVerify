@@ -3,7 +3,24 @@ const Levels = require('discord-xp')
 const cookies = require('../models/Cookies')
 const Canvas = require('canvas')
 
+const applyText = (canvas, text) => {
+	const ctx = canvas.getContext('2d');
+
+	// Declare a base size of the font
+	let fontSize = 60;
+
+	do {
+		// Assign the font to the context and decrement it so it can be measured again
+		ctx.font = `${fontSize -= 10}px sans-serif`;
+		// Compare pixel width of the text to the canvas minus the approximate avatar size
+	} while (ctx.measureText(text).width > canvas.width - 300);
+
+	// Return the result to use in the actual canvas
+	return ctx.font;
+};
+
 module.exports.run = async (bot, message, args) => {
+
   let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(" ") || x.user.username === args[0]) || message.member;
 
   const canvas = Canvas.createCanvas(1000, 1250);
@@ -15,7 +32,7 @@ module.exports.run = async (bot, message, args) => {
   ctx.fillStyle = "white"
   ctx.fillRect(0, 0, 1000, 380)
 
-  ctx.font = '60px sans-serif';
+  ctx.font = applyText(canvas, member.user.sername)
   ctx.fillStyle = "white";
   ctx.fillText(member.user.tag, 250, 565)
 
