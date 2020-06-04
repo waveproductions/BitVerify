@@ -48,7 +48,7 @@ module.exports.run = async (bot, message, args) => {
   ctx.clip();
 
   const avatar = await Canvas.loadImage(member.user.displayAvatarURL({ format: 'jpg' }));
-  ctx.drawImage(avatar, 190, 270, 220, 220);
+  ctx.drawImage(avatar, 100, 270, 220, 220);
 
   const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'profile.png');
 message.channel.send('WORK IN PROGRESS', attachment)
