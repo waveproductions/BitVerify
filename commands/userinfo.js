@@ -13,10 +13,13 @@ module.exports.run = async (bot, message, args) => {
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
   ctx.beginPath();
-  ctx.arc(500, 380, 110, 0, Math.PI * 2, true);
-  ctx.stroke();
-  ctx.fill();
-  ctx.fillStyle = 'white'
+  ctx.arc(500, 380, 120, 0, Math.PI * 2, true);
+  ctx.fillStyle = "white";
+  ctx.fill()
+  ctx.closePath()
+
+  ctx.beginPath();
+  ctx.arc(500, 380, 110, 0, Math.PI * 2, true
   ctx.closePath();
   ctx.clip();
 
