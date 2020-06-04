@@ -42,7 +42,7 @@ module.exports.run = async (bot, message, args) => {
 
   ctx.font = '40px sans-serif';
   ctx.fillStyle = "white";
-  ctx.fillText(`Joined Server: ${member.joinedAt.toLocaleDateString()}`, 80, 635);
+  ctx.fillText(`Joined Server: ${member.joinedAt.toLocaleDateString()}`, 80, 645);
 
   ctx.beginPath();
   ctx.arc(200, 380, 120, 0, Math.PI * 2, true);
