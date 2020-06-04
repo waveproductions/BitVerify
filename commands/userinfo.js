@@ -36,9 +36,9 @@ module.exports.run = async (bot, message, args) => {
   ctx.fillStyle = "white";
   ctx.fillText(member.user.tag, canvas.width / 3, 475);
 
-  ctx.font = 'normal normal bold 40px sans-serif';
+  ctx.font = 'normal normal bold 50px sans-serif';
   ctx.fillStyle = "white";
-  ctx.fillText('Time Joined', 200, 500);
+  ctx.fillText('Time Joined', 160, 700);
 
   ctx.beginPath();
   ctx.arc(200, 380, 120, 0, Math.PI * 2, true);
