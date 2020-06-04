@@ -38,11 +38,11 @@ module.exports.run = async (bot, message, args) => {
 
   ctx.font = 'normal normal bold 50px sans-serif';
   ctx.fillStyle = "white";
-  ctx.fillText('Time Joined', 100, 590);
+  ctx.fillText('Time Joined', 85, 590);
 
   ctx.font = '40px sans-serif';
   ctx.fillStyle = "white";
-  ctx.fillText(`Joined Server: ${member.joinedAt.toLocaleDateString()}`, 100, 610)
+  ctx.fillText(`Joined Server: ${member.joinedAt.toLocaleDateString()}`, 85, 625);
 
   ctx.beginPath();
   ctx.arc(200, 380, 120, 0, Math.PI * 2, true);
