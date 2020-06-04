@@ -32,9 +32,9 @@ module.exports.run = async (bot, message, args) => {
   ctx.fillStyle = "white"
   ctx.fillRect(0, 0, 1000, 380)
 
-  ctx.font = applyText(canvas, member.user.sername)
+  ctx.font = applyText(canvas, member.user.tag);
   ctx.fillStyle = "white";
-  ctx.fillText(member.user.tag, canvas.width / 3.45, 565)
+  ctx.fillText(member.user.tag, canvas.width / 3.45, 565);
 
   ctx.beginPath();
   ctx.arc(500, 380, 120, 0, Math.PI * 2, true);
