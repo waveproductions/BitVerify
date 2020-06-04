@@ -38,11 +38,15 @@ module.exports.run = async (bot, message, args) => {
 
   ctx.font = 'normal normal bold 50px sans-serif';
   ctx.fillStyle = "white";
-  ctx.fillText('Time Joined', 80, 590);
+  ctx.fillText('Time Joined', 70, 590);
 
   ctx.font = '40px sans-serif';
   ctx.fillStyle = "white";
-  ctx.fillText(`Joined Server: ${member.joinedAt.toLocaleDateString()}`, 80, 645);
+  ctx.fillText(`Joined Server: ${member.joinedAt.toLocaleDateString()}`, 70, 645);
+
+  ctx.font = '40px sans-serif';
+  ctx.fillStyle = "white";
+  ctx.fillText(`Joined Discord: ${member.user.createdAt.toLocaleDateString()}`, 70, 700);
 
   ctx.beginPath();
   ctx.arc(200, 380, 120, 0, Math.PI * 2, true);
