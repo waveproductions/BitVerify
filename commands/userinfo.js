@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
   const background = await Canvas.loadImage('././image/gray2.PNG');
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
-  ctx.fillStyle = "#3d3936"
+  ctx.fillStyle = "white"
   ctx.fillRect(0, 0, 1000, 380)
 
   ctx.beginPath();
