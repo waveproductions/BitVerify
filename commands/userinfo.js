@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
   ctx.beginPath();
-  ctx.arc(510, 380, 110, 0, Math.PI * 2, true);
+  ctx.arc(500, 380, 110, 0, Math.PI * 2, true);
   ctx.closePath();
   ctx.clip();
 
