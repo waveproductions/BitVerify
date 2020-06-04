@@ -4,10 +4,17 @@ const cookies = require('../models/Cookies')
 const Canvas = require('canvas')
 
 module.exports.run = async (bot, message, args) => {
+  let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(" ") || x.user.username === args[0]) || message.member;
+
   const canvas = Canvas.createCanvas(1000, 1250);
   const ctx = canvas.getContext('2d');
+
   const background = await Canvas.loadImage('././image/gray2.PNG');
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+
+  const avatar = await Canvas.loadImage(member.user.displayAvatarURL({ format: 'jpg' }));
+  ctx.drawImage(avatar, 500, 500, 200, 200);
+
   const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'profile.png');
 message.channel.send('WORK IN PROGRESS', attachment)
 }
