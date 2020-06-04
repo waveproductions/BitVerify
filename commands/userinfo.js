@@ -52,7 +52,7 @@ module.exports.run = async (bot, message, args) => {
 
   ctx.font = 'normal normal bold 50px sans-serif';
   ctx.fillStyle = "white";
-  ctx.fillText('Other', 70, 900);
+  ctx.fillText('Other', 70, 800);
 
   //-----------------------AVATAR-----------------------
   ctx.beginPath();
