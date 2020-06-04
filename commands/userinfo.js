@@ -54,6 +54,10 @@ module.exports.run = async (bot, message, args) => {
   ctx.fillStyle = "white";
   ctx.fillText('Other', 70, 800);
 
+  ctx.font = '40px sans-serif';
+  ctx.fillStyle = "white";
+  ctx.fillText(`Nickname: ${member.nickname ? member.nickname: 'No Nickname'}`, 70, 855)
+
   //-----------------------AVATAR-----------------------
   ctx.beginPath();
   ctx.arc(200, 380, 120, 0, Math.PI * 2, true);
