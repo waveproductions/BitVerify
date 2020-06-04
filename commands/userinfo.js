@@ -15,6 +15,10 @@ module.exports.run = async (bot, message, args) => {
   ctx.fillStyle = "white"
   ctx.fillRect(0, 0, 1000, 380)
 
+  ctx.font = '40px sans-serif';
+  ctx.fillStyle = "white";
+  ctx.fillText(member.user.username, 340, 400)
+
   ctx.beginPath();
   ctx.arc(500, 380, 120, 0, Math.PI * 2, true);
   ctx.fillStyle = "white";
