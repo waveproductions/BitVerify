@@ -36,6 +36,10 @@ module.exports.run = async (bot, message, args) => {
   ctx.fillStyle = "white";
   ctx.fillText(member.user.tag, canvas.width / 3, 475);
 
+  ctx.font = 'normal normal bold 40px sans-serif';
+  ctx.fillStyle = "white";
+  ctx.fillText('Time Joined', 200, 500);
+
   ctx.beginPath();
   ctx.arc(200, 380, 120, 0, Math.PI * 2, true);
   ctx.fillStyle = "white";
@@ -49,10 +53,6 @@ module.exports.run = async (bot, message, args) => {
 
   const avatar = await Canvas.loadImage(member.user.displayAvatarURL({ format: 'jpg' }));
   ctx.drawImage(avatar, 90, 270, 220, 220);
-
-  ctx.font = 'bold 40px sans-serif';
-  ctx.fillStyle = "white";
-  ctx.fillText('Time Joined', 200, 500)
 
   const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'profile.png');
 message.channel.send('WORK IN PROGRESS', attachment)
