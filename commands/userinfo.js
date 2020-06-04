@@ -23,15 +23,17 @@ module.exports.run = async (bot, message, args) => {
 
   let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(" ") || x.user.username === args[0]) || message.member;
 
+  //-----------------------MAIN-----------------------
   const canvas = Canvas.createCanvas(1000, 1250);
   const ctx = canvas.getContext('2d');
 
   const background = await Canvas.loadImage('././image/gray2.PNG');
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
-  ctx.fillStyle = "white"
-  ctx.fillRect(0, 0, 1000, 380)
+  ctx.fillStyle = "white";
+  ctx.fillRect(0, 0, 1000, 380);
 
+  //-----------------------TEXT-----------------------
   ctx.font = applyText(canvas, member.user.tag);
   ctx.fillStyle = "white";
   ctx.fillText(member.user.tag, canvas.width / 3, 475);
@@ -48,6 +50,7 @@ module.exports.run = async (bot, message, args) => {
   ctx.fillStyle = "white";
   ctx.fillText(`Joined Discord: ${member.user.createdAt.toLocaleDateString()}`, 70, 700);
 
+  //-----------------------AVATAR-----------------------
   ctx.beginPath();
   ctx.arc(200, 380, 120, 0, Math.PI * 2, true);
   ctx.fillStyle = "white";
