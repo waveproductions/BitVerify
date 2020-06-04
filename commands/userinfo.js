@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
   ctx.closePath()
 
   ctx.beginPath();
-  ctx.arc(500, 380, 110, 0, Math.PI * 2, true
+  ctx.arc(500, 380, 110, 0, Math.PI * 2, true);
   ctx.closePath();
   ctx.clip();
 
