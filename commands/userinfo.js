@@ -14,6 +14,8 @@ module.exports.run = async (bot, message, args) => {
 
   ctx.beginPath();
   ctx.arc(500, 380, 110, 0, Math.PI * 2, true);
+  ctx.stroke();
+  ctx.fill();
   ctx.closePath();
   ctx.clip();
 
