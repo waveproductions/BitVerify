@@ -7,7 +7,7 @@ const applyText = (canvas, text) => {
 	const ctx = canvas.getContext('2d');
 
 	// Declare a base size of the font
-	let fontSize = 60;
+	let fontSize = 70;
 
 	do {
 		// Assign the font to the context and decrement it so it can be measured again
@@ -34,7 +34,7 @@ module.exports.run = async (bot, message, args) => {
 
   ctx.font = applyText(canvas, member.user.tag);
   ctx.fillStyle = "white";
-  ctx.fillText(member.user.tag, canvas.width / 3.5, 565);
+  ctx.fillText(member.user.tag, 250, 565);
 
   ctx.beginPath();
   ctx.arc(500, 380, 120, 0, Math.PI * 2, true);
