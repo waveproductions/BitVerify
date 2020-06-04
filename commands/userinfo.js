@@ -34,7 +34,7 @@ module.exports.run = async (bot, message, args) => {
 
   ctx.font = applyText(canvas, member.user.tag);
   ctx.fillStyle = "white";
-  ctx.fillText(member.user.tag, canvas.width / 3, 490);
+  ctx.fillText(member.user.tag, canvas.width / 3, 475);
 
   ctx.beginPath();
   ctx.arc(200, 380, 120, 0, Math.PI * 2, true);
