@@ -13,9 +13,9 @@ module.exports.run = async (bot, message, args) => {
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
   ctx.beginPath();
-  ctx.arc(390, 270, 220, 0 * Math.PI);
+  ctx.arc(500, 270, 100, 0, Math.PI * 2, true);
   ctx.closePath();
-  ctx.clip()
+  ctx.clip();
 
   const avatar = await Canvas.loadImage(member.user.displayAvatarURL({ format: 'jpg' }));
   ctx.drawImage(avatar, 390, 270, 220, 220);
