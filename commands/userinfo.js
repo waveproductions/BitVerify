@@ -12,8 +12,13 @@ module.exports.run = async (bot, message, args) => {
   const background = await Canvas.loadImage('././image/gray2.PNG');
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
+  ctx.beginPath();
+  ctx.arc(390, 270, 220, 0 * Math.PI);
+  ctx.closePath();
+  ctx.clip()
+
   const avatar = await Canvas.loadImage(member.user.displayAvatarURL({ format: 'jpg' }));
-  ctx.drawImage(avatar, 390, 300, 220, 220);
+  ctx.drawImage(avatar, 390, 270, 220, 220);
 
   const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'profile.png');
 message.channel.send('WORK IN PROGRESS', attachment)
