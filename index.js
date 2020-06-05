@@ -255,7 +255,9 @@ bot.on('guildMemberAdd', member => {
 
       //-----------------------AVATAR-----------------------
       ctx.beginPath();
-      ctx.arc(400, 115, 100, 0, true);
+      ctx.arc(350, 115, 100, 0, true);
+      ctx.fillStyle = "white";
+      ctx.fill();
       ctx.closePath();
       ctx.clip();
 
