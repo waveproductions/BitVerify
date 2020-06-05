@@ -38,7 +38,7 @@ module.exports.run = async (bot, message, args) => {
   const canvas = Canvas.createCanvas(1000, 1250);
   const ctx = canvas.getContext('2d');
 
-  const background = await Canvas.loadImage('././image/gray2.PNG');
+  const background = await Canvas.loadImage('././image/profilebackground.PNG');
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
   ctx.fillStyle = "white";
