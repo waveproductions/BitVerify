@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
   \`v!reset botcount\` Resets the bot count.
   \`v!reset humancount\` Resets the human count.
   \`v!reset verification\` Resets all your verification settings.
-  \`v!reset messagelog\``)
+  \`v!reset messagelog\` Resets the message log settings.`)
   .setColor('GREEN')
   message.channel.send(argsembed)
   } else
