@@ -255,7 +255,7 @@ bot.on('guildMemberAdd', member => {
 
       //-----------------------AVATAR-----------------------
       const avatar = await Canvas.loadImage(member.user.displayAvatarURL({ format: 'jpg' }));
-      ctx.drawImage(avatar, 400, 200, 300, 300);
+      ctx.drawImage(avatar, 300, 100, 100, 100);
 
       const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'welcome.png');
       welcomechanneldata.send(attachment)
