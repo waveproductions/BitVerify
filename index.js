@@ -254,12 +254,6 @@ bot.on('guildMemberAdd', member => {
       ctx.fillRect(0, 0, canvas.width, 10)
 
       //-----------------------AVATAR-----------------------
-      ctx.beginPath();
-      ctx.arc(0, 0, 100, 0, Math.PI * 2, true);
-      ctx.fillStyle = "white";
-      ctx.fill();
-      ctx.closePath();
-      ctx.clip();
 
       const avatar = await Canvas.loadImage(member.user.displayAvatarURL({ format: 'jpg' }));
       ctx.drawImage(avatar, 345, 115, 150, 150);
