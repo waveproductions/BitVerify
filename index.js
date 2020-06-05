@@ -12,6 +12,23 @@ const humanCount = require('./models/HumanCount');
 const cookies = require('./models/Cookies');
 const logChannel = require('./models/MessageLog');
 const welcomeChannel = require('./models/WelcomeChannel');
+const Canvas = require('canvas');
+
+const applyText = (canvas, text) => {
+	const ctx = canvas.getContext('2d');
+
+	// Declare a base size of the font
+	let fontSize = 70;
+
+	do {
+		// Assign the font to the context and decrement it so it can be measured again
+		ctx.font = `${fontSize -= 10}px sans-serif`;
+		// Compare pixel width of the text to the canvas minus the approximate avatar size
+	} while (ctx.measureText(text).width > canvas.width - 330);
+
+	// Return the result to use in the actual canvas
+	return ctx.font;
+};
 
 mongoose.connect(process.env.dbURL,{
     useNewUrlParser: true,
@@ -218,6 +235,29 @@ bot.on('guildMemberAdd', member => {
     let count6 = bot.guilds.cache.get(data.GuildID)
     bot.channels.cache.get(data.HumanCountChannelID).setName(`Humans\: ${count6.members.cache.filter(member => !member.user.bot).size}`)
     })
+})
+
+bot.on('guildMemberAdd', member => {
+    welcomeChannel.findOne({ GuildID: member.guild.id }, async (err, data) => {
+      if(!data) return;
+
+      let welcomechanneldata = bot.channels.cache.get(data.WelcomeChannelID)
+
+      //-----------------------MAIN-----------------------
+      const canvas = Canvas.createCanvas(1200, 550);
+      const ctx = canvas.getContext('2d');
+
+      const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'welcome.png');
+      welcomechanneldata.send(attachment)
+    })
+})
+
+bot.on('message', async message => {
+  if(message.author.bot) return;
+
+  if(message.content === 'NdDgab') {
+    bot.emit('guildMemberAdd', message.member)
+  }
 })
 
 bot.on('guildCreate', guild => {
