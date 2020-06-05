@@ -247,6 +247,9 @@ bot.on('guildMemberAdd', member => {
       const canvas = Canvas.createCanvas(1200, 550);
       const ctx = canvas.getContext('2d');
 
+      const background = await Canvas.loadImage('././image/profilebackground.PNG');
+      ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+
       const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'welcome.png');
       welcomechanneldata.send(attachment)
     })
