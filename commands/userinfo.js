@@ -22,6 +22,17 @@ const applyText = (canvas, text) => {
 module.exports.run = async (bot, message, args) => {
 
   let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(" ") || x.user.username === args[0]) || message.member;
+  let status = ''
+
+  if(member.user.presence.status === 'online') {
+    status = 'Online'
+  } else if(member.user.presence.status === 'offline') {
+    status = 'Offline'
+  } else if(member.user.presence.status === 'idle') {
+    status = 'idle'
+  } else if(member.user.presence.status === 'dnd') {
+    status = 'Do Not Disturb'
+  };
 
   //-----------------------MAIN-----------------------
   const canvas = Canvas.createCanvas(1000, 1250);
@@ -56,7 +67,15 @@ module.exports.run = async (bot, message, args) => {
 
   ctx.font = '40px sans-serif';
   ctx.fillStyle = "white";
-  ctx.fillText(`Nickname: ${member.nickname ? member.nickname: 'No Nickname'}`, 70, 855)
+  ctx.fillText(`Nickname: ${member.nickname ? member.nickname: 'No Nickname'}`, 70, 855);
+
+  ctx.font = '40px sans-serif';
+  ctx.fillStyle = "white";
+  ctx.fillText(`ID: ${member.id}`, 70, 910);
+
+  ctx.font = '40px sans-serif';
+  ctx.fillStyle = "white";
+  ctx.fillText(`Status: ${status}`, 70, 965);
 
   //-----------------------AVATAR-----------------------
   ctx.beginPath();
