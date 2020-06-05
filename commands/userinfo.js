@@ -77,6 +77,10 @@ module.exports.run = async (bot, message, args) => {
   ctx.fillStyle = "white";
   ctx.fillText(`Status: ${status}`, 70, 965);
 
+  ctx.font = 'small-caption';
+  ctx.fillStyle = "white";
+  ctx.fillText(`${member.user.username}`, 80, 1200)
+
   //-----------------------AVATAR-----------------------
   ctx.beginPath();
   ctx.arc(200, 380, 120, 0, Math.PI * 2, true);
