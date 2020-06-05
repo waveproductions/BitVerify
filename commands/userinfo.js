@@ -42,6 +42,9 @@ module.exports.run = async (bot, message, args) => {
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
   ctx.fillStyle = "white";
+  ctx.fillRect(100, 750, canvas.width / 1.7, 10);
+
+  ctx.fillStyle = "white";
   ctx.fillRect(0, 0, 1000, 380);
 
   //-----------------------TEXT-----------------------
