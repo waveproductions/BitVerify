@@ -79,7 +79,7 @@ module.exports.run = async (bot, message, args) => {
 
   ctx.font = 'small-caption';
   ctx.fillStyle = "white";
-  ctx.fillText(`${member.user.username}`, 80, 1200)
+  ctx.fillText(`In Development, or not.`, 80, 1200)
 
   //-----------------------AVATAR-----------------------
   ctx.beginPath();
@@ -97,7 +97,7 @@ module.exports.run = async (bot, message, args) => {
   ctx.drawImage(avatar, 90, 270, 220, 220);
 
   const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'profile.png');
-message.channel.send('WORK IN PROGRESS', attachment)
+message.channel.send(attachment)
 }
 
 module.exports.config = {
