@@ -244,7 +244,7 @@ bot.on('guildMemberAdd', member => {
       let welcomechanneldata = bot.channels.cache.get(data.WelcomeChannelID)
 
       //-----------------------MAIN-----------------------
-      const canvas = Canvas.createCanvas(920, 630);
+      const canvas = Canvas.createCanvas(850, 630);
       const ctx = canvas.getContext('2d');
 
       const background = await Canvas.loadImage('././image/profilebackground.PNG');
