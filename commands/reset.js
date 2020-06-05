@@ -5,6 +5,7 @@ const memberCount = require('../models/MemberCount')
 const humanCount = require('../models/HumanCount')
 const botCount = require('../models/BotCount')
 const logChannel = require('../models/MessageLog')
+const welcomeChannel = require('../models/WelcomeChannel')
 
 module.exports.run = async (bot, message, args) => {
   if(!message.member.hasPermission('ADMINISTRATOR')) {
@@ -20,7 +21,8 @@ module.exports.run = async (bot, message, args) => {
   \`v!reset botcount\` Resets the bot count.
   \`v!reset humancount\` Resets the human count.
   \`v!reset verification\` Resets all your verification settings.
-  \`v!reset messagelog\` Resets the message log settings.`)
+  \`v!reset messagelog\` Resets the message log settings.
+  \`v!reset welcomechannel\` Resets the welcome channel settings.`)
   .setColor('GREEN')
   message.channel.send(argsembed)
   } else
@@ -66,6 +68,14 @@ if(message.author.bot || message.channel.type === 'dm') {return;}
         .setDescription('Your message log channel data has been deleted.')
         .setColor('GREEN')
         message.channel.send(messagelogembed)
+        break;
+      case 'welcomechannel':
+      welcomeChannel.deleteOne({ GuildID: message.guild.id }, (err) => console.log(err))
+      let welcomechannelembed = new Discord.MessageEmbed()
+      .setTitle('Data Reset')
+      .setDescription('Your welcome channel data has been deleted.')
+      .setColor('RED')
+      message.channel.send(welcomechannelembed)
     }
 }
 

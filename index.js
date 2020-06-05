@@ -11,6 +11,7 @@ const botCount = require('./models/BotCount');
 const humanCount = require('./models/HumanCount');
 const cookies = require('./models/Cookies');
 const logChannel = require('./models/MessageLog');
+const welcomeChannel = require('./models/WelcomeChannel');
 
 mongoose.connect(process.env.dbURL,{
     useNewUrlParser: true,
@@ -236,6 +237,7 @@ bot.on('guildDelete', guild => {
     humanCount.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
     cookies.deleteMany({ GuildID: guild.id }, (err) => console.log(err))
     logChannel.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
+    welcomeChannel.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
   });
 
 bot.login(process.env.token)
