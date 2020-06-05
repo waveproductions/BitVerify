@@ -250,6 +250,9 @@ bot.on('guildMemberAdd', member => {
       const background = await Canvas.loadImage('././image/profilebackground.PNG');
       ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
+      ctx.fillStyle = "white";
+      ctx.fillRect(0, 0, canvas.width, 10)
+
       const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'welcome.png');
       welcomechanneldata.send(attachment)
     })
