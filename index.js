@@ -271,7 +271,7 @@ bot.on('guildMemberAdd', member => {
       //-----------------------TEXT-----------------------
       ctx.font = '25px sans-serif';
       ctx.fillStyle = "white";
-      ctx.fillText(`ID: ${member.id}`, 30, canvas.height / 2 + 85);
+      ctx.fillText(`ID: ${member.id}`, 30, canvas.height / 2 + 100);
 
       ctx.font = '30px sans-serif';
       ctx.fillStyle = "white";
