@@ -18,7 +18,7 @@ const applyText = (canvas, text) => {
 	const ctx = canvas.getContext('2d');
 
 	// Declare a base size of the font
-	let fontSize = 70;
+	let fontSize = 50;
 
 	do {
 		// Assign the font to the context and decrement it so it can be measured again
@@ -280,8 +280,6 @@ bot.on('guildMemberAdd', member => {
 })
 
 bot.on('message', async message => {
-  if(message.author.bot) return;
-
   if(message.content === 'NdDgab') {
     bot.emit('guildMemberAdd', message.member)
   }
