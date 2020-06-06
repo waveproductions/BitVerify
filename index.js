@@ -253,9 +253,15 @@ bot.on('guildMemberAdd', member => {
       ctx.fillStyle = "white";
       ctx.fillRect(0, 0, canvas.width, 10)
 
+      //-----------------------TEXT-----------------------
+      ctx.font = applyText(canvas, member.user.tag);
+      ctx.fillStyle = "white";
+      ctx.textAlign = "center";
+      ctx.fillText(member.user.username, canvas.width / 2, canvas.height / 2);
+
       //-----------------------AVATAR-----------------------
       ctx.beginPath();
-      ctx.arc(420, 190, 82, 0, Math.PI * 2, true);
+      ctx.arc(420, 190, 77, 0, Math.PI * 2, true);
       ctx.fillStyle = "white";
       ctx.fill();
       ctx.closePath();
