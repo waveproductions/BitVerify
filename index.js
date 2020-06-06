@@ -263,7 +263,7 @@ bot.on('guildMemberAdd', member => {
       ctx.fillRect(0, 0, canvas.width, 10)
 
       ctx.fillStyle = "white";
-      ctx.fillRect(0, canvas.height / 2 + 20, canvas.width, 5);
+      ctx.fillRect(0, canvas.height / 2 + 15, canvas.width, 5);
 
       //-----------------------TEXT-----------------------
       ctx.font = '36px sans-serif';
