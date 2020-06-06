@@ -241,6 +241,15 @@ bot.on('guildMemberAdd', member => {
     welcomeChannel.findOne({ GuildID: member.guild.id }, async (err, data) => {
       if(!data) return;
 
+      let randomWelcome = [
+        `${member.user.username} has landed.`,
+        `Everyone welcome ${member.user.username}!`,
+        `${member.user.username} is here!`,
+        `${member.user.username} finally came.`
+      ]
+
+      let randomWelcomes = randomWelcome[Math.floor(Math.random() * (randomWelcome.length))];
+
       let welcomechanneldata = bot.channels.cache.get(data.WelcomeChannelID)
 
       //-----------------------MAIN-----------------------
@@ -254,6 +263,11 @@ bot.on('guildMemberAdd', member => {
       ctx.fillRect(0, 0, canvas.width, 10)
 
       //-----------------------TEXT-----------------------
+      ctx.font = '36px sans-serif';
+      ctx.fillStyle = "white";
+      ctx.textAlign = "center";
+      ctx.fillText(randomWelcomes, canvas.width / 2, canvas.height / 2 + 35);
+
       ctx.font = applyText(canvas, member.user.tag);
       ctx.fillStyle = "white";
       ctx.textAlign = "center";
