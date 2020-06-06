@@ -269,7 +269,7 @@ bot.on('guildMemberAdd', member => {
       ctx.fillRect(0, canvas.height / 2 + 75, canvas.width, 5);
 
       //-----------------------TEXT-----------------------
-      ctx.font = '36px sans-serif';
+      ctx.font = '25px sans-serif';
       ctx.fillStyle = "white";
       ctx.textAlign = "center";
       ctx.fillText(randomWelcomes, canvas.width / 2, canvas.height / 2 + 60);
