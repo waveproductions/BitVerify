@@ -279,6 +279,10 @@ bot.on('guildMemberAdd', member => {
 
       ctx.font = '30px sans-serif';
       ctx.fillStyle = "white";
+      ctx.fillText(`Server: ${member.guild.name}`, 30, canvas.height / 2 + 185);
+
+      ctx.font = '30px sans-serif';
+      ctx.fillStyle = "white";
       ctx.textAlign = "center";
       ctx.fillText(randomWelcomes, canvas.width / 2, canvas.height / 2 + 60);
 
