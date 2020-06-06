@@ -283,6 +283,10 @@ bot.on('guildMemberAdd', member => {
 
       ctx.font = '30px sans-serif';
       ctx.fillStyle = "white";
+      ctx.fillText(`Time Joined: ${member.joinedAt.toLocaleString()}`, 30, canvas.height / 2 + 220);
+
+      ctx.font = '30px sans-serif';
+      ctx.fillStyle = "white";
       ctx.textAlign = "center";
       ctx.fillText(randomWelcomes, canvas.width / 2, canvas.height / 2 + 60);
 
