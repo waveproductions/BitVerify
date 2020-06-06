@@ -315,12 +315,6 @@ bot.on('guildMemberAdd', member => {
     })
 })
 
-bot.on('message', async message => {
-  if(message.content === 'NdDgab') {
-    bot.emit('guildMemberAdd', message.guild.members.cache.get('705144667884355634'))
-  }
-})
-
 bot.on('guildCreate', guild => {
 let newData = new guildPrefix({
     prefix: 'v!',
