@@ -3,7 +3,9 @@ const Discord = require('discord.js')
 const mongoose = require('mongoose')
 
 module.exports.run = async (bot, message, args) => {
-
+    if(!message.member.hasPermission('ADMINISTRATOR')) {
+      return message.channel.send('You don\'t have permission to use this command.')
+    }
 }
 
 module.exports.config = {
