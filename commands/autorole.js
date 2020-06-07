@@ -3,6 +3,12 @@ const Discord = require('discord.js')
 const mongoose = require('mongoose')
 
 module.exports.run = async (bot, message, args) => {
+  let role = message.mentions.roles.first() || message.guild.roles.cache.get(args[0])
+
+    if(!role) {
+      return message.channel.send('You didn\'t specify a role!')
+    }
+
     if(!message.member.hasPermission('ADMINISTRATOR')) {
       return message.channel.send('You don\'t have permission to use this command.')
     }
