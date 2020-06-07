@@ -3,7 +3,7 @@ const Levels = require('discord-xp')
 const cookies = require('../models/Cookies')
 const Canvas = require('canvas')
 
-Canvas.registerFont('Minecraftia-Regular.tff', { family: 'Minecraft' })
+Canvas.registerFont('./Minecraftia-Regular.tff', { family: 'Minecraft' })
 
 const applyText = (canvas, text) => {
 	const ctx = canvas.getContext('2d');
