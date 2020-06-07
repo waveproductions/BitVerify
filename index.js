@@ -12,6 +12,7 @@ const humanCount = require('./models/HumanCount');
 const cookies = require('./models/Cookies');
 const logChannel = require('./models/MessageLog');
 const welcomeChannel = require('./models/WelcomeChannel');
+const autorole = require('./models/Autorole');
 const Canvas = require('canvas');
 
 Canvas.registerFont('./otherfonts/Blacker-Sans-Extrabold-trial.ttf', { family: 'Blacker-Sans' })
@@ -336,6 +337,7 @@ bot.on('guildDelete', guild => {
     cookies.deleteMany({ GuildID: guild.id }, (err) => console.log(err))
     logChannel.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
     welcomeChannel.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
+    autorole.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
   });
 
 bot.login(process.env.token)
