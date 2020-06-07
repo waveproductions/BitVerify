@@ -329,7 +329,7 @@ newData.save()
 
 bot.on('guildMemberAdd', async member => {
   autorole.findOne({ GuildID: member.guild.id }, async (err, data432) => {
-    if(!data) return;
+    if(!data432) return;
     let autorolerole = member.guild.roles.cache.get(data432.RoleID)
     member.roles.add(autorolerole)
   })
