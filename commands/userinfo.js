@@ -4,6 +4,7 @@ const cookies = require('../models/Cookies')
 const Canvas = require('canvas')
 
 Canvas.registerFont('./otherfonts/Minecraftia-Regular.ttf', { family: 'Minecraft' })
+Canvas.registerFont('./otherfonts/Comfortaa-Bold.ttf', { family: 'Comfortaa' })
 
 const applyText = (canvas, text) => {
 	const ctx = canvas.getContext('2d');
@@ -54,31 +55,31 @@ module.exports.run = async (bot, message, args) => {
   ctx.fillStyle = "white";
   ctx.fillText(member.user.tag, canvas.width / 3, 475);
 
-  ctx.font = 'normal normal bold 50px sans-serif';
+  ctx.font = 'normal normal bold 50px Comfortaa';
   ctx.fillStyle = "white";
   ctx.fillText('Time Joined', 70, 590);
 
-  ctx.font = '40px sans-serif';
+  ctx.font = '40px Comfortaa';
   ctx.fillStyle = "white";
   ctx.fillText(`Joined Server: ${member.joinedAt.toLocaleDateString()}`, 70, 645);
 
-  ctx.font = '40px sans-serif';
+  ctx.font = '40px Comfortaa';
   ctx.fillStyle = "white";
   ctx.fillText(`Joined Discord: ${member.user.createdAt.toLocaleDateString()}`, 70, 700);
 
-  ctx.font = 'normal normal bold 50px sans-serif';
+  ctx.font = 'normal normal bold 50px Comfortaa';
   ctx.fillStyle = "white";
   ctx.fillText('Other', 70, 800);
 
-  ctx.font = '40px sans-serif';
+  ctx.font = '40px Comfortaa';
   ctx.fillStyle = "white";
   ctx.fillText(`Nickname: ${member.nickname ? member.nickname: 'No Nickname'}`, 70, 855);
 
-  ctx.font = '40px sans-serif';
+  ctx.font = '40px Comfortaa';
   ctx.fillStyle = "white";
   ctx.fillText(`ID: ${member.id}`, 70, 910);
 
-  ctx.font = '40px sans-serif';
+  ctx.font = '40px Comfortaa';
   ctx.fillStyle = "white";
   ctx.fillText(`Status: ${status}`, 70, 965);
 
