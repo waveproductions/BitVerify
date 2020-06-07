@@ -3,6 +3,8 @@ const Levels = require('discord-xp')
 const cookies = require('../models/Cookies')
 const Canvas = require('canvas')
 
+Canvas.registerFont('././otherfonts/Minecraftia-Regular.tff', { family: 'Minecraft' })
+
 const applyText = (canvas, text) => {
 	const ctx = canvas.getContext('2d');
 
@@ -11,7 +13,7 @@ const applyText = (canvas, text) => {
 
 	do {
 		// Assign the font to the context and decrement it so it can be measured again
-		ctx.font = `${fontSize -= 10}px sans-serif`;
+		ctx.font = `${fontSize -= 10}px Minecraft`;
 		// Compare pixel width of the text to the canvas minus the approximate avatar size
 	} while (ctx.measureText(text).width > canvas.width - 330);
 
