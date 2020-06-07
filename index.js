@@ -14,6 +14,9 @@ const logChannel = require('./models/MessageLog');
 const welcomeChannel = require('./models/WelcomeChannel');
 const Canvas = require('canvas');
 
+Canvas.registerFont('./otherfonts/Blacker-Sans-Extrabold-trial.ttf', { family: 'Blacker-Sans' })
+Canvas.registerFont('./otherfonts/Comfortaa-Bold.ttf', { family: 'Comfortaa' })
+
 const applyText = (canvas, text) => {
 	const ctx = canvas.getContext('2d');
 
@@ -22,7 +25,7 @@ const applyText = (canvas, text) => {
 
 	do {
 		// Assign the font to the context and decrement it so it can be measured again
-		ctx.font = `${fontSize -= 10}px sans-serif`;
+		ctx.font = `${fontSize -= 10}px Blacker-Sans`;
 		// Compare pixel width of the text to the canvas minus the approximate avatar size
 	} while (ctx.measureText(text).width > canvas.width - 330);
 
@@ -269,23 +272,23 @@ bot.on('guildMemberAdd', member => {
       ctx.fillRect(0, canvas.height / 2 + 75, canvas.width, 5);
 
       //-----------------------TEXT-----------------------
-      ctx.font = '30px sans-serif';
+      ctx.font = '30px Comfortaa';
       ctx.fillStyle = "white";
       ctx.fillText(`ID: ${member.id}`, 30, canvas.height / 2 + 115);
 
-      ctx.font = '30px sans-serif';
+      ctx.font = '30px Comfortaa';
       ctx.fillStyle = "white";
       ctx.fillText(`Member: #${member.guild.memberCount}`, 30, canvas.height / 2 + 150);
 
-      ctx.font = '30px sans-serif';
+      ctx.font = '30px Comfortaa';
       ctx.fillStyle = "white";
       ctx.fillText(`Server: ${member.guild.name}`, 30, canvas.height / 2 + 185);
 
-      ctx.font = '30px sans-serif';
+      ctx.font = '30px Comfortaa';
       ctx.fillStyle = "white";
       ctx.fillText(`Time Joined: ${member.joinedAt.toLocaleString()}`, 30, canvas.height / 2 + 220);
 
-      ctx.font = '30px sans-serif';
+      ctx.font = '30px Comfortaa';
       ctx.fillStyle = "white";
       ctx.textAlign = "center";
       ctx.fillText(randomWelcomes, canvas.width / 2, canvas.height / 2 + 60);
