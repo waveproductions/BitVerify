@@ -7,13 +7,13 @@ module.exports.run = async (bot, message, args) => {
     return message.channel.send('You didn\'t specify anything to say!')
   }
 
-  message.channel.send(`\`\`\`yaml\n${msg}\`\`\``)
+  message.channel.send(`\`\`\`css\n${msg}\`\`\``)
 }
 
 module.exports.config = {
-    name: "bluetext",
-    description: "Converts whatever you say to blue text.",
-    usage: "v!bluetext <message>",
+    name: "greentext",
+    description: "Converts whatever you say to green text.",
+    usage: "v!greentext <message>",
     accessableby: "All Members",
     category: "fun",
     cooldown: 2,
