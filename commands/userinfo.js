@@ -9,7 +9,7 @@ const applyText = (canvas, text) => {
 	const ctx = canvas.getContext('2d');
 
 	// Declare a base size of the font
-	let fontSize = 70;
+	let fontSize = 50;
 
 	do {
 		// Assign the font to the context and decrement it so it can be measured again
