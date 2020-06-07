@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
         let success = new Discord.MessageEmbed()
         .setTitle('Data Created')
         .setDescription(`The role given on join will now be ${role.toString()}.`)
-        .setColor('RED')
+        .setColor('GREEN')
         message.channel.send(success)
       } else {
         let exists = new Discord.MessageEmbed()

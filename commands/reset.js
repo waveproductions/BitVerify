@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
   \`v!reset verification\` Resets all your verification settings.
   \`v!reset messagelog\` Resets the message log settings.
   \`v!reset welcomechannel\` Resets the welcome channel settings.
-  \`v!reset autorole\``)
+  \`v!reset autorole\` Resets the autorole settings.`)
   .setColor('GREEN')
   message.channel.send(argsembed)
   } else
