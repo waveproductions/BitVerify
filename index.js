@@ -327,6 +327,14 @@ let newData = new guildPrefix({
 newData.save()
 })
 
+bot.on('guildMemberAdd', async member => {
+  autorole.findOne({ GuildID: message.guild.id }, async (err, data432) => {
+    if(!data) return;
+    let autorolerole = member.guild.roles.cache.get(data432.RoleID)
+    member.roles.add(autorolerole)
+  })
+})
+
 bot.on('guildDelete', guild => {
     guildSettings.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
     memberCount.deleteOne({ GuildID: guild.id }, (err) => console.log(err))
