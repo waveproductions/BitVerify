@@ -12,6 +12,28 @@ module.exports.run = async (bot, message, args) => {
     if(!message.member.hasPermission('ADMINISTRATOR')) {
       return message.channel.send('You don\'t have permission to use this command.')
     }
+
+    autorole.findOne({ GuildID: message.guild.id }, async (err, data) => {
+      if(err) console.log(err)
+      if(!data) {
+        let newRole = new autorole({
+          GuildID: message.guild.id,
+          RoleID: role.id
+        })
+        newRole.save()
+        let success = new Discord.MessageEmbed()
+        .setTitle('Data Created')
+        .setDescription(`The role given on join will now be ${role.toString()}.`)
+        .setColor('RED')
+        message.channel.send(success)
+      } else {
+        let exists = new Discord.MessageEmbed()
+        .setTitle('Data Already Exists')
+        .setDescription('Please use the \`v!reset\` command to reset your data.')
+        .setColor('RED')
+        message.channel.send(exists)
+      }
+    })
 }
 
 module.exports.config = {
