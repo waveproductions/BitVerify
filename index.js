@@ -121,6 +121,9 @@ bot.on("message", async message => {
     guildPrefix.findOne({ GuildID: message.guild.id}, async(err, data10) => {
     let prefix = data10.prefix;
     if(message.author.bot || message.channel.type === "dm") return;
+    if (message.content.match(new RegExp(`^<@!?${bot.user.id}>( |)$`))) {
+	return message.channel.send(`${message.guild.name}'s Prefix is \`${data10.prefix}\`\nSay \`v!help\` for a list of commands.`)
+    }
     if(message.content.indexOf(prefix) !== 0) return;
 
     let messageArray = message.content.split(" ");
